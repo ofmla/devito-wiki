@@ -39,3 +39,8 @@
 * #608 [don't remember what's going on, but it should be a clearly localised issue]
 * #606, #549, #520 [simple. These are a perfect execuse for someone that wants to learn about Devito and contribute immediately; we need some Jupyter-notebook-based tutorials describing how certain things work in Devito]
 * #405 [simple. Like before, but this is more focused on "things on top of Devito".]
+
+
+#### We are open to ideas and keen to support you !
+
+* Just share them with us :)
