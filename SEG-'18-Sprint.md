@@ -28,3 +28,4 @@
     * A lightweight, self-contained package, that anyone can easily pip-install
     * An actual subclass of `numpy.ndarray`, not a wrapper
     * A very simple API, extremely close to that of a `numpy.ndarray`
+  * Good news: some code and tests can be lifted from Devito
