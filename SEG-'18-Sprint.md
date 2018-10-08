@@ -14,7 +14,7 @@
 
 * ? [easy/medium/hard/challenging/...]
 
-#### Related projects
+#### Misc projects
 
 * Implement _nummpi_, a lightweight package to use NumPy over MPI (hard)
   * Devito supports MPI. One of the key features of the implementation is the introduction of a new type, called `Data`, a subclass of `numpy.ndarray`, to manage data distributed over a set of MPI processes.
@@ -29,3 +29,13 @@
     * An actual subclass of `numpy.ndarray`, not a wrapper
     * A very simple API, extremely close to that of a `numpy.ndarray`
   * Good news: some code and tests can be lifted from Devito
+
+
+#### Issues on our GitHub issue tracker that we'd like to go ASAP
+
+* #640 [challenging, requires deep knowledge of how the Devito compiler works]
+* #639 [don't remember what's going on]
+* #634 [simple, but boring]
+* #608 [don't remember what's going on, but it should be a clearly localised issue]
+* #606, #549, #520 [simple. These are a perfect execuse for someone that wants to learn about Devito and contribute immediately; we need some Jupyter-notebook-based tutorials describing how certain things work in Devito]
+* #405 [simple. Like before, but this is more focused on "things on top of Devito".]
