@@ -41,6 +41,11 @@
 * #405 [simple. Like before, but this is more focused on "things on top of Devito".]
 
 
+#### Wishful thinking, but we'd really love to...
+
+* [NumPy-like docstrings](https://numpydoc.readthedocs.io/en/latest/format.html), with an example provided [here](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy)
+
+
 #### We are open to ideas and keen to support you !
 
 * Just share them with us :)
