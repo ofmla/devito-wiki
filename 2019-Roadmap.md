@@ -9,6 +9,10 @@
   * However, we are keen to explore other (simpler?) alternatives. For example, OpenMP 4's offloading for GPUs? our own CUDA-based backend? other third-party tools?
   * We also have other issues to deal with. How do we efficiently implement sparse computations such as source injection? 
 
+* Finite differences extended to sparse function
+  * This is a highly used feature in practice to apply FD operation to the source or receiver which require by hand tweaks currently
+  * One PR open for time derivative in progress
+  * Spacial derivatives will require either complex expressions (one per stencil point) or ...
 
 #### Experimentations that we would like to run -- "is it worth implementing it in the Devito compiler?"
 
