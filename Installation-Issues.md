@@ -2,7 +2,7 @@
 None known
 
 # OSX
-None known
+Most OSX issues we've seen stem from compiler issues. Please make sure you have a functioning C/C++ compiler before trying to install/use Devito. 
 
 # Windows
 We haven't tested devito on Windows but you're welcome to try. We suggest one of the following approaches:
