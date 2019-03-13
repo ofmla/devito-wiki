@@ -33,3 +33,9 @@ Compiler internals
   * Yask
   * OPS
   * CIVL (Code verification as future work)
+
+# Misc
+To be added somewhere:
+- Precomputed Sparse Function
+- Variable stencil coefficients
+- Immersed boundaries
