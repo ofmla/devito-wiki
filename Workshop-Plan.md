@@ -20,10 +20,9 @@ Introduction and basic finite differences
 - Hour 2: 
   * FWI + TV
   * TTI + Staggered + Elastic
-- Hour 3: Checkpointing
-  * 
-  * 
-  * 
+- Hour 3: 
+  * MPI
+  * Checkpointing
 # Session 3
 Compiler internals
 - Hour 1: Overview
