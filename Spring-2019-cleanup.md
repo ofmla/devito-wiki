@@ -11,3 +11,4 @@ potential sprint items:
 - cleanup tutorials — many of the seismic one aren’t even tested at this stage
 - documentation should live at www.devitoproject.org/…, *not* at www.opesci.org/…
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
+- opesci should be purged entirely.
