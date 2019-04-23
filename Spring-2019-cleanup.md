@@ -16,4 +16,4 @@ potential sprint items:
 - performance regression (this would be awesome)
 - mirror sympy's gitter in our of our slack channels
 - brazil tutorials public and through CI
-- Overthrust setup for 3D RTM (and find copyright)
+- Overthrust setup for 3D RTM (host data and find copyright)
