@@ -13,3 +13,5 @@ potential sprint items:
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
 - opesci should be purged entirely.
 - https://github.com/opesci/devito/issues/639
+- performance regression (this would be awesome)
+- mirror sympy's gitter in our of our slack channels
