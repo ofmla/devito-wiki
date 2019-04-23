@@ -2,7 +2,7 @@ dates: proposal: 29-30 April
 time: TBD (edited) 
 
 potential sprint items:
-- installation (gcc issue, jupyter notebook issue, etc)
+- installation (gcc issue, jupyter notebook issue, etc); review install instructions
 - finish off numpydoc-ization
 - website cleanup (move “citing” to separate tab, update papers/talks (note: Rice talk is now online: http://rice2019oghpc.rice.edu/program/, ...)
 - MMS for current examples (TTI, elastic, etc)
