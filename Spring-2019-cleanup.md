@@ -17,3 +17,4 @@ potential sprint items:
 - mirror sympy's gitter in our of our slack channels
 - brazil tutorials public and through CI
 - Overthrust setup for 3D RTM (host data and find copyright)
+- Revise 2019-roadmap.
