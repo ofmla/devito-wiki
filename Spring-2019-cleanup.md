@@ -13,7 +13,7 @@ potential sprint items:
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
 - opesci should be purged entirely.
 - https://github.com/opesci/devito/issues/639
-- performance regression (this would be awesome)
+- performance regression (this would be awesome; enabled via USP subscription?)
 - mirror sympy's gitter in our of our slack channels
 - brazil tutorials public and through CI
 - Overthrust setup for 3D RTM (host data and find copyright)
