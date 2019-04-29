@@ -2,9 +2,7 @@ dates: proposal: 29-30 April
 time: TBD (edited) 
 
 Agreed sprint items:
-* Revise install instructions 
-  - Change recommended install route to docker (ubuntu, mac, windows, test on pipelines)
-  - Add/update troubleshooting section to capture gcc mac issue, etc
+* Review open issues.
 
 potential sprint items:
 - finish off numpydoc-ization
