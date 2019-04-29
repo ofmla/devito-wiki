@@ -1,8 +1,9 @@
-dates: proposal: 29-30 April
+dates: proposal: 29 April - 1 May
 time: TBD (edited) 
 
 Agreed sprint items:
-* Review open issues.
+* Issue #817
+* Review/land PR #786
 
 potential sprint items:
 - finish off numpydoc-ization
