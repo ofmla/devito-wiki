@@ -1,11 +1,11 @@
-dates: proposal: 29 April - 1 May
-time: TBD (edited) 
+## Dates: 29 April - 1 May
+## time: TBD (edited) 
 
-Agreed sprint items:
+## Agreed sprint items:
 * Issue #817
 * Review/land PR #786
 
-potential sprint items:
+## Potential sprint items:
 - Review outstanding issues
 - Issue #753: finish off numpydoc-ization
 - Issue #764: cleanup `conftest.py`, rewriting all the tests using the horrible pre-allocated `t0`, `t1`, `a`, ... etc
