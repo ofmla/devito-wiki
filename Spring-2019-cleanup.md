@@ -13,9 +13,7 @@
 - [PR #804](https://github.com/opesci/devito/issues/804): MMS for elastic example
 - [PR #798](https://github.com/opesci/devito/pull/798): tutorials
 - more examples customization (domain shape, simulation time, etc)
-- documentation should live at www.devitoproject.org/…, *not* at www.opesci.org/…
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
-- opesci should be purged entirely.
 - performance regression (this would be awesome; enabled via USP subscription?)
 - mirror sympy's gitter in our of our slack channels
 - brazil tutorials public and through CI (BinderHub, requires repo2docker support)
