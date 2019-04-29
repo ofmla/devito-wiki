@@ -1,8 +1,12 @@
 dates: proposal: 29-30 April
 time: TBD (edited) 
 
+Agreed sprint items:
+* Revise install instructions 
+  - Change recommended install route to docker (ubuntu, mac, windows, test on pipelines)
+  - Add/update troubleshooting section to capture gcc mac issue, etc
+
 potential sprint items:
-- installation (gcc issue, jupyter notebook issue, etc); review install instructions
 - finish off numpydoc-ization
 - website cleanup (move “citing” to separate tab, update papers/talks (note: Rice talk is now online: http://rice2019oghpc.rice.edu/program/, ...)
 - MMS for current examples (TTI, elastic, etc)
@@ -15,6 +19,6 @@ potential sprint items:
 - https://github.com/opesci/devito/issues/639
 - performance regression (this would be awesome; enabled via USP subscription?)
 - mirror sympy's gitter in our of our slack channels
-- brazil tutorials public and through CI
+- brazil tutorials public and through CI (BinderHub, requires repo2docker support)
 - Overthrust setup for 3D RTM (host data and find copyright)
 - Revise 2019-roadmap.
