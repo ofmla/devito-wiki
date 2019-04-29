@@ -6,6 +6,7 @@ Agreed sprint items:
 * Review/land PR #786
 
 potential sprint items:
+- Review outstanding issues
 - Issue #753: finish off numpydoc-ization
 - Issue #764: cleanup `conftest.py`, rewriting all the tests using the horrible pre-allocated `t0`, `t1`, `a`, ... etc
 - website cleanup (move “citing” to separate tab, update papers/talks (note: Rice talk is now online: http://rice2019oghpc.rice.edu/program/, revise logos, change link to installation instructions, TYPO contributers/contributors, link to right twitter page (@DevitoCodes; kill obsolete @OpesciProject ?), replace HORRIBLE BANNER
