@@ -11,7 +11,7 @@
 - Issue #764: cleanup `conftest.py`, rewriting all the tests using the horrible pre-allocated `t0`, `t1`, `a`, ... etc
 - Issue #818: website cleanup
 - PR #804: MMS for elastic example
-- PR #798: tutorials
+- [PR #798](https://github.com/opesci/devito/pull/798): tutorials
 - more examples customization (domain shape, simulation time, etc)
 - documentation should live at www.devitoproject.org/…, *not* at www.opesci.org/…
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
