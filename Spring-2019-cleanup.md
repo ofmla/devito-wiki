@@ -3,16 +3,16 @@
 
 ## Agreed sprint items:
 * Issue #817
-* Review/land PR #786
+* PR #786
 
 ## Potential sprint items:
 - Review outstanding issues
 - Issue #753: finish off numpydoc-ization
 - Issue #764: cleanup `conftest.py`, rewriting all the tests using the horrible pre-allocated `t0`, `t1`, `a`, ... etc
 - Issue #818: website cleanup
-- Review/land PR #804: MMS for elastic example
+- PR #804: MMS for elastic example
+- PR #798: tutorials
 - more examples customization (domain shape, simulation time, etc)
-- cleanup tutorials — many of the seismic one aren’t even tested at this stage
 - documentation should live at www.devitoproject.org/…, *not* at www.opesci.org/…
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
 - opesci should be purged entirely.
