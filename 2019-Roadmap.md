@@ -1,3 +1,5 @@
+## WARNING: This is seriously out of date :WARNING (GG)
+
 #### Things that we would like to see _on top of_ Devito
 
 * ? [easy/medium/hard/challenging/...]
