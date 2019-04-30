@@ -4,10 +4,10 @@
 * [Issue #817](https://github.com/opesci/devito/issues/817)
 * [PR #821](https://github.com/opesci/devito/pull/798): CI for tutorials
 * [Issue #818](https://github.com/opesci/devito/issues/818): website cleanup
+* Review outstanding github issues
 * ~~[PR #786](https://github.com/opesci/devito/pull/786)~~
 
 ## Potential sprint items:
-- Review outstanding issues
 - [Issue #639](https://github.com/opesci/devito/issues/639)
 - [Issue #753](https://github.com/opesci/devito/issues/753): finish off numpydoc-ization
 - [Issue #764](https://github.com/opesci/devito/issues/764): cleanup `conftest.py`, rewriting all the tests using the horrible pre-allocated `t0`, `t1`, `a`, ... etc
