@@ -15,7 +15,7 @@
 - more examples customization (domain shape, simulation time, etc)
 - a cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in devito
 - performance regression (this would be awesome; enabled via USP subscription?)
-- ~~mirror sympy's gitter in our of our slack channels~~ (requires access to private channels; would violate NDA's potentially)
 - brazil tutorials public and through CI (BinderHub, requires repo2docker support)
 - Overthrust setup for 3D RTM (host data and find copyright)
 - Revise 2019-roadmap.
+- ~~mirror sympy's gitter in our of our slack channels~~ (requires access to private channels; would violate NDA's potentially)
