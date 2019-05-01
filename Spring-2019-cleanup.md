@@ -2,7 +2,7 @@
 
 ## Agreed sprint items:
 * [Issue #817](https://github.com/opesci/devito/issues/817): revise install instructions
-* [PR #821](https://github.com/opesci/devito/pull/798): CI for tutorials
+* ~~[PR #821](https://github.com/opesci/devito/pull/798): CI for tutorials~~
 * [Issue #818](https://github.com/opesci/devito/issues/818): website cleanup
 * ~~Review outstanding github issues~~
 * ~~[PR #786](https://github.com/opesci/devito/pull/786)~~
