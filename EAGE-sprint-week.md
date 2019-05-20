@@ -4,7 +4,6 @@
 
 * Standing items
   * Documentation and Jupyter notebook tutorials.
-    * [Issue #753](https://github.com/opesci/devito/issues/753)
     * [Issue #817](https://github.com/opesci/devito/issues/817)
     * Write cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in Devito
     * BinderHub support
