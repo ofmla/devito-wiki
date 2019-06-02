@@ -6,6 +6,7 @@
   * Documentation and Jupyter notebook tutorials.
     * [Issue #817](https://github.com/opesci/devito/issues/817)
     * Write cheatsheet (jupyter-notebook based) showing how to express different linear operators (and their adjoints) in Devito
+    * TODO : Add a tutorial presenting the diff between different performance modes of DSE/DLE.
     * BinderHub support
     * Open data for CI and tutorials.
   * Review open issues, fix what you can.
