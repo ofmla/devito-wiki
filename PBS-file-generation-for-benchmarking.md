@@ -14,11 +14,11 @@ module load anaconda3/personal
 module load intel-suite
 module load mpi
 
-cd /rdsgpfs/general/user/fl1612/home/opesci/devito
+cd /home/opesci/devito
 
 source activate devito
 
-export DEVITO_HOME=/rdsgpfs/general/user/fl1612/home/opesci/devito
+export DEVITO_HOME=/home/opesci/devito
 export DEVITO_ARCH=intel
 export DEVITO_OPENMP=1
 export DEVITO_MPI=basic
@@ -26,5 +26,5 @@ export DEVITO_LOGGING=DEBUG
 
 cd benchmarks/user
 
-mpiexec python benchmark.py bench -P acoustic -bm O2 -d 600 600 600 -so 12 --tn 100 -x 1 --arch haswell -r /rds/general/user/fl1612/home/opesci/results/
+mpiexec python benchmark.py bench -P acoustic -bm O2 -d 600 600 600 -so 12 --tn 100 -x 1 --arch haswell -r /home/opesci/results/
 ```
