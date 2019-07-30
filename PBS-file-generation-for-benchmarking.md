@@ -5,5 +5,26 @@ The `make-pbs.py` program can be used to quickly generate PBS file to run (OpenM
 One obtains 4 files (one for each `nn` argument), which look like as below
 
 ```
-...
+#!/bin/bash
+
+#PBS -lselect=2:ncpus=24:mem=120gb:mpiprocs=2:ompthreads=12
+#PBS -lwalltime=02:00:00
+
+module load anaconda3/personal
+module load intel-suite
+module load mpi
+
+cd /rdsgpfs/general/user/fl1612/home/opesci/devito
+
+source activate devito
+
+export DEVITO_HOME=/rdsgpfs/general/user/fl1612/home/opesci/devito
+export DEVITO_ARCH=intel
+export DEVITO_OPENMP=1
+export DEVITO_MPI=basic
+export DEVITO_LOGGING=DEBUG
+
+cd benchmarks/user
+
+mpiexec python benchmark.py bench -P acoustic -bm O2 -d 600 600 600 -so 12 --tn 100 -x 1 --arch haswell -r /rds/general/user/fl1612/home/opesci/results/
 ```
