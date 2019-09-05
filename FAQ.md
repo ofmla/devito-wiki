@@ -31,3 +31,13 @@ configuration.add("compiler", "custom", list(compiler_registry), callback=lambda
 
 configuration['compiler'] = 'mycompiler'
 ```
+
+### Can I control the MPI domain decomposition ?
+
+Until Devito v3.5 included, domain decomposition occurs along the fastest axis. As of later versions, domain decomposition occurs along the slowest axis, for performance reasons.  And yes, it is possible to control the domain decomposition in user code, but this is undocumented and currently there exists no clean API to do that. However, below we provide some guidelines on how one can achieve that;
+
+* Start taking a look at the `Distributor` class, which controls the domain decomposition. In Devito v3.5, you can find it [here](https://github.com/opesci/devito/blob/v3.5/devito/mpi/distributed.py#L160).
+* Turn the free function `compute_dims` into a `Distributor` method.
+* In your user code, inherit from `Distributor` and override `compute_dims` at will. This will impact how the domain is decomposed along each of the distributed axes. 
+* Change `Grid` to accept a `Distributor`, instead of `comm` (an MPI communicator). In Devito v3.5, you can do it [here](https://github.com/opesci/devito/blob/v3.5/devito/types/grid.py#L100).
+* In your user code, create a `Grid` passing in an instance of the sub-classed `Distributor`, that is you should have `grid = Grid(...., distributor=MyDistributor(...))`.
