@@ -34,7 +34,7 @@ configuration['compiler'] = 'mycompiler'
 
 ### Can I control the MPI domain decomposition ?
 
-Until Devito v3.5 included, domain decomposition occurs along the fastest axis. As of later versions, domain decomposition occurs along the slowest axis, for performance reasons.  And yes, it is possible to control the domain decomposition in user code, but this is undocumented and currently there exists no clean API to do that. However, below we provide some guidelines on how one can achieve that;
+Until Devito v3.5 included, domain decomposition occurs along the fastest axis. As of later versions, domain decomposition occurs along the slowest axis, for performance reasons.  And yes, it is possible to control the domain decomposition in user code, but this is undocumented and currently there exists no clean API to do that. However, below we provide some guidelines on how one can implement this.
 
 * Start taking a look at the `Distributor` class, which controls the domain decomposition. In Devito v3.5, you can find it [here](https://github.com/opesci/devito/blob/v3.5/devito/mpi/distributed.py#L160).
 * Turn the free function `compute_dims` into a `Distributor` method.
