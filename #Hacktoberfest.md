@@ -2,9 +2,9 @@ This wiki-page is intended to present the issues that are to be tackled in #hack
 
 Devito issues to be tackled:
 
-- ASV exploration (and CI integration)
-- Jupyter tutorials for other PDEs
-- Improve .json parser for benchmarking results
-- Add opescibench testing
-- \#774
-- \#841
+- (For everyone) ASV exploration (and CI integration)
+- (Math-Physics based) Jupyter tutorials for other PDEs
+- (Pythonic) Improve .json parser for benchmarking results
+- (Pythonic) Add opescibench testing
+- (Devito-specific) \#774
+- (Devito-specific) \#841
