@@ -6,5 +6,5 @@ Devito issues to be tackled:
 - Jupyter tutorials for other PDEs
 - Improve .json parser for benchmarking results
 - Add opescibench testing
-- 774
-- 841
+- \#774
+- \#841
