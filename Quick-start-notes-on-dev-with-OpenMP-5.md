@@ -1,4 +1,4 @@
-*Quick start: * If you just want to install llvm-9 or llvm-10 binaries on your linux box then just follow the instructions on https://apt.llvm.org/
+**Quick start:** If you just want to install llvm-9 or llvm-10 binaries on your linux box then just follow the instructions on https://apt.llvm.org/
 
 --
 
