@@ -4,7 +4,12 @@ The Devito compiler computes a topological ordering of the input equations based
 
 ### How can I see the compilation command with which Devito compiles the generated code ?
 
-Set the environment variable `DEVITO_DEBUG_COMPILER=1`. When an Operator gets compiled, the used compilation command will be emitted to stdout.
+Set the environment variable `DEVITO_DEBUG_COMPILER=1`. When an Operator gets compiled, the used compilation command will be emitted to stdout. 
+
+If nothing seems to change, it is possible that no compilation is happening under-the-hood as all kernels have already been compiled in a previous run. You will then have to clear up the Devito kernel cache. From the Devito root directory, run:
+```
+python scripts/clear_devito_cache.py
+```
 
 ### How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?
 
