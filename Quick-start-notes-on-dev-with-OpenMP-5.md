@@ -1,4 +1,6 @@
-### This wiki is for registering the experience with trying offloading with OpenMP5.
+### This wiki is for registering the experience with trying offloading with OpenMP 5.
+
+*Quick start: * If you just want to install llvm-9 or llvm-10 binaries on your linux box then just follow the instructions on https://apt.llvm.org/
 
 --
 
