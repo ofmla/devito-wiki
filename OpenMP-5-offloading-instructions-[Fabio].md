@@ -90,3 +90,152 @@ make -j6
 Note: here I'm using `-j6` because my system has 6 physical cores.
 This is gonna take a while...
 
+Once finished, we have to install it
+
+```
+make -j6 install
+```
+
+5. Rebuild the OpenMP Runtime Libraries with Clang
+
+If you tried to compile an application with OpenMP offloading right now, Clang would print the following message:
+
+```
+clang-9: warning: No library 'libomptarget-nvptx-sm_37.bc' found in the default clang lib directory or in LIBRARY_PATH. Expect degraded performance due to no inlining of runtime functions on target devices. [-Wopenmp-target]
+```
+
+To make it go away -- which we do want, for maximum performance -- we need to recompile the OpenMP runtime libraries with Clang. To do so, we first create a new build directory:
+
+```
+cd ..
+mkdir build-openmp
+cd build-openmp
+```
+
+And then:
+
+```
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/../install \
+	-DCMAKE_C_COMPILER=$(pwd)/../install/bin/clang \
+	-DCMAKE_CXX_COMPILER=$(pwd)/../install/bin/clang++ \
+	-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=37,60,70 \
+	../llvm-9.0.0.src/projects/openmp
+```
+
+And finally, we actually rebuild and reinstall the OpenMP runtime libraries:
+
+```
+make -j6
+make -j6 install
+```
+
+Now we should be good to go.
+
+6. Try it!
+
+First, let's put Clang in PATH
+
+```
+export PATH=~/install/bin:$PATH
+export LD_LIBRARY_PATH=~/install/lib:$LD_LIBRARY_PATH
+```
+
+If everything went smooth, you should see something like
+
+```
+devito@devito-fl:~$ clang --version
+clang version 9.0.0 (tags/RELEASE_900/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/devito/install/bin
+```
+
+Now let's test offloading. We are gonna use the following toy app:
+
+```
+#include <malloc.h>
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main(int argc, char* argv[])
+{
+     
+    int n = atoi(argv[1]);
+     
+    double* x = (double*)malloc(sizeof(double) * n);
+    double* y = (double*)malloc(sizeof(double) * n);
+ 
+    double idrandmax = 1.0 / RAND_MAX;
+    double a = idrandmax * rand();
+    for (int i = 0; i < n; i++)
+    {
+        x[i] = idrandmax * rand();
+        y[i] = idrandmax * rand();
+    }
+ 
+    #pragma omp target data map(tofrom: x[0:n],y[0:n])
+    {
+        #pragma omp target
+        #pragma omp for
+        for (int i = 0; i < n; i++)
+            y[i] += a * x[i];
+    }
+     
+    double avg = 0.0, min = y[0], max = y[0];
+    for (int i = 0; i < n; i++)
+    {
+        avg += y[i];
+        if (y[i] > max) max = y[i];
+        if (y[i] < min) min = y[i];
+    }
+     
+    printf("min = %f, max = %f, avg = %f\n", min, max, avg / n);
+     
+    free(x);
+    free(y);
+ 
+    return 0;
+}
+```
+
+Let's save it in `~/examples/omp-offloading.c`.
+
+Before proceeding, checkout your PATH and LD_LIBRARY_PATH. Mine are as follows:
+
+```
+devito@devito-fl:~$ echo $LD_LIBRARY_PATH
+/home/devito/install/lib:/usr/local/cuda-10.1/lib64:
+devito@devito-fl:~$ echo $PATH
+/home/devito/install/bin:/usr/local/cuda-10.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+
+In particular, `clang` as well as the CUDA libraries must be available.
+
+Now we compile `omp-offloading.c`. Fingers crossed.
+
+```
+cd examples
+clang -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_37 -Wall -O3 omp-offloading.c -o omp-offloading
+``` 
+
+No errors? Good! Some warnings about an old compute capability? That's OK too. The important thing is to see no errors at this point.
+
+And now we run it...
+
+```
+./omp-offloading 10000000
+```
+
+7. Did it work?
+
+You may use either `nvprof` or (for quick visual inspection), `nvtop`. 
+
+To install `nvtop`, first install the prerequisites
+
+```
+sudo apt-get install libncurses5-dev
+```
+
+Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
+
+Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
