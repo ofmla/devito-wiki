@@ -2,14 +2,35 @@
 
 Before writing lots of OpenMP 5 code please note that the **full standard has not yet been implemented**. Check what you are coding against https://clang.llvm.org/docs/OpenMPSupport.html#openmp-implementation-details
 
-If you need nightly builds, where are straightforward instructions for building from source - https://apt.llvm.org/building-pkgs.php
+# Building Debian packages from source : Ubuntu 18.04
+Instructions for building packages from source - https://apt.llvm.org/building-pkgs.php
 
-# Installation prerequisite for Ubuntu 18.04
-* Download and install cuda - https://developer.nvidia.com/cuda-downloads
 * Install ubuntu packages
 ```
-sudo apt-get update
-sudo apt-get install ninja-build cmake libelf-dev libffi-dev pkg-config
+sudo apt update
+sudo apt upgrade
+sudo apt install -y build-essential
+sudo snap install cmake --classic
+sudo apt install -y libelf-dev
+sudo apt install -y pkg-config
+```
+* Download and install cuda - https://developer.nvidia.com/cuda-downloads
+  * Follow post install instructions!
+* Add to your apt.sources the nightly repositories for your distribution - https://apt.llvm.org/
+```
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+sudo apt update
+```
+* Install sources and install dependencies
+```
+mkdir build/ && cd build/
+apt source llvm-toolchain-snapshot
+sudo apt build-dep llvm-toolchain-snapshot
+sudo apt install -y devscripts
+```
+* Build debian packages
+```
+debuild -us -uc -b
 ```
 --
 
