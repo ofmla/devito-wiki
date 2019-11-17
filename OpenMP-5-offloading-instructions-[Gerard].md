@@ -16,6 +16,16 @@ sudo apt install -y pkg-config
 ```
 * Download and install cuda - https://developer.nvidia.com/cuda-downloads
   * Follow post install instructions!
+* [Optional] Install nvtop
+```
+git clone https://github.com/Syllo/nvtop.git
+cd nvtop/
+mkdir build
+cd build/
+cmake ..
+make
+sudo make install
+```
 * Add to your apt.sources the nightly repositories for your distribution - https://apt.llvm.org/
 ```
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
