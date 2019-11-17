@@ -16,7 +16,7 @@ sudo apt-get install -y libelf-dev
 sudo apt install -y pkg-config
 ```
 
-2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
+## 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
 
 ```
 wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
@@ -30,7 +30,7 @@ export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 ```
 
-3. Get the source code for the required LLVM packages
+## 3. Get the source code for the required LLVM packages
 
 ```
 wget https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz
@@ -56,7 +56,7 @@ mv openmp-9.0.0.src llvm-9.0.0.src/projects/openmp
 mv compiler-rt-9.0.0.src llvm-9.0.0.src/projects/compiler-rt
 ```
 
-4. Build the compiler
+## 4. Build the compiler
 
 ```
 mkdir build
@@ -97,7 +97,7 @@ Once finished, we have to install it
 make -j6 install
 ```
 
-5. Rebuild the OpenMP Runtime Libraries with Clang
+## 5. Rebuild the OpenMP Runtime Libraries with Clang
 
 If you tried to compile an application with OpenMP offloading right now, Clang would print the following message:
 
@@ -132,7 +132,7 @@ make -j6 install
 
 Now we should be good to go.
 
-6. Try it!
+## 6. Try it!
 
 First, let's put Clang in PATH
 
@@ -227,7 +227,7 @@ And now we run it...
 ./omp-offloading 10000000
 ```
 
-7. Did it work?
+## 7. Did it work?
 
 You may use either `nvprof` or (for quick visual inspection), `nvtop`. 
 
