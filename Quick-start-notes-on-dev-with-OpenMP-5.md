@@ -1,5 +1,7 @@
 **Quick start:** If you just want to install llvm-9 or llvm-10 binaries on your linux box then just follow the instructions on https://apt.llvm.org/
 
+Before writing lots of OpenMP 5 code please note that the **full standard has not yet been implemented**. Check what you are coding against https://clang.llvm.org/docs/OpenMPSupport.html#openmp-implementation-details
+
 --
 
 #### Short FAQ:
