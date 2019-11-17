@@ -70,7 +70,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/../install \
 	-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=37,60,70 ../llvm-9.0.0.src
 ```
 
-If all went good, you should see these lines:
+If all went right, you should see these lines:
 
 ```
 ...
@@ -80,3 +80,13 @@ If all went good, you should see these lines:
 -- LIBOMPTARGET: Building CUDA offloading plugin.
 ...
 ```
+
+Now it's finally time to actually compile
+
+```
+make -j6
+```
+
+Note: here I'm using `-j6` because my system has 6 physical cores.
+This is gonna take a while...
+
