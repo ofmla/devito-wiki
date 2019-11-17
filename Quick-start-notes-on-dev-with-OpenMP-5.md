@@ -2,6 +2,8 @@
 
 Before writing lots of OpenMP 5 code please note that the **full standard has not yet been implemented**. Check what you are coding against https://clang.llvm.org/docs/OpenMPSupport.html#openmp-implementation-details
 
+If you need nightly builds, where are straightforward instructions for building from source - https://apt.llvm.org/building-pkgs.php
+
 --
 
 #### Short FAQ:
