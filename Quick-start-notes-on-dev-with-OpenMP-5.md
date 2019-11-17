@@ -4,6 +4,13 @@ Before writing lots of OpenMP 5 code please note that the **full standard has no
 
 If you need nightly builds, where are straightforward instructions for building from source - https://apt.llvm.org/building-pkgs.php
 
+# Installation prerequisite for Ubuntu 18.04
+* Download and install cuda - https://developer.nvidia.com/cuda-downloads
+* Install ubuntu packages
+```
+sudo apt-get update
+sudo apt-get install ninja-build cmake libelf-dev libffi-dev pkg-config
+```
 --
 
 #### Short FAQ:
