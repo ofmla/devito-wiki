@@ -6,7 +6,7 @@ Assuming:
 * Ubuntu 18.04 as OS
 * a Tesla K80 available, which has compute capability `3.7`. You can find out what card you got via `lshw -C display`; you can find out the compute capability of your card [here](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
 
-1. Install build essentials (gcc, make, ...), cmake, libelf.
+## 1. Install build essentials (gcc, make, ...), cmake, libelf.
 
 ```
 sudo apt update
