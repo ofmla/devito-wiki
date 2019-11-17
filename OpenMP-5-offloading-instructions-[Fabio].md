@@ -1,10 +1,9 @@
 _Loosely readapted from https://hpc-wiki.info/hpc/Building_LLVM/Clang_with_OpenMP_Offloading_to_NVIDIA_GPUs_
 
-Assuming:
-
-* a pristine machine
-* Ubuntu 18.04 as OS
-* a Tesla K80 available, which has compute capability `3.7`. You can find out what card you got via `lshw -C display`; you can find out the compute capability of your card [here](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
+Test platform:
+* Azure VM | Standard NC6_Promo (6 vcpus, 56 GiB memory)
+ * Tesla K80, which has compute capability `3.7`. You can find out what card you got via `lshw -C display`; you can find out the compute capability of your card [here](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
+* Linux (ubuntu 18.04)
 
 ## 1. Install build essentials (gcc, make, ...), cmake, libelf.
 
