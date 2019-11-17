@@ -1,18 +1,3 @@
-**Quick start:** If you just want to install llvm-9 or llvm-10 binaries on your linux box then just follow the instructions on https://apt.llvm.org/
-
-Before writing lots of OpenMP 5 code please note that the **full standard has not yet been implemented**. Check what you are coding against https://clang.llvm.org/docs/OpenMPSupport.html#openmp-implementation-details
-
-If you need nightly builds, where are straightforward instructions for building from source - https://apt.llvm.org/building-pkgs.php
-
-# Installation prerequisite for Ubuntu 18.04
-* Download and install cuda - https://developer.nvidia.com/cuda-downloads
-* Install ubuntu packages
-```
-sudo apt-get update
-sudo apt-get install ninja-build cmake libelf-dev libffi-dev pkg-config
-```
---
-
 #### Short FAQ:
 
 * What’s going on here? Is llvm transforming OpenMP 5 into CUDA? Recommended reading to get understand what’s going on under the hood?
