@@ -13,6 +13,7 @@ sudo apt update
 sudo apt install build-essential
 sudo snap install cmake --classic
 sudo apt-get install -y libelf-dev
+sudo apt install -y pkg-config
 ```
 
 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
