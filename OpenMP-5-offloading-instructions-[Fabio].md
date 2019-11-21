@@ -11,7 +11,7 @@ Test platform:
 sudo apt update
 sudo apt install build-essential
 sudo snap install cmake --classic
-sudo apt-get install -y libelf-dev
+sudo apt-get install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
