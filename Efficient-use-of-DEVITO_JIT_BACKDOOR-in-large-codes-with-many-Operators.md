@@ -18,7 +18,7 @@ another_run = [True]
 while another_run[0]:
     old_cfile = "%s.c" % str(op._compiler.get_jit_dir().joinpath(op._soname))
 
-    # Force a new compilation *and* loading upon the next `op.apply`
+    # Force compilation *and* loading upon the next `op.apply`
     op._lib = None
     op._cfunction = None
     del op._soname
