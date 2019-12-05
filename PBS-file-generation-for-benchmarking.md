@@ -28,3 +28,5 @@ cd benchmarks/user
 
 mpiexec python benchmark.py bench -P acoustic -bm O2 -d 600 600 600 -so 12 --tn 100 -x 1 --arch haswell -r /home/opesci/results/
 ```
+
+The PBS file generated has been tested on Imperial College London Research Computing Service 
