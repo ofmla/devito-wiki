@@ -4,7 +4,7 @@
 # ssh to your login node
 ssh user@login-knl.hpc.cam.ac.uk
 
-# anaconda not available, load miniconda
+# anaconda not available on CSD3, load miniconda
 module load miniconda3/4.5.1
 
 # Load compilers, tools..etc
