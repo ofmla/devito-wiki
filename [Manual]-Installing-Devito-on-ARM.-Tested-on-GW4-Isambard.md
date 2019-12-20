@@ -30,24 +30,24 @@ Flags:               fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics cpuid as
 
 Then:
 
-```
+
 #Load python
-module load cray-python/3.6.5.6
+`module load cray-python/3.6.5.6`
 # Clone and install Devito
-git clone https://github.com/opesci/devito.git
-cd devito/
-pip3 install --user -e .
+`git clone https://github.com/opesci/devito.git`
+`cd devito/`
+`pip3 install --user -e .`
 
 #[Optional] Install Opescibench 
-cd ../
-git clone https://github.com/opesci/opescibench
-cd opescibench/
-pip3 install --user -e .
+`cd ../`
+`git clone https://github.com/opesci/opescibench`
+`cd opescibench/`
+`pip3 install --user -e .`
 # Set the following environment variables
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
-```
-cd ../devito
+`export LC_ALL=C.UTF-8`
+`export LANG=C.UTF-8`
+
+`cd ../devito`
 
 If you have also installed OpesciBench you can try the following test:
 For a simple test:
