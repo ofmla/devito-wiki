@@ -58,7 +58,7 @@ cd ../devito
 If you have also installed OpesciBench you can try the following test:
 For a simple test:
 
-`aprun python3 benchmarks/user/benchmark.py test`
+`aprun python3 benchmarks/user/benchmark.py run -P acoustic`
 
 Now going parallel with several optimizations and parameters set:
 
