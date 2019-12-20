@@ -1,16 +1,16 @@
-# Connect to Isambard login node
+## Connect to Isambard login node
 `ssh username@isambard.gw4.ac.uk`
 
-# Connect to a login node
+## Connect to a login node
 `ssh login-01`
 
-# Connect to an xcil node
+## Connect to an xcil node
 `ssh xcil00`
 
-# Start an interactive job:
+## Start an interactive job:
 `qsub -I -q arm-dev  -l select=1:ncpus=64 -l Walltime=03:00:00`
 
-# Check out the system specs
+## Check out the system specs
 `lscpu`
 ```
 Architecture:        aarch64
@@ -31,19 +31,19 @@ Flags:               fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics cpuid as
 Then:
 
 
-#Load python
+## Load python
 `module load cray-python/3.6.5.6`
-# Clone and install Devito
+## Clone and install Devito
 `git clone https://github.com/opesci/devito.git`
 `cd devito/`
 `pip3 install --user -e .`
 
-#[Optional] Install Opescibench 
+## [Optional] Install Opescibench 
 `cd ../`
 `git clone https://github.com/opesci/opescibench`
 `cd opescibench/`
 `pip3 install --user -e .`
-# Set the following environment variables
+## Set the following environment variables
 `export LC_ALL=C.UTF-8`
 `export LANG=C.UTF-8`
 
