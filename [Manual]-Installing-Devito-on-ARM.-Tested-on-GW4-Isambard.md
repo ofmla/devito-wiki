@@ -7,9 +7,6 @@
 # Connect to an xcil node
 `ssh xcil00`
 
-# Connect to an xcil node
-`ssh xcil00`
-
 # Start an interactive job:
 `qsub -I -q arm-dev  -l select=1:ncpus=64 -l Walltime=03:00:00`
 
