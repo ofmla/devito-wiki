@@ -10,7 +10,7 @@
 ## Start an interactive job:
 `qsub -I -q arm-dev  -l select=1:ncpus=64 -l Walltime=03:00:00`
 
-## Check out the system specs
+## Check out the system specs [Optional]
 `lscpu`
 ```
 Architecture:        aarch64
@@ -39,15 +39,21 @@ Then:
 `pip3 install --user -e .`
 
 ## [Optional] Install Opescibench 
-`cd ../`
-`git clone https://github.com/opesci/opescibench`
-`cd opescibench/`
-`pip3 install --user -e .`
+```
+cd ../
+git clone https://github.com/opesci/opescibench
+cd opescibench/
+pip3 install --user -e .
+```
 ## Set the following environment variables
-`export LC_ALL=C.UTF-8`
-`export LANG=C.UTF-8`
+```
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+```
 
-`cd ../devito`
+```
+cd ../devito
+```
 
 If you have also installed OpesciBench you can try the following test:
 For a simple test:
@@ -56,5 +62,6 @@ For a simple test:
 
 Now going parallel with several optimizations and parameters set:
 
-`OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_DEBUG_COMPILER=1 DEVITO_AUTOTUNING=aggressive DEVITO_BACKEND=core DEVITO_OPENMP=1 DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x `
+```
+OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_DEBUG_COMPILER=1 DEVITO_AUTOTUNING=aggressive DEVITO_BACKEND=core DEVITO_OPENMP=1 DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x```
 
