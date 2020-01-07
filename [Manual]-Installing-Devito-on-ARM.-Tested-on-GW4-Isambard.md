@@ -34,15 +34,16 @@ Then:
 ## Load python
 `module load cray-python/3.6.5.6`
 ## Clone and install Devito
-`git clone https://github.com/opesci/devito.git`
-`cd devito/`
-`pip3 install --user -e .`
+```
+git clone https://github.com/devitocodes/devito.git
+cd devito/
+pip3 install --user -e .
 
-## [Optional] Install Opescibench 
+## [Optional] Install Devitobench 
 ```
 cd ../
-git clone https://github.com/opesci/opescibench
-cd opescibench/
+git clone https://github.com/devitocodes/devitobench
+cd devitobench/
 pip3 install --user -e .
 ```
 ## Set the following environment variables
@@ -55,7 +56,7 @@ export LANG=C.UTF-8
 cd ../devito
 ```
 
-If you have also installed OpesciBench you can try the following test:
+If you have also installed DevitoBench you can try the following test:
 For a simple test:
 
 `aprun python3 benchmarks/user/benchmark.py run -P acoustic`
