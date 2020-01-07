@@ -38,7 +38,7 @@ Then:
 git clone https://github.com/devitocodes/devito.git
 cd devito/
 pip3 install --user -e .
-
+```
 ## [Optional] Install Devitobench 
 ```
 cd ../
