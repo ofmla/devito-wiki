@@ -15,8 +15,8 @@ python scripts/clear_devito_cache.py
 
 There is currently no API to achieve this straightforwardly. However, there are three work arounds:
 
-* hacky way: change the flags explicitly in the Devito source code. In Devito v3.5, you can do that [here](https://github.com/opesci/devito/blob/v3.5/devito/compiler.py#L146)
-* via env vars: use a [CustomCompiler](https://github.com/opesci/devito/blob/v3.5/devito/compiler.py#L444) -- just leave the `DEVITO_ARCH` environment variable unset or set it to `'custom'`. Then, `export CFLAGS="..."` to tell Devito to use the exported flags in place of the default ones.
+* hacky way: change the flags explicitly in the Devito source code. In Devito v4.0, you can do that [here](https://github.com/opesci/devito/blob/v4.0/devito/compiler.py#L146)
+* via env vars: use a [CustomCompiler](https://github.com/opesci/devito/blob/v4.0/devito/compiler.py#L446) -- just leave the `DEVITO_ARCH` environment variable unset or set it to `'custom'`. Then, `export CFLAGS="..."` to tell Devito to use the exported flags in place of the default ones.
 * programmatically: subclass one of the compiler classes and set `self.cflags` to whatever you need. Do not forget to add the subclass to the [compiler registry](https://github.com/opesci/devito/blob/v3.5/devito/compiler.py#L475). For example, you could do
 
 ```
