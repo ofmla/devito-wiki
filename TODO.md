@@ -5,7 +5,7 @@ In random order:
 - Jupyter notebook about how to express different linear operators (and their adjoints) in Devito
 - BinderHub support
 - Improve .json parser for benchmarking results
-- Add opescibench testing
+- Add Devitobench testing
 - Review open issues, in particular:
   - Issue \#774
   - Issue \#841
