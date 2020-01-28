@@ -1,4 +1,8 @@
 # Activities
+## Quick links:
+* Devito - https://www.devitoproject.org/
+* Join slack - https://opesci-slackin.now.sh/
+* Ongoing devito projects - https://github.com/devitocodes/devito/projects
 
 ## Fringe Devito-GPU hackathon
 https://github.com/devitocodes/devito/projects/6
