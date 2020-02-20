@@ -21,7 +21,5 @@ Open: http://<PublicIP> and authenticate using GIT credentials
 New -> Terminal
 git clone https://github.com/devitocodes/devito.git
 cd devito
-conda env create -f environment-dev.yml
-source activate devito
 pip install -e .[extras]
 ```
