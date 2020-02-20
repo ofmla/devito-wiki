@@ -23,6 +23,5 @@ git clone https://github.com/devitocodes/devito.git
 cd devito
 conda env create -f environment-dev.yml
 source activate devito
-pip install -e .
-pip install --user matplotlib
+pip install -e .[extras]
 ```
