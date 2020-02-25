@@ -17,7 +17,8 @@ sudo apt install -y pkg-config
 
 ## 2. Download and install CUDA
 
-Follow the instructions here to install CUDA.
+Download and follow the instructions from here:
+https://developer.nvidia.com/cuda-downloads
 
 ## 3. Get the source code for the required LLVM packages
 
