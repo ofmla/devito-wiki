@@ -9,7 +9,6 @@ In random order:
 - Review open issues, in particular:
   - Issue \#774
   - Issue \#841
-  - Issue \#764
   - Issue \#817
 - A Jupyter tutorial describing the differrences between the various DSE/DLE performance modes
 - Open data for CI and tutorials.
