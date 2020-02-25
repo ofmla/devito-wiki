@@ -16,7 +16,7 @@ sudo apt install -y pkg-config
 ```
 
 ## 2. Download and install CUDA
-
+```
 wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
 sudo sh cuda_10.1.243_418.87.00_linux.run
 ```
@@ -26,7 +26,7 @@ Follow the instructions on screen to install CUDA. Then:
 ```
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
-
+```
 
 ## 3. Get the source code for the required LLVM packages
 
@@ -238,3 +238,18 @@ sudo apt-get install libncurses5-dev
 Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
 
 Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
+
+
+
+```
+sudo apt-get install python3 python3-pip python3-devel python3-libs
+sudo apt-get install mpich libmpich-dev
+pip3 install --upgrade pip
+git clone https://github.com/devitocodes/devito.git
+pip3 install --user -e .[extras]
+export DEVITO_ARCH=clang
+export DEVITO_PLATFORM=nvidiaX
+export DEVITO_OPENMP=1
+
+
+```
