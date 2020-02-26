@@ -14,7 +14,15 @@ sudo apt-get install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
-## 2. Download and install CUDA
+## 2. Download and install PGI compiler tools community edition
+```
+https://www.pgroup.com/support/download_community.php?file=pgi-community-linux-x64
+transfer via scp?
+Follow instructions from here:
+https://www.pgroup.com/resources/docs/18.4/x86/pgi-install-guide/index.htm#install-linux-pgi
+```
+
+## 3. Download and install CUDA
 ```
 wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
 sudo sh cuda_10.1.243_418.87.00_linux.run
