@@ -1,1 +1,1 @@
-Welcome to the devito wiki!
+Welcome to the Devito wiki!
