@@ -17,9 +17,13 @@ sudo apt install -y pkg-config
 ## 2. Download and install PGI compiler tools community edition
 ```
 https://www.pgroup.com/support/download_community.php?file=pgi-community-linux-x64
-transfer via scp?
+Get the tar file at your VM via scp, wget or another way
 Follow instructions from here:
 https://www.pgroup.com/resources/docs/18.4/x86/pgi-install-guide/index.htm#install-linux-pgi
+
+untar: tar xpfz pgi-linux......tar.gz
+sudo ./install
+
 ```
 
 ## 3. Download and install CUDA
@@ -30,3 +34,17 @@ sudo sh cuda_10.1.243_418.87.00_linux.run
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 ```
+## Last step: Did it work?
+
+You may use either `nvprof` or (for quick visual inspection), `nvtop`. 
+
+To install `nvtop`, first install the prerequisites
+
+```
+sudo apt-get install libncurses5-dev
+```
+
+Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
+
+Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
+
