@@ -34,6 +34,31 @@ sudo sh cuda_10.1.243_418.87.00_linux.run
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 ```
+## 3. Download and install Devito
+```
+sudo apt-get install mpich libmpich-dev #optional
+sudo apt-get install python3 python3-pip
+git clone https://github.com/devitocodes/devito.git
+cd devito
+pip3 install -e .[extras] # extras needs mpi installed
+```
+
+## 4. Generate and execute an operator
+```
+`Let's try the acoustic operator`
+DEVITO_LOGGING=DEBUG DEVITO_ARCH=pgcc python3 ~devito/examples/seismic/acoustic/acoustic_example.py 
+
+* You can see in the logs that: Operator `Forward` fetched `/tmp/devito-jitcache-uid1000/a28bc362ac6aac0a21b203c041946208abd38f3c.c` in 0.43 s from jit-cache *
+`Use an editor to add openacc directives`
+
+- Add ```#include "openacc.h"``` at the headers section
+- Add ```#pragma acc parallel loop``` in one of the loops (not the z one!)
+- Use ```DEVITO_JIT_BACKDOOR=1 DEVITO_LOGGING=DEBUG DEVITO_ARCH=pgcc python3 examples/seismic/acoustic/acoustic_example.py```
+```
+You should see be executing the operator at the GPU.
+```
+
+
 ## Last step: Did it work?
 
 You may use either `nvprof` or (for quick visual inspection), `nvtop`. 
@@ -46,5 +71,5 @@ sudo apt-get install libncurses5-dev
 
 Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
 
-Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
+Now rerun while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
 
