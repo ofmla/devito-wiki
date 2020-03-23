@@ -24,6 +24,7 @@ https://www.pgroup.com/resources/docs/18.4/x86/pgi-install-guide/index.htm#insta
 untar: tar xpfz pgi-linux......tar.gz
 sudo ./install
 
+Then: accept, single system install, /opt/pgi/ directory...
 ```
 
 ## 3. Download and install CUDA
