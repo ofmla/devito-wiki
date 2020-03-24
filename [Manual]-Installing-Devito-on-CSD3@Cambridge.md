@@ -24,3 +24,7 @@ pip install -e .
 # If everything went fine you should be able to run a typical operator. i.e.:
 DEVITO_LOGGING=DEBUG DEVITO_ARCH=intel python examples/seismic/acoustic/acoustic_example.py
 ```
+
+
+For an interactive session:
+Use \#SBATCH -A T2-CSPP017-CPU or sintr with the same -A option with the Skylake partitions for an nteractive session.
