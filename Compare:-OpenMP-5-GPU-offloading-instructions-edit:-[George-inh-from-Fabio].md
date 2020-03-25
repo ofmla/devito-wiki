@@ -246,6 +246,7 @@ sudo apt-get install python3 python3-pip python3-devel python3-libs
 sudo apt-get install mpich libmpich-dev
 pip3 install --upgrade pip
 git clone https://github.com/devitocodes/devito.git
+cd devito
 pip3 install --user -e .[extras]
 export DEVITO_ARCH=clang
 export DEVITO_PLATFORM=nvidiaX
