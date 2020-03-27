@@ -107,7 +107,25 @@ However, while the "f() notation" is substantially safe -- the language is desig
 The indexed notation, or "f[] notation", is discussed [here](#What-is-the-difference-between-f()-and-f[]-notation?)
 
 ## Is there a flow chart?
-TODO
+**needs links**
+1. Equation Lowering
+  - Indexification
+  - Substitutions
+  - Domain alignment
+  - Eq -> LoweredEq
+2. Local Analysis
+3. Clustering
+4. Symbolic Optimization via Devito Symbolic Engine (DSE)
+5. IET (Iteration/Expression Tree) Construction
+6. IET Analysis
+7. IET Optimization (DLE/YLE)
+  - Loop optimization via Devito Loop Engine (DLE)
+    - Loop Tiling / Cache Blocking
+    - SIMD
+    - OpenMP
+    - MPI
+8. Synthetic
+9. JIT (Just In Time) Compilation
 
 
 ## What's up with <object>.data
