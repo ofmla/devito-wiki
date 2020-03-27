@@ -44,14 +44,29 @@ TMP variable?
 
 
 ## What environment variables control how devito works
-Aggressiveness of optimization?
-TMP dir for generated code
-Backdoor
-MPI
-OPENMP
-GPU
-LOG LEVEL
-
+You can get the list of environment variables with the following python code:
+```
+from devito import print_defaults                                                                                                                                                                               
+print_defaults()                                                                                                                                                                                                
+```
+And the output: **[NOTE: need a description of each of these]**
+```
+DEVITO_ARCH: ['custom', 'gnu', 'gcc', 'clang', 'pgcc', 'pgi', 'osx', 'intel', 'icpc', 'icc', 'intel-knl', 'knl', 'gcc-4.9', 'gcc-5', 'gcc-6', 'gcc-7', 'gcc-8', 'gcc-9']. Default: custom
+DEVITO_PLATFORM: ['cpu64-dummy', 'intel64', 'snb', 'ivb', 'hsw', 'bdw', 'skx', 'klx', 'clx', 'knl', 'knl7210', 'arm', 'power8', 'power9', 'nvidiaX', 'cpu64']. Default: cpu64
+DEVITO_PROFILING: ['basic', 'advanced', 'advisor']. Default: basic
+DEVITO_BACKEND: ['core', 'yask', 'void', 'ops']. Default: core
+DEVITO_DEVELOP: [False, True]. Default: True
+DEVITO_DSE: ['basic', 'advanced', 'aggressive']. Default: advanced
+DEVITO_DLE: ['noop', 'advanced', ('noop', 'C'), ('advanced', 'C')]. Default: advanced
+DEVITO_OPENMP: [0, 1]. Default: 0
+DEVITO_MPI: [0, 1, 'basic', 'diag', 'overlap', 'overlap2', 'full']. Default: 0
+DEVITO_AUTOTUNING: ['off', 'basic', 'aggressive', 'max', ['off', 'preemptive'], ['off', 'destructive'], ['off', 'runtime'], ['basic', 'preemptive'], ['basic', 'destructive'], ['basic', 'runtime'], ['aggressive', 'preemptive'], ['aggressive', 'destructive'], ['aggressive', 'runtime'], ['max', 'preemptive'], ['max', 'destructive'], ['max', 'runtime']]. Default: off
+DEVITO_LOGGING: ['DEBUG', 'PERF', 'YASK', 'YASK_WARN', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']. Default: INFO
+DEVITO_FIRST_TOUCH: [0, 1]. Default: 0
+DEVITO_DEBUG_COMPILER: [0, 1]. Default: 0
+DEVITO_JIT_BACKDOOR: [0, 1]. Default: 0
+DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
+```
 
 ## How do you run the unit tests from the command line
 Py.test <test.py>
