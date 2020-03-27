@@ -69,9 +69,10 @@ DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
 ```
 
 ## How do you run the unit tests from the command line
+```
 Py.test <test.py>
 Py.test -vs <test.py>  [more detailed log]
-
+```
 
 ## What is the difference between op() and op[] notation
 Bla bla ... indexify ... bla
