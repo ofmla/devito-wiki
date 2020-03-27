@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-- [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#I create an Operator, look at the generated code, and the equations appear in a different order than I expected.)
+- [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#I-create-an-Operator,-look-at-the-generated-code,-and-the-equations-appear-in-a-different-order-than-I-expected.)
 
 - [How can I see the compilation command with which Devito compiles the generated code ?](# How can I see the compilation command with which Devito compiles the generated code ?)
 
