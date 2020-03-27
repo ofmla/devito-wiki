@@ -111,7 +111,34 @@ TODO
 
 
 ## What's up with <object>.data
-TODO
+The `.data` property which is associated with objects such as `Constant`, `Function` and `SparseFunction` (along with their derivatives) represents the 'numerical' value of the 'data' associated with that particular object. For example, a `Constant` with have a single numerical value associated with it as shown in the following snippet
+```
+from devito import Constant
+
+c = Constant(name='c')
+c.data = 2.7
+
+print(c.data)
+```
+```
+2.7
+```
+Then, a `Function` defined on a `Grid` will have a data value associated with each of the grid points (as shown in the snippet below) and so forth.
+```
+import numpy as np
+from devito import Grid, Function
+
+grid = Grid(shape=(4, 4), extent=(1, 1))
+f = Function(name='f', grid=grid)
+f.data[:] = np.arange(16).reshape(grid.shape)
+
+print(f.data)
+```
+[[ 0.  1.  2.  3.]
+ [ 4.  5.  6.  7.]
+ [ 8.  9. 10. 11.]
+ [12. 13. 14. 15.]]
+```
 
 
 ## What are the keys to fast code
