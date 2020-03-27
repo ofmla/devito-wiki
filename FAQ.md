@@ -69,6 +69,7 @@ DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
 ```
 
 ## How do you run the unit tests from the command line
+In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.html), the unit tests provide an excellent way to see how the devito API works with small self-contained examples. 
 ```
 Py.test <test.py>
 Py.test -vs <test.py>  [more detailed log]
