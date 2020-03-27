@@ -130,17 +130,17 @@ The indexed notation, or "f[] notation", is discussed [here](#What-is-the-differ
 ## Is there a flow chart
 **needs links**
 1. Equation Lowering
-  - Indexification
-  - Substitutions
-  - Domain alignment
-  - Eq -> LoweredEq
+    - Indexification
+    - Substitutions
+    - Domain alignment
+    - Eq -> LoweredEq
 2. Local Analysis
 3. Clustering
 4. Symbolic Optimization via Devito Symbolic Engine (DSE)
 5. IET (Iteration/Expression Tree) Construction
 6. IET Analysis
 7. IET Optimization (DLE/YLE)
-  - Loop optimization via Devito Loop Engine (DLE)
+    - Loop optimization via Devito Loop Engine (DLE)
     - Loop Tiling / Cache Blocking
     - SIMD
     - OpenMP
