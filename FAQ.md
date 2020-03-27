@@ -70,7 +70,7 @@ Simple flow chart for equation --> code, with links from each step to the API do
 Bla bla numpy array backends
 
 
-## What are the keys to fast code 
+## What are the keys to fast code
 CPU: Cache blocking, loop fusing, alignment to promote SIMD, ...
 GPU: longer pipelines, less travel to host
 As time increases in the finite difference evolution, are wavefield arrays "swapped" like you might see in c/c++ code?
