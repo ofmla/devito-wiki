@@ -1,8 +1,9 @@
 # Frequently Asked Questions
 
 - [How can I see the compilation command with which Devito compiles the generated code?](#How-can-I-see-the-compilation-command-with-which-Devito-compiles-the-generated-code?)
+- [Where does the generated code go and how do I look at it?](#Where-does-the-generated-code-go-and-how-do-I-look-at-it?)
+- [Can I change the directory where Devito stashes the generated code?](#Can-I-change-the-directory-where-Devito-stashes-the-generated-code?)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#I-create-an-Operator,-look-at-the-generated-code,-and-the-equations-appear-in-a-different-order-than-I-expected.)
-- [Where does generated code go and how do I look at it](#Where-does-generated-code-go-and-how-do-I-look-at-it)
 - [What environment variables control how devito works](#What-environment-variables-control-how-devito-works)
 - [How do you run the unit tests from the command line](#How-do-you-run-the-unit-tests-from-the-command-line)
 - [What is the difference between op() and op[] notation](#What-is-the-difference-between-op()-and-op[]-notation)
@@ -25,13 +26,17 @@ If nothing seems to change, it is possible that no compilation is happening unde
 python scripts/clear_devito_cache.py
 ```
 
+
+## Where does the generated code go and how do I look at it?
+Devito stores the generated code as well as the jit-compiled libraries in a temporary directory. By setting the environment variable `DEVITO_LOGGING=DEBUG`, Devito will show, amongst other things, the absolute path to the generated code.
+
+## Can I change the directory where Devito stashes the generated code?
+
+Yes, just set the environment variable `TMPDIR` to your favorite location. 
+
 ## I create an Operator, look at the generated code, and the equations appear in a different order than I expected.
 
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
-
-
-## Where does generated code go and how do I look at it
-TMP variable?
 
 
 ## What environment variables control how devito works
@@ -60,7 +65,7 @@ DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
 ```
 
 ## How do you run the unit tests from the command line
-In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.html), the unit tests provide an excellent way to see how the devito API works with small self-contained examples. You can exercise individual unit tests with the following python code:
+In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.html), the unit tests provide an excellent way to see how the Devito API works with small self-contained examples. You can exercise individual unit tests with the following python code:
 ```
 Py.test <test.py>
 Py.test -vs <test.py>  [more detailed log]
