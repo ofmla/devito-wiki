@@ -19,14 +19,12 @@
 
 
 ## How can I see the compilation command with which Devito compiles the generated code?
-
 Set the environment variable `DEVITO_DEBUG_COMPILER=1`. When an Operator gets compiled, the used compilation command will be emitted to stdout. 
 
 If nothing seems to change, it is possible that no compilation is happening under-the-hood as all kernels have already been compiled in a previous run. You will then have to clear up the Devito kernel cache. From the Devito root directory, run:
 ```
 python scripts/clear_devito_cache.py
 ```
-
 
 ## Where does the generated code go and how do I look at it?
 Devito stores the generated code as well as the jit-compiled libraries in a temporary directory. By setting the environment variable `DEVITO_LOGGING=DEBUG`, Devito will show, amongst other things, the absolute path to the generated code.
