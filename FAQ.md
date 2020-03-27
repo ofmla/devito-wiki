@@ -2,7 +2,7 @@
 
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#I-create-an-Operator,-look-at-the-generated-code,-and-the-equations-appear-in-a-different-order-than-I-expected.)
 
-- [How can I see the compilation command with which Devito compiles the generated code ?](# How can I see the compilation command with which Devito compiles the generated code ?)
+- [How can I see the compilation command with which Devito compiles the generated code ?](#How-can-I-see-the-compilation-command-with-which-Devito-compiles-the-generated-code?)
 
 - [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?](#How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?)
 
@@ -16,7 +16,7 @@
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
 
 
-## How can I see the compilation command with which Devito compiles the generated code ?
+## How can I see the compilation command with which Devito compiles the generated code?
 
 Set the environment variable `DEVITO_DEBUG_COMPILER=1`. When an Operator gets compiled, the used compilation command will be emitted to stdout. 
 
@@ -25,7 +25,7 @@ If nothing seems to change, it is possible that no compilation is happening unde
 python scripts/clear_devito_cache.py
 ```
 
-## How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?
+## How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0)?
 
 There is currently no API to achieve this straightforwardly. However, there are three work arounds:
 
@@ -51,7 +51,7 @@ configuration.add("compiler", "custom", list(compiler_registry), callback=lambda
 configuration['compiler'] = 'mycompiler'
 ```
 
-## Can I control the MPI domain decomposition ?
+## Can I control the MPI domain decomposition?
 
 Until Devito v3.5 included, domain decomposition occurs along the fastest axis. As of later versions, domain decomposition occurs along the slowest axis, for performance reasons.  And yes, it is possible to control the domain decomposition in user code, but this is undocumented and currently there exists no clean API to do that. However, below we provide some guidelines on how one can implement this.
 
