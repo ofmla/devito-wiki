@@ -111,7 +111,7 @@ TODO
 
 
 ## What's up with <object>.data
-The `.data` property which is associated with objects such as `Constant`, `Function` and `SparseFunction` (along with their derivatives) represents the 'numerical' value of the 'data' associated with that particular object. For example, a `Constant` with have a single numerical value associated with it as shown in the following snippet
+The `.data` property which is associated with objects such as `Constant`, `Function` and `SparseFunction` (along with their derivatives) represents the 'numerical' value of the 'data' associated with that particular object. For example, a `Constant` will have a single numerical value associated with it as shown in the following snippet
 ```
 from devito import Constant
 
