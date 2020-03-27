@@ -1,7 +1,7 @@
 # Frequently Asked Questions
 
 - [How can I see the compilation command with which Devito compiles the generated code](#How-can-I-see-the-compilation-command-with-which-Devito-compiles-the-generated-code)
-- [Where does the generated code go and how do I look at it?](#Where-does-the-generated-code-go-and-how-do-I-look-at-it/?)
+- [Where does the generated code go and how do I look at it](#Where-does-the-generated-code-go-and-how-do-I-look-at-it)
 - [Can I change the directory where Devito stashes the generated code?](#can-i-change-the-directory-where-devito-stashes-the-generated-code?)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#I-create-an-Operator,-look-at-the-generated-code,-and-the-equations-appear-in-a-different-order-than-I-expected.)
 - [What environment variables control how Devito works](#What-environment-variables-control-how-Devito-works)
@@ -29,7 +29,7 @@ python scripts/clear_devito_cache.py
 [top](#Frequently-Asked-Questions)
 
 
-## Where does the generated code go and how do I look at it?
+## Where does the generated code go and how do I look at it
 Devito stores the generated code as well as the jit-compiled libraries in a temporary directory. By setting the environment variable `DEVITO_LOGGING=DEBUG`, Devito will show, amongst other things, the absolute path to the generated code.
 
 [top](#Frequently-Asked-Questions)
