@@ -16,7 +16,7 @@
 
 - [What's up with <object>.data](#What's-up-with-<object>.data)
 
-- [What are the keys to fast code] (#What-are-the-keys-to-fast-code)
+- [What are the keys to fast code](#What-are-the-keys-to-fast-code)
 
 - [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0)?](#How-can-I-change-the-compilation-flags-(for-example,-I-want-to-change-the-optimization-level-from--O3-to--O0)?)
 
