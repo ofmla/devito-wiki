@@ -9,7 +9,7 @@
 - [What is the difference between f() and f[] notation](#What-is-the-difference-between-f()-and-f[]-notation)
 - [What is the indexed notation ](#What-is-the-indexed-notation-)
 - [Is there a flow chart](#Is-there-a-flow-chart)
-- [What's up with object.data](#What's-up-with-object.data)
+- [What's up with object.data](#What's-up-with-object\.data)
 - [What are the keys to fast code](#What-are-the-keys-to-fast-code)
 - [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code](#As-time-increases-in-the-finite-difference-evolution,-are-wavefield-arrays-"swapped"-as-you-might-see-in-c/c++-code)
 - [What units are typically used in Devito examples](#What-units-are-typically-used-in-Devito-examples)
@@ -151,7 +151,7 @@ The indexed notation, or "f[] notation", is discussed [here](#What-is-the-differ
 [top](#Frequently-Asked-Questions)
 
 
-## What's up with object.data
+## What's up with object\.data
 The `.data` property which is associated with objects such as `Constant`, `Function` and `SparseFunction` (along with their derivatives) represents the 'numerical' value of the 'data' associated with that particular object. For example, a `Constant` will have a single numerical value associated with it as shown in the following snippet
 ```
 from devito import Constant
