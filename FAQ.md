@@ -4,7 +4,7 @@
 
 - [How can I see the compilation command with which Devito compiles the generated code ?](#How-can-I-see-the-compilation-command-with-which-Devito-compiles-the-generated-code?)
 
-- [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?](#How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?)
+- [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0) ?](#How-can-I-change-the-compilation-flags-(for-example,-I-want-to-change-the-optimization-level-from--O3-to--O0)?)
 
 - [Can I control the MPI domain decomposition ?](#Can I control the MPI domain decomposition ?)
 
