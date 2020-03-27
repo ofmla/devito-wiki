@@ -9,7 +9,7 @@
 - [What is the difference between f() and f[] notation?](#What-is-the-difference-between-f()-and-f[]-notation?)
 - [What is the indexed notation? ](#What-is-the-indexed-notation?-)
 - [Is there a flow chart?](#Is-there-a-flow-chart?)
-- [What's up with <object>.data](#What's-up-with-<object>.data)
+- [What's up with \<object\>.data](#What's-up-with-<object>.data)
 - [What are the keys to fast code](#What-are-the-keys-to-fast-code)
 - [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code?](#As-time-increases-in-the-finite-difference-evolution,-are-wavefield-arrays-"swapped"-as-you-might-see-in-c/c++-code?)
 - [What units are typically used in Devito examples](#What-units-are-typically-used-in-Devito-examples)
@@ -25,19 +25,24 @@ If nothing seems to change, it is possible that no compilation is happening unde
 ```
 python scripts/clear_devito_cache.py
 ```
+[top][#Frequency Asked Questions]
+
 
 ## Where does the generated code go and how do I look at it?
 Devito stores the generated code as well as the jit-compiled libraries in a temporary directory. By setting the environment variable `DEVITO_LOGGING=DEBUG`, Devito will show, amongst other things, the absolute path to the generated code.
+[top][#Frequency Asked Questions]
 
 
 ## Can I change the directory where Devito stashes the generated code?
 
 Yes, just set the environment variable `TMPDIR` to your favorite location. 
+[top][#Frequency Asked Questions]
 
 
 ## I create an Operator, look at the generated code, and the equations appear in a different order than I expected.
 
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
+[top][#Frequency Asked Questions]
 
 
 ## What environment variables control how Devito works
@@ -64,6 +69,8 @@ DEVITO_DEBUG_COMPILER: [0, 1]. Default: 0
 DEVITO_JIT_BACKDOOR: [0, 1]. Default: 0
 DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
 ```
+[top][#Frequency Asked Questions]
+
 
 ## How do you run the unit tests from the command line
 In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.html), the unit tests provide an excellent way to see how the Devito API works with small self-contained examples. You can exercise individual unit tests with the following python code:
@@ -71,6 +78,8 @@ In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.h
 Py.test <test.py>
 Py.test -vs <test.py>  [more detailed log]
 ```
+[top][#Frequency Asked Questions]
+
 
 ## What is the difference between f() and f[] notation?
 Devito offers a functional language to express finite difference operators. This is introduced [here](https://github.com/devitocodes/devito/blob/master/examples/userapi/01_dsl.ipynb) and systematically used throughout our examples and tutorials. The language relies on what in jargon we call the "f() notation".
@@ -101,11 +110,13 @@ Derivative(f(x, y), x) + f[x + 1000, y]
 ```
 
 However, while the "f() notation" is substantially safe -- the language is designed such that only legal stencil expressions are built -- the "f[] notation" is not, and one can easily end up creating operators performing out-of-bounds accesses. So use it judiciously!
+[top][#Frequency Asked Questions]
 
 
 ## What is the indexed notation? 
 
 The indexed notation, or "f[] notation", is discussed [here](#What-is-the-difference-between-f()-and-f[]-notation?)
+[top][#Frequency Asked Questions]
 
 
 ## Is there a flow chart?
@@ -128,9 +139,10 @@ The indexed notation, or "f[] notation", is discussed [here](#What-is-the-differ
     - MPI
 8. Synthetic
 9. JIT (Just In Time) Compilation
+[top][#Frequency Asked Questions]
 
 
-## What's up with <object>.data
+## What's up with \<object\>.data
 The `.data` property which is associated with objects such as `Constant`, `Function` and `SparseFunction` (along with their derivatives) represents the 'numerical' value of the 'data' associated with that particular object. For example, a `Constant` will have a single numerical value associated with it as shown in the following snippet
 ```
 from devito import Constant
