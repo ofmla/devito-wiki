@@ -1,3 +1,4 @@
-- [ ] tutorial navigation: the tutorial page (http://devitocodes.github.io/devito/tutorials.html) needs additions for:
+- [ ] http://devitocodes.github.io/devito/tutorials.html additions
     - [ ] compiler (http://devitocodes.github.io/devito/compiler.html)
     - [ ] user api (https://github.com/devitocodes/devito/tree/master/examples/userapi) 
+- [ ] add FAQ link to http://devitocodes.github.io/devito/
