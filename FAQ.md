@@ -344,10 +344,10 @@ for x = x_m to x_M
 <section 0 end>
 ```
 
-At compile time, Devito produces the following estimate: ``2*(x_M-x_m+1)*(y_M-y_m+1) + 4*(x_M-x_m+1)*(y_M-y_m+1)*(z_M-z_m+1) = 2*(x_M-x_m+1)*(y_M-y_m+1)*(1 + 2*(z_M-z_m+1))``. Upon `op.apply(...)`, the values of `x_M, x_m, ...` become known and are instantied. This gives the total number of operations performed in ``section0``, which is eventually dividied the section execution time to give the GFlops/s performance.
+At compile time, Devito produces the following estimate: ``2*(x_M-x_m+1)*(y_M-y_m+1) + 4*(x_M-x_m+1)*(y_M-y_m+1)*(z_M-z_m+1) = 2*(x_M-x_m+1)*(y_M-y_m+1)*(1 + 2*(z_M-z_m+1))``. Upon `op.apply(...)`, the values of `x_M, x_m, ...` become known and are instantied. This gives the total number of operations performed in ``section0``, which is eventually divided by the section execution time to give the GFlops/s performance.
 
-The produced GFlops/s has been compared to that reported by Intel Advisor in a number of problems and the results were extremely close, which gives confidence about the soundness of the information produced by Devito. Clearly, when it gets to articles or presentations, we encourage the use of profilers such as Intel Advisor to back these numbers up. The metrics emitted by Devito are intended to give an initial yet fairly realistic indication of the achieved Operator performance.
+The produced GFlops/s has been checked against that reported by Intel Advisor in a number of problems and the results were extremely close, which gives confidence about the soundness of the Devito estimate. Clearly, when it gets to articles or presentations, we encourage the use of profilers such as Intel Advisor to back these numbers up. The metrics emitted by Devito are only intended to give an initial yet fairly realistic indication of the Operator performance.
 
-Compiler ninjas may wonder about the counting of loop-invariant sub-expressions, which might produce an over-estimate of the actual performance. Thanks to aggressive code motion, the amount of innermost-loop-invariant sub-expressions in a Devito Operator is typically negligible, so the Devito estimate basically won't suffer from this subtlety.
+Compiler ninjas may wonder about the counting of loop-invariant sub-expressions, which might produce an over-estimate of the actual performance. Thanks to aggressive code motion, the amount of innermost-loop-invariant sub-expressions in a Devito Operator is typically negligible, so the Devito estimate doesn't basically suffer from this issue, or at least not in a tangible way to the best of our knowledge.
 
 [top](#Frequently-Asked-Questions)
