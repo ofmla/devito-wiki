@@ -332,7 +332,7 @@ The section execution time is computed directly in the generated code through ch
 
 The floating-point operations are counted once all of the symbolic flop-reducing transformations have been performed during compilation. Devito uses an in-house estimate of cost, rather than SymPy's estimate, to take care of some low-level intricacies. For example, Devito's estimate ignores the cost of integer arithmetic used for offset indexing into multi-dimensional arrays. Examples of how the Devito estimator works are available [here](https://github.com/devitocodes/devito/blob/v4.1/tests/test_dse.py#L265).
 
-To calculate the GFlops/s performance, Devito multiplies the floating-point operations calculated at compile time by the size of the iteration space, and it does that at the granularity of individual expression. For example, consider the following snippet:
+To calculate the GFlops/s performance, Devito multiplies the floating-point operations calculated at compile time by the size of the iteration space, and it does that at the granularity of individual expressions. For example, consider the following snippet:
 
 ```
 <section0 start>
