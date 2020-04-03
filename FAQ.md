@@ -56,12 +56,16 @@ The Devito compiler computes a topological ordering of the input equations based
 ## What environment variables control how Devito works
 You can get the list of environment variables with the following python code:
 ```
-from devito import print_defaults                                                                                                                                                                               
-print_defaults()                                                                                                                                                                                                
+from devito import print_defaults
+print_defaults()
 ```
-And the output: 
- - **note: need description of each of these**
- - **note: describe case agnosticity**
+These environment variables can either be set from the shell or programmatically. Note that when setting pro programmatically the case changes and the leading ```DEVITO``` is omitted. The values for these environment variables is case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error.
+| method | example |
+|:---|:---|:---|
+| bourne shell | DEVITO_LANGUAGE=openmp |
+| csh shell | setenv DEVITO_LANGUAGE "openmp" |
+| programmatically | configuration['language'] = 'openmp' |
+
 
 | Variable | Values (default bold) | Description | 
 |:---|:---|:---|
