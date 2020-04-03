@@ -59,7 +59,8 @@ You can get the list of environment variables with the following python code:
 from devito import print_defaults
 print_defaults()
 ```
-These environment variables can either be set from the shell or programmatically. Note that when setting pro programmatically the case changes and the leading ```DEVITO``` is omitted. The values for these environment variables is case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error.
+These environment variables can either be set from the shell or programmatically. Note that when setting these variables programmatically, you need to use lower case, and the leading ```DEVITO``` is omitted. Values are case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error. Below are examples of setting these variables in the shell (**before** running python) and from python (**before** executing devito code).
+
 | method | example |
 |:---|:---|:---|
 | bourne shell | DEVITO_LANGUAGE=openmp |
