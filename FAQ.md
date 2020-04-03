@@ -62,7 +62,7 @@ print_defaults()
 And the output: 
  - **note: need description of each of these**
  - **note: describe case agnosticity**
-```
+
 | Variable | Values (default bold) | Description | 
 |:---|:---|:---|
 | DEVITO_ARCH | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | bla |
@@ -79,7 +79,7 @@ And the output:
 | DEVITO_DEBUG_COMPILER | **0**, 1 | bla | 
 | DEVITO_JIT_BACKDOOR | **0**, 1 | blah |
 | DEVITO_IGNORE_UNKNOWN_PARAMS | **0**, 1 | blah |
-```
+
 
 [top](#Frequently-Asked-Questions)
 
