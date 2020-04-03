@@ -63,21 +63,22 @@ And the output:
  - **note: need description of each of these**
  - **note: describe case agnosticity**
 ```
-DEVITO_ARCH: ['custom', 'gnu', 'gcc', 'clang', 'pgcc', 'pgi', 'osx', 'intel', 'icpc', 'icc', 'intel-knl', 'knl', 'gcc-4.9', 'gcc-5', 'gcc-6', 'gcc-7', 'gcc-8', 'gcc-9']. Default: custom
-DEVITO_PLATFORM: ['cpu64-dummy', 'intel64', 'snb', 'ivb', 'hsw', 'bdw', 'skx', 'klx', 'clx', 'knl', 'knl7210', 'arm', 'power8', 'power9', 'nvidiaX', 'cpu64']. Default: cpu64
-DEVITO_PROFILING: ['basic', 'advanced', 'advisor']. Default: basic
-DEVITO_BACKEND: ['core', 'yask', 'void', 'ops']. Default: core
-DEVITO_DEVELOP: [False, True]. Default: True
-DEVITO_DSE: ['basic', 'advanced', 'aggressive']. Default: advanced
-DEVITO_DLE: ['noop', 'advanced', ('noop', 'C'), ('advanced', 'C')]. Default: advanced
-DEVITO_OPENMP: [0, 1]. Default: 0
-DEVITO_MPI: [0, 1, 'basic', 'diag', 'overlap', 'overlap2', 'full']. Default: 0
-DEVITO_AUTOTUNING: ['off', 'basic', 'aggressive', 'max', ['off', 'preemptive'], ['off', 'destructive'], ['off', 'runtime'], ['basic', 'preemptive'], ['basic', 'destructive'], ['basic', 'runtime'], ['aggressive', 'preemptive'], ['aggressive', 'destructive'], ['aggressive', 'runtime'], ['max', 'preemptive'], ['max', 'destructive'], ['max', 'runtime']]. Default: off
-DEVITO_LOGGING: ['DEBUG', 'PERF', 'YASK', 'YASK_WARN', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']. Default: INFO
-DEVITO_FIRST_TOUCH: [0, 1]. Default: 0
-DEVITO_DEBUG_COMPILER: [0, 1]. Default: 0
-DEVITO_JIT_BACKDOOR: [0, 1]. Default: 0
-DEVITO_IGNORE_UNKNOWN_PARAMS: [0, 1]. Default: 0
+| Variable | Values (default bold) | Description | 
+|:---|:---|:---|
+| DEVITO_ARCH | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | bla |
+| DEVITO_PLATFORM | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | bla |
+| DEVITO_PROFILING | **basic**, advanced, advisor | bla |
+| DEVITO_BACKEND | **core**, void | blah |
+| DEVITO_DEVELOP | **True**, False | blah |
+| DEVITO_OPT | noop, **advanced**, advanced-fsg, (noop, C), (noop, openmp), (noop, openacc), (advanced, C), (advanced, openmp), (advanced, openacc), (advanced-fsg, C), (advanced-fsg, openmp), (advanced-fsg, openacc)] | blah | 
+| DEVITO_MPI | **0**, 1, basic, diag, overlap, overlap2, full | blah | 
+| DEVITO_LANGUAGE | 0, 1, **C**, openmp, openacc | blah |
+| DEVITO_AUTOTUNING | **off**, basic, aggressive, max, [off, preemptive], [off, destructive], [off, runtime], [basic, preemptive], [basic, destructive], [basic, runtime], [aggressive, preemptive], [aggressive, destructive], [aggressive, runtime], [max, preemptive], [max, destructive], [max, runtime] | blah |
+| DEVITO_LOGGING | DEBUG, PERF, **INFO**, WARNING, ERROR, CRITICAL | blah |
+| DEVITO_FIRST_TOUCH | **0**, 1 | blah |
+| DEVITO_DEBUG_COMPILER | **0**, 1 | bla | 
+| DEVITO_JIT_BACKDOOR | **0**, 1 | blah |
+| DEVITO_IGNORE_UNKNOWN_PARAMS | **0**, 1 | blah |
 ```
 
 [top](#Frequently-Asked-Questions)
