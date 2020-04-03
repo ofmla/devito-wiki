@@ -77,7 +77,7 @@ These environment variables can either be set from the shell or programmatically
 
 Note the default values are in **bold**.
 
-| Variable | Values (default values in bold) | Description | 
+| Variable | Values | Description | 
 |:---|:---|:---|
 | DEVITO_ARCH | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | bla |
 | DEVITO_PLATFORM | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | bla |
