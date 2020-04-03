@@ -73,26 +73,67 @@ These environment variables can either be set from the shell or programmatically
 | programmatically | configuration['language'] = 'openmp' |
 
 
-### Table of description for DEVITO environment variables
+### Table of values for DEVITO environment variables
 
 Note the default values are in **bold**.
 
-| Variable | Values | Description | 
-|:---|:---|:---|
-| DEVITO_ARCH | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | bla |
-| DEVITO_PLATFORM | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | bla |
-| DEVITO_PROFILING | **basic**, advanced, advisor | bla |
-| DEVITO_BACKEND | **core**, void | blah |
-| DEVITO_DEVELOP | **True**, False | blah |
-| DEVITO_OPT | noop, **advanced**, advanced-fsg, (noop, C), (noop, openmp), (noop, openacc), (advanced, C), (advanced, openmp), (advanced, openacc), (advanced-fsg, C), (advanced-fsg, openmp), (advanced-fsg, openacc)] | blah | 
-| DEVITO_MPI | **0**, 1, basic, diag, overlap, overlap2, full | blah | 
-| DEVITO_LANGUAGE | 0, 1, **C**, openmp, openacc | blah |
-| DEVITO_AUTOTUNING | **off**, basic, aggressive, max, [off, preemptive], [off, destructive], [off, runtime], [basic, preemptive], [basic, destructive], [basic, runtime], [aggressive, preemptive], [aggressive, destructive], [aggressive, runtime], [max, preemptive], [max, destructive], [max, runtime] | blah |
-| DEVITO_LOGGING | DEBUG, PERF, **INFO**, WARNING, ERROR, CRITICAL | blah |
-| DEVITO_FIRST_TOUCH | **0**, 1 | blah |
-| DEVITO_DEBUG_COMPILER | **0**, 1 | bla | 
-| DEVITO_JIT_BACKDOOR | **0**, 1 | blah |
-| DEVITO_IGNORE_UNKNOWN_PARAMS | **0**, 1 | blah |
+| Variable | Values |
+|:---|:---|
+| [DEVITO_ARCH](#devito-arch} | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | 
+| DEVITO_PLATFORM | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | 
+| DEVITO_PROFILING | **basic**, advanced, advisor | 
+| DEVITO_BACKEND | **core**, void | 
+| DEVITO_DEVELOP | **True**, False | 
+| DEVITO_OPT | noop, **advanced**, advanced-fsg, (noop, C), (noop, openmp), (noop, openacc), (advanced, C), (advanced, openmp), (advanced, openacc), (advanced-fsg, C), (advanced-fsg, openmp), (advanced-fsg, openacc)] | 
+| DEVITO_MPI | **0**, 1, basic, diag, overlap, overlap2, full | 
+| DEVITO_LANGUAGE | 0, 1, **C**, openmp, openacc | 
+| DEVITO_AUTOTUNING | **off**, basic, aggressive, max, [off, preemptive], [off, destructive], [off, runtime], [basic, preemptive], [basic, destructive], [basic, runtime], [aggressive, preemptive], [aggressive, destructive], [aggressive, runtime], [max, preemptive], [max, destructive], [max, runtime] | 
+| DEVITO_LOGGING | DEBUG, PERF, **INFO**, WARNING, ERROR, CRITICAL | 
+| DEVITO_FIRST_TOUCH | **0**, 1 | 
+| DEVITO_DEBUG_COMPILER | **0**, 1 | 
+| DEVITO_JIT_BACKDOOR | **0**, 1 | 
+| DEVITO_IGNORE_UNKNOWN_PARAMS | **0**, 1 | 
+
+
+### DEVITO_ARCH
+
+### DEVITO_PLATFORM
+
+### DEVITO_PROFILING
+blah
+
+### DEVITO_BACKEND
+blah
+
+### DEVITO_DEVELOP
+blah
+
+### DEVITO_OPT
+blah
+
+### DEVITO_MPI
+blah
+
+### DEVITO_LANGUAGE
+blah
+
+### DEVITO_AUTOTUNING
+blah
+
+### DEVITO_LOGGING
+blah
+
+### DEVITO_FIRST_TOUCH
+blah
+
+### DEVITO_DEBUG_COMPILER
+blah
+
+### DEVITO_JIT_BACKDOOR
+blah
+
+### DEVITO_IGNORE_UNKNOWN_PARAMS
+blah
 
 
 [top](#Frequently-Asked-Questions)
