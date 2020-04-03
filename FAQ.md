@@ -55,14 +55,14 @@ The Devito compiler computes a topological ordering of the input equations based
 
 ## What environment variables control how Devito works
 
-### How to get the list of DEVITO environment variables
+### How to get the list of Devito environment variables
 You can get the list of environment variables with the following python code:
 ```
 from devito import print_defaults
 print_defaults()
 ```
 
-### How to set DEVITO environment variables
+### How to set Devito environment variables
 
 These environment variables can either be set from the shell or programmatically. Note that when setting these variables programmatically, you need to use lower case, and the leading ```DEVITO``` is omitted. Values are case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error. Below are examples of setting these variables in the shell (**before** running python) and from python (**before** executing devito code).
 
@@ -73,13 +73,13 @@ These environment variables can either be set from the shell or programmatically
 | programmatically | configuration['language'] = 'openmp' |
 
 
-### Table of values for DEVITO environment variables
+### Table of values for Devito environment variables
 
 Note the default values are in **bold**.
 
 | Variable | Values |
 |:---|:---|
-| [DEVITO_ARCH](#devito_arch} | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | 
+| [DEVITO_ARCH](#DEVITO_ARCH} | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | 
 | [DEVITO_PLATFORM](#DEVITO_PLATFORM) | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | 
 | [DEVITO_PROFILING](#DEVITO_PROFILING) | **basic**, advanced, advisor | 
 | [DEVITO_BACKEND](#DEVITO_BACKEND) | **core**, void | 
@@ -94,7 +94,7 @@ Note the default values are in **bold**.
 | [DEVITO_JIT_BACKDOOR](#DEVITO_JIT_BACKDOOR) | **0**, 1 | 
 | [DEVITO_IGNORE_UNKNOWN_PARAMS](#DEVITO_IGNORE_UNKNOWN_PARAMS) | **0**, 1 | 
 
-### Description of DEVITO environment variables
+### Description of Devito environment variables
 
 #### DEVITO_ARCH
 blah
