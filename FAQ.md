@@ -75,7 +75,7 @@ These environment variables can either be set from the shell or programmatically
 
 ### Table of values for Devito environment variables
 
-Note the default values are in **bold**.
+Note the default values are in **bold**. Links in the table take you to a section describing how the variables controls the behavior of Devito execution.
 
 | Variable | Values |
 |:---|:---|
