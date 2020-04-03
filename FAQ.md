@@ -54,21 +54,30 @@ The Devito compiler computes a topological ordering of the input equations based
 
 
 ## What environment variables control how Devito works
+
+### How to get the list of ```DEVITO``` environment variables
 You can get the list of environment variables with the following python code:
 ```
 from devito import print_defaults
 print_defaults()
 ```
+
+### How to set ```DEVITO``` environment variables
+
 These environment variables can either be set from the shell or programmatically. Note that when setting these variables programmatically, you need to use lower case, and the leading ```DEVITO``` is omitted. Values are case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error. Below are examples of setting these variables in the shell (**before** running python) and from python (**before** executing devito code).
 
-| method | example |
+| Method | Example |
 |:---|:---|
 | bourne shell | DEVITO_LANGUAGE=openmp |
 | csh shell | setenv DEVITO_LANGUAGE "openmp" |
 | programmatically | configuration['language'] = 'openmp' |
 
 
-| Variable | Values (default bold) | Description | 
+### Table of description for ```DEVITO``` environment variables
+
+Note the default values are in **bold**.
+
+| Variable | Values (default values in bold) | Description | 
 |:---|:---|:---|
 | DEVITO_ARCH | **custom**, gnu, gcc, clang, pgcc, pgi, osx, intel, icpc, icc, intel-knl, knl, gcc-4.9, gcc-5, gcc-6, gcc-7, gcc-8, gcc-9 | bla |
 | DEVITO_PLATFORM | **cpu64**, cpu64-dummy, intel64, snb, ivb, hsw, bdw, skx, klx, clx, knl, knl7210, arm, power8, power9, nvidiaX] | bla |
