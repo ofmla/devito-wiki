@@ -62,7 +62,7 @@ print_defaults()
 These environment variables can either be set from the shell or programmatically. Note that when setting these variables programmatically, you need to use lower case, and the leading ```DEVITO``` is omitted. Values are case sensitive, meaning ```openmp``` is accepted and ```OPENMP``` will throw an error. Below are examples of setting these variables in the shell (**before** running python) and from python (**before** executing devito code).
 
 | method | example |
-|:---|:---|:---|
+|:---|:---|
 | bourne shell | DEVITO_LANGUAGE=openmp |
 | csh shell | setenv DEVITO_LANGUAGE "openmp" |
 | programmatically | configuration['language'] = 'openmp' |
