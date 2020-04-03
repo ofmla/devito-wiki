@@ -68,8 +68,8 @@ These environment variables can either be set from the shell or programmatically
 
 | Method | Example |
 |:---|:---|
-| bourne shell | DEVITO_LANGUAGE=openmp |
-| csh shell | setenv DEVITO_LANGUAGE "openmp" |
+| bourne shell | DEVITO_LANGUAGE="openmp" |
+| c shell | setenv DEVITO_LANGUAGE "openmp" |
 | programmatically | configuration['language'] = 'openmp' |
 
 
