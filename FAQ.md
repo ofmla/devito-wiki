@@ -59,7 +59,9 @@ You can get the list of environment variables with the following python code:
 from devito import print_defaults                                                                                                                                                                               
 print_defaults()                                                                                                                                                                                                
 ```
-And the output: **[NOTE: need a description of each of these]**
+And the output: 
+ - **note: need description of each of these**
+ - **note: describe case agnosticity**
 ```
 DEVITO_ARCH: ['custom', 'gnu', 'gcc', 'clang', 'pgcc', 'pgi', 'osx', 'intel', 'icpc', 'icc', 'intel-knl', 'knl', 'gcc-4.9', 'gcc-5', 'gcc-6', 'gcc-7', 'gcc-8', 'gcc-9']. Default: custom
 DEVITO_PLATFORM: ['cpu64-dummy', 'intel64', 'snb', 'ivb', 'hsw', 'bdw', 'skx', 'klx', 'clx', 'knl', 'knl7210', 'arm', 'power8', 'power9', 'nvidiaX', 'cpu64']. Default: cpu64
