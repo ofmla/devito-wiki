@@ -20,7 +20,7 @@ source activate devito
 
 export DEVITO_HOME=/home/opesci/devito
 export DEVITO_ARCH=intel
-export DEVITO_OPENMP=1
+export DEVITO_LANGUAGE=openmp
 export DEVITO_MPI=basic
 export DEVITO_LOGGING=DEBUG
 
