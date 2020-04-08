@@ -86,7 +86,7 @@ Note the default values are in **bold**. Links in the table take you to a sectio
 | [DEVITO_DEVELOP](#DEVITO_DEVELOP) | **True**, False | 
 | [DEVITO_OPT](#DEVITO_OPT) | noop, **advanced**, advanced-fsg, (noop, C), (noop, openmp), (noop, openacc), (advanced, C), (advanced, openmp), (advanced, openacc), (advanced-fsg, C), (advanced-fsg, openmp), (advanced-fsg, openacc)] | 
 | [DEVITO_MPI](#DEVITO_MPI) | **0**, 1, basic, diag, overlap, overlap2, full | 
-| [DEVITO_LANGUAGE](#DEVITO_LANGUAGE) | 0, 1, **C**, openmp, openacc | 
+| [DEVITO_LANGUAGE](#DEVITO_LANGUAGE) | 0, 1, **C**, openmp, openacc (0==C, 1==openmp)| 
 | [DEVITO_AUTOTUNING](#DEVITO_AUTOTUNING) | **off**, basic, aggressive, max, [off, preemptive], [off, destructive], [off, runtime], [basic, preemptive], [basic, destructive], [basic, runtime], [aggressive, preemptive], [aggressive, destructive], [aggressive, runtime], [max, preemptive], [max, destructive], [max, runtime] | 
 | [DEVITO_LOGGING](#DEVITO_LOGGING) | DEBUG, PERF, **INFO**, WARNING, ERROR, CRITICAL | 
 | [DEVITO_FIRST_TOUCH](#DEVITO_FIRST_TOUCH) | **0**, 1 | 
