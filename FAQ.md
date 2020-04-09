@@ -29,8 +29,7 @@ After you build an ```op=Operator(...)``` implementing one or more equations, yo
 ```
 import numpy as np
 import devito
-from devito import *
-from devito.finite_differences import Derivative
+from devito import Grid, Function, Eq, Operator
 grid = Grid(shape=(21,), extent=(1.0,), origin=(0.0,), dtype=np.float32)
 x = grid.dimensions[0]
 f = Function(name='f', grid=grid, space_order=8)
