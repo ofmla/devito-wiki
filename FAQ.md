@@ -11,7 +11,7 @@
 - [Is there a flow chart](#is-there-a-flow-chart)
 - [What's up with object.data](#whats-up-with-objectdata)
 - [What are the keys to fast code](#what-are-the-keys-to-fast-code)
-- [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c   code](#as-time-increases-in-the-finite-difference-evolution-are-wavefield-arrays-swapped-as-you-might-see-in-cc-code)
+- [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code](#as-time-increases-in-the-finite-difference-evolution-are-wavefield-arrays-swapped-as-you-might-see-in-cc-code)
 - [What units are typically used in Devito examples](#what-units-are-typically-used-in-devito-examples)
 - [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0)](#how-can-i-change-the-compilation-flags-for-example-i-want-to-change-the-optimization-level-from--o3-to--o0)
 - [Can I control the MPI domain decomposition](#can-i-control-the-mpi-domain-decomposition)
