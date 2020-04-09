@@ -39,6 +39,54 @@ op = Operator(eq_dfdx)
 print(op)
 ```
 
+And the output:
+
+```
+#define _POSIX_C_SOURCE 200809L
+#include "stdlib.h"
+#include "math.h"
+#include "sys/time.h"
+#include "xmmintrin.h"
+#include "pmmintrin.h"
+
+struct dataobj
+{
+  void *restrict data;
+  int * size;
+  int * npsize;
+  int * dsize;
+  int * hsize;
+  int * hofs;
+  int * oofs;
+} ;
+
+struct profiler
+{
+  double section0;
+} ;
+
+
+int Kernel(struct dataobj *restrict f_vec, struct dataobj *restrict g_vec, const float h_x, struct profiler * timers, const int x_M, const int x_m)
+{
+  float (*restrict f) __attribute__ ((aligned (64))) = (float (*)) f_vec->data;
+  float (*restrict g) __attribute__ ((aligned (64))) = (float (*)) g_vec->data;
+  /* Flush denormal numbers to zero in hardware */
+  _MM_SET_DENORMALS_ZERO_MODE(_MM_DENORMALS_ZERO_ON);
+  _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
+  struct timeval start_section0, end_section0;
+  gettimeofday(&start_section0, NULL);
+  /* Begin section0 */
+  for (int x = x_m; x <= x_M; x += 1)
+  {
+    g[x + 8] = (3.57142857e-3F*(f[x + 4] - f[x + 12]) + 3.80952381e-2F*(-f[x + 5] + f[x + 11]) + 2.0e-1F*(f[x + 6] - f[x + 10]) + 8.0e-1F*(-f[x + 7] + f[x + 9]))/h_x;
+  }
+  /* End section0 */
+  gettimeofday(&end_section0, NULL);
+  timers->section0 += (double)(end_section0.tv_sec-start_section0.tv_sec)+(double)(end_section0.tv_usec-start_section0.tv_usec)/1000000;
+  return 0;
+}
+```
+
 [top](#Frequently-Asked-Questions)
 
 
