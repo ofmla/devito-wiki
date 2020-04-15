@@ -28,7 +28,7 @@ export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 ```
 
-## 2. Download and install PGI compiler tools community edition
+## 3. Download and install PGI compiler tools community edition
 
 We suggest downloading version 19.10 of PGI compilers which has a free license for 1 year.
 Go to `https://www.pgroup.com/support/download_community.php?file=pgi-community-linux-x64`
@@ -45,8 +45,8 @@ to install the PGI compilers.
 ```
 Then: 
 - Accept the terms
-- Choose single system install (Option 1)
-- Installation directory? [/opt/pgi] Press enter to accept, unless preferred otherwise.
+- Choose `single system install` (Option 1)
+- `Installation directory? [/opt/pgi]` Press enter to accept, unless preferred otherwise.
 Installation has now started.
 
 After a couple of minutes you will see:
@@ -92,7 +92,7 @@ PGI Compilers and Tools
 Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
 ```
 
-## 3. Download and install Devito. We will install Devito using python3
+## 4. Download and install Devito. We will install Devito using python3
 ```
 sudo apt-get install python3 python3-pip # Install python3 and pip3
 git clone https://github.com/devitocodes/devito.git # Clone Devito
@@ -100,13 +100,13 @@ cd devito
 pip3 install -e .
 ```
 
-### 3b. Installing mpi4py using PGI compilers (Will take a few minutes)
+
+### 4b. Installing mpi4py using PGI compilers (Will take a few minutes)
 ```
 env MPICC=/opt/pgi/linux86-64/19.10/mpi/openmpi-3.1.3/bin/mpicc CC=pgcc CFLAGS=-noswitcherror pip3 install --no-cache-dir mpi4py
 ```
 
-
-## 4. Generate and execute a Devito operator
+## 5. Generate and execute a Devito operator
 In order to generate OpenACC code using Devito we need to set a few environment flags in order to inform our compiler.
 
 We need to set:
@@ -125,6 +125,15 @@ Let's try the elastic operator:
 ```
 python3 examples/seismic/elastic/elastic_example.py
 ```
+
+Do you wanna try MPI in a multi-GPU setup?
+```
+export DEVITO_MPI=1
+DEVITO_MPI=1 mpirun -n 2 python3 examples/seismic/elastic/elastic_example.py
+```
+In order to check whether your installation is right you should be able to pass all tests in:
+`DEVITO_ARCH=pgcc DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openacc py.test tests/test_gpu_openacc.py`
+If you have not installed Open MPI than only the first 3 tests are supposed to run.
 
 ## Last step: Did it work?
 
