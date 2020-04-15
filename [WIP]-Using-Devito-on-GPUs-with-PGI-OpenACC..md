@@ -13,6 +13,14 @@ sudo apt-get install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
+## 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
+
+```
+Follow the instructions here to install CUDA.
+wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
+sudo sh cuda_10.1.243_418.87.00_linux.run
+```
+
 ## 2. Download and install PGI compiler tools community edition
 
 We suggest downloading version 19.10 of PGI compilers which has a free license for 1 year.
