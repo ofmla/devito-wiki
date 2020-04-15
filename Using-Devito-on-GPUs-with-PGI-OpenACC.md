@@ -27,6 +27,7 @@ Follow the instructions on screen to install CUDA. Then:
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 ```
+We suggest adding those exports to .bashrc as they are always needed to run on GPUs
 
 ## 3. Download and install PGI compiler tools community edition
 
@@ -54,7 +55,8 @@ After a couple of minutes you will see:
 
 The installation will continue with examples and PGI CUDA components.
 After another couple of minutes you will be asked if you want to install Open MPI library.
-One should install this library if aims to run Devito over multiple GPUs with MPI.
+MPI is required to parallelise solves using domain-decompositions methods.
+
 If so, press `enter` and then type `yes` in order to install Open MPI onto your system.
 Then you will be asked:
 - `Do you want to enable NVIDIA GPU support in Open MPI? (y/n)` *Answer y(es)*
@@ -68,6 +70,7 @@ $ export PATH=/opt/pgi/linux86-64/19.10/bin:$PATH;
 $ export MANPATH=$MANPATH:/opt/pgi/linux86-64/19.10/man;
 $ export LM_LICENSE_FILE=$LM_LICENSE_FILE:/opt/pgi/license.dat; 
 ```
+We suggest adding those exports to .bashrc as they are always needed to run on GPUs
 
 Try: `$ pgcc -V` and you should now see:
 ```
@@ -85,6 +88,8 @@ $ export MANPATH=$MANPATH:$PGI/linux86-64/19.10/mpi/openmpi-3.1.3/man
 $ export PATH=/opt/pgi/linux86-64/19.10/bin:opt/pgi/linux86-64/19.10/mpi/openmpi-3.1.3/bin:$PATH
 $ export MANPATH=$MANPATH:/opt/pgi/linux86-64/19.10/mpi/openmpi-3.1.3/man
 ```
+We suggest adding those exports to .bashrc as they are always needed to run on GPUs
+
 Try: `$ mpicc --version` and you should now see:
 ```
 pgcc 19.10-0 LLVM 64-bit target on x86-64 Linux -tp haswell 
