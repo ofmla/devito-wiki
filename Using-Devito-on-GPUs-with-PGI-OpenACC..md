@@ -46,7 +46,7 @@ to install the PGI compilers.
 Then: 
 - Accept the terms
 - Choose `single system install` (Option 1)
-- `Installation directory? [/opt/pgi]` Press enter to accept, unless preferred otherwise.
+- `Installation directory? [/opt/pgi]` Press enter to accept unless preferred otherwise.
 Installation has now started.
 
 After a couple of minutes you will see:
@@ -54,12 +54,12 @@ After a couple of minutes you will see:
 
 The installation will continue with examples and PGI CUDA components.
 After another couple of minutes you will be asked if you want to install Open MPI library.
-One should install this library if aims to running Devito over multiple GPUs with MPI.
-If so, press enter and then yes in order to install Open MPI onto your system.
+One should install this library if aims to run Devito over multiple GPUs with MPI.
+If so, press `enter` and then type `yes` in order to install Open MPI onto your system.
 Then you will be asked:
 - `Do you want to enable NVIDIA GPU support in Open MPI? (y/n)` *Answer y(es)*
-- `Do you wish to obtain permanent license key or configure license service? (y/n)` *Answer no*
-- `Do you want the files in the install directory to be read-only? (y/n)` *Answer no*
+- `Do you wish to obtain permanent license key or configure license service? (y/n)` *Answer n(o)*
+- `Do you want the files in the install directory to be read-only? (y/n)` *Answer n(o)*
 
 After the installation is finished you should take care of the required paths:
 ```
@@ -78,7 +78,7 @@ Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
 
 If you have installed Open MPI library also add:
 
-**Note:** Official PGI compilers installation docs have `openmpi` instead of `openmpi-3.1.3` in the path.
+**Note:** Official PGI compilers installation docs have `openmpi` instead of `openmpi-3.1.3` in the path. This is wrong. You should use openmpi-3.1.3 otherwise your setup will not be able to see Open MPI installation.
 ```
 $ export PATH=$PGI/linux86-64/19.10/mpi/openmpi-3.1.3/bin:$PATH
 $ export MANPATH=$MANPATH:$PGI/linux86-64/19.10/mpi/openmpi-3.1.3/man
@@ -92,14 +92,13 @@ PGI Compilers and Tools
 Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
 ```
 
-## 4. Download and install Devito. We will install Devito using python3
+## 4. Download and install Devito. We will install Devito using python3. We will avoid a conda env because installing mpi4py with PGI is troublesome.
 ```
 sudo apt-get install python3 python3-pip # Install python3 and pip3
 git clone https://github.com/devitocodes/devito.git # Clone Devito
 cd devito
 pip3 install -e .
 ```
-
 
 ### 4b. Installing mpi4py using PGI compilers (Will take a few minutes)
 ```
