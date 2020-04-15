@@ -21,6 +21,13 @@ wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installer
 sudo sh cuda_10.1.243_418.87.00_linux.run
 ```
 
+Follow the instructions on screen to install CUDA. Then:
+
+```
+export PATH=/usr/local/cuda-10.1/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
+```
+
 ## 2. Download and install PGI compiler tools community edition
 
 We suggest downloading version 19.10 of PGI compilers which has a free license for 1 year.
