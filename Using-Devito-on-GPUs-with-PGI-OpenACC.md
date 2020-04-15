@@ -14,6 +14,7 @@ sudo apt install -y pkg-config
 ```
 
 ## 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
+An NVIDIA CUDA driver must be installed on a system with a GPU before you can runa program compiled for the GPU on that system. PGI products do not contain CUDA Drivers. You must download and install the appropriate CUDA Driver from NVIDIA.
 
 ```
 Follow the instructions here to install CUDA.
