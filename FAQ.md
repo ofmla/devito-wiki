@@ -5,6 +5,7 @@
 - [Where does the generated code go and how do I look at it](#where-does-the-generated-code-go-and-how-do-i-look-at-it)
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
+- [How are abstractions used in the seismic examples](how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
 - [How do you run the unit tests from the command line](#how-do-you-run-the-unit-tests-from-the-command-line)
 - [What is the difference between f() and f[] notation](#what-is-the-difference-between-f-and-f-notation)
@@ -117,6 +118,19 @@ Yes, just set the environment variable `TMPDIR` to your favorite location.
 ## I create an Operator, look at the generated code, and the equations appear in a different order than I expected.
 
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
+
+[top](#Frequently-Asked-Questions)
+
+
+## How are abstractions used in the seismic examples 
+
+Many Devito examples are provided that demonstrate application for specific problems, including e.g. fluid mechanics and seismic modeling. We focus in this question on seismic modeling examples that provide convenience wrappers to build differential equations and create Devito Operators for various types of modeling physics including isotropic and anisotropic, acoustic and elastic. 
+
+These examples ([link](https://github.com/devitocodes/devito/tree/master/examples)) use abstractions to remove details from the methods that actually build the operators. The idea is that at the time you build a Devito operator, you don't need specific material parameter arrays (e.g. velocity or density or Thomsen parameter), and you don't need specific locations of sources and receiver instruments. All you need to build the operator is a placeholder that can provide the dimensionality and (for example) the spatial order of finite difference approximation you wish to employ. In this way you can build and return functioning highly optimized operators to which you can provide the specific implementation details at runtime via command line arguments. 
+
+An example of this abstraction (or placeholder design pattern) in operation is the call to the isotropic acoustic ```AcousticWaveSolver.forward``` method that returns a Devito operator via the ```ForwardOperator``` method defined in [operators.py](https://github.com/devitocodes/devito/blob/master/examples/seismic/acoustic/operators.py#L65-L105). 
+
+You will note that this method uses placeholders for the material parameter arrays and the source and receiver locations, and then at runtime uses arguments provided to the returned ```Operator``` to provide state to the placeholders. You can see this happen on lines 112-113 in [wavesolver.py](https://github.com/devitocodes/devito/blob/master/examples/seismic/acoustic/wavesolver.py#L112-L113).
 
 [top](#Frequently-Asked-Questions)
 
