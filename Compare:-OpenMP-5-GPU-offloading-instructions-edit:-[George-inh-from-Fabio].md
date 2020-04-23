@@ -240,17 +240,11 @@ Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
 Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
 
 
+## 8. OpenMP 5 GPU Offloading in Devito
 
+To use OpenMP 5 GPU Offloading in Devito the following flags are required:
 ```
-sudo apt-get install python3 python3-pip python3-devel python3-libs
-sudo apt-get install mpich libmpich-dev
-pip3 install --upgrade pip
-git clone https://github.com/devitocodes/devito.git
-cd devito
-pip3 install --user -e .[extras]
 export DEVITO_ARCH=clang
 export DEVITO_PLATFORM=nvidiaX
-export DEVITO_OPENMP=1
-
-
+export DEVITO_LANGUAGE=openmp
 ```
