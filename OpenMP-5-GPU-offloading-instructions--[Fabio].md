@@ -240,3 +240,12 @@ sudo apt-get install libncurses5-dev
 Then follow the instructions [here](https://github.com/Syllo/nvtop#nvtop-build).
 
 Now rerun the example while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
+
+## 8. OpenMP 5 GPU Offloading in Devito
+
+To use OpenMP 5 GPU Offloading in Devito the following flags are required:
+```
+export DEVITO_ARCH=clang
+export DEVITO_PLATFORM=nvidiaX
+export DEVITO_LANGUAGE=openmp
+```
