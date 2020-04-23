@@ -5,7 +5,7 @@
 - [Where does the generated code go and how do I look at it](#where-does-the-generated-code-go-and-how-do-i-look-at-it)
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
-- [How are abstractions used in the seismic examples](how-are-abstractions-used-in-the-seismic-examples)
+- [How are abstractions used in the seismic examples](#how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
 - [How do you run the unit tests from the command line](#how-do-you-run-the-unit-tests-from-the-command-line)
 - [What is the difference between f() and f[] notation](#what-is-the-difference-between-f-and-f-notation)
