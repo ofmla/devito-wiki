@@ -1,4 +1,5 @@
-**NOTE: Haven't tried with MPI yet**
+1. **NOTE: Haven't tried with MPI yet**
+2. **NOTE: Haven't tried AMD GPUs yet**
 
 The conda-based installation procedure worked like a charm.
 
