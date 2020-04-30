@@ -40,3 +40,28 @@ conda env create -f environment-dev.yml
 source activate devito
 pip install -e .
 ```
+
+
+Now let's try to install AMD's version of LLVM for OpenMP 5 offloading. The compiler is named `AOMP` (while the classic AMD compiler for CPU is AOCC). The steps below are partly taken from [here](https://github.com/ROCm-Developer-Tools/aomp/blob/master/docs/UBUNTUINSTALL.md)
+
+```
+wget https://github.com/ROCm-Developer-Tools/aomp/releases/download/rel_11.5-0/aomp_Ubuntu1804_11.5-0_amd64.deb
+sudo dpkg -i aomp_Ubuntu1804_11.5-0_amd64.deb
+echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
+wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+sudo apt update
+sudo apt install rock-dkms -y
+```
+
+and finally (fingers crossed):
+
+```
+sudo reboot
+```
+
+and once back:
+
+```
+sudo usermod -a -G video $USER
+```
