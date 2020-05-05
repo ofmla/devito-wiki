@@ -65,3 +65,33 @@ and once back:
 ```
 sudo usermod -a -G video $USER
 ```
+
+### Notes
+
+* Use `aompcc` not `clang` to compile. `aompcc` is a wrapper around `clang` which adds all the necessary flags for GPU offloading. Hence, use `DEVITO_ARCH=aompcc`.
+
+### Radeontop
+
+Not quite cute as `nvtop`, but still handy.
+
+Installation:
+
+```
+cd ~
+sudo apt-get install libdrm-dev libncurses-dev libpciaccess-dev libxcb-randr0-dev libxcb-dri2-0-dev pkg-config
+git clone https://github.com/clbr/radeontop.git
+cd radeontop
+CC=clang make
+```
+
+Make it in PATH forever
+
+```
+sudo cp radeontop /usr/local/bin/
+```
+
+Use it
+
+```
+sudo radeontop
+```
