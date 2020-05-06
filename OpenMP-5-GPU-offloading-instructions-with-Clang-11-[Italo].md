@@ -80,7 +80,7 @@ Once finished, we have to install it
 make -j 24 install
 ```
 
-Then add the following lines to the end of the file `~/.bashrc`:
+Then add the following lines to the end of the file `~/.bashrc`. The following lines suppose your `llvm` directory is in your home directory (`~/`).
 
 ```
 export PATH=~/llvm/bin:$PATH
