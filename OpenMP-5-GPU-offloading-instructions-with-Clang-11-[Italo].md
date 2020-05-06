@@ -13,7 +13,7 @@ Test platform:
 sudo apt update
 sudo apt install build-essential
 sudo snap install cmake --classic
-sudo apt-get install -y libelf-dev libffi-dev
+sudo apt install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
@@ -78,6 +78,19 @@ Once finished, we have to install it
 
 ```
 make -j 24 install
+```
+
+Then add the following lines to the end of the file `~/.bashrc`:
+
+```
+export PATH=~/llvm/bin:$PATH
+export LD_LIBRARY_PATH=~/llvm/lib:$LD_LIBRARY_PATH
+```
+
+After that, update the environment variables through the command:
+
+```
+source ~/.bashrc
 ```
 
 ## 5. Rebuild the OpenMP runtime libraries with Clang
