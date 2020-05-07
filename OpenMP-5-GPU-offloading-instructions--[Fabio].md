@@ -15,45 +15,48 @@ sudo apt-get install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
-## 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
+## 2. Download and install CUDA (recall: this is for an Ubuntu 18.04 machine)
 
 ```
-Follow the instructions here to install CUDA.
-wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
-sudo sh cuda_10.1.243_418.87.00_linux.run
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
 ```
 
-Follow the instructions on screen to install CUDA. Then:
+Then:
 
 ```
-export PATH=/usr/local/cuda-10.1/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-10.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
 ```
 
 ## 3. Get the source code for the required LLVM packages
 
 ```
-wget https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz
-wget https://releases.llvm.org/9.0.0/cfe-9.0.0.src.tar.xz
-wget https://releases.llvm.org/9.0.0/openmp-9.0.0.src.tar.xz
-wget https://releases.llvm.org/9.0.0/compiler-rt-9.0.0.src.tar.xz
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang-10.0.0.src.tar.xz
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/openmp-10.0.0.src.tar.xz
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/compiler-rt-10.0.0.src.tar.xz
 ```
 
 Which we have to untar
 
 ```
-tar xf llvm-9.0.0.src.tar.xz
-tar xf cfe-9.0.0.src.tar.xz
-tar xf openmp-9.0.0.src.tar.xz
-tar xf compiler-rt-9.0.0.src.tar.xz
+tar xf llvm-10.0.0.src.tar.xz
+tar xf clang-10.0.0.src.tar.xz
+tar xf openmp-10.0.0.src.tar.xz
+tar xf compiler-rt-10.0.0.src.tar.xz
 ```
 
-This leaves you with 4 directories named `llvm-9.0.0.src`, `cfe-9.0.0.src`, `openmp-9.0.0.src`, and `compiler-rt-9.0.0.src`. All these components can be built together if the directories are correctly nested:
+This leaves you with 4 directories named `llvm-10.0.0.src`, `clang-10.0.0.src`, `openmp-10.0.0.src`, and `compiler-rt-10.0.0.src`. All these components can be built together if the directories are correctly nested:
 
 ```
-mv cfe-9.0.0.src llvm-9.0.0.src/tools/clang
-mv openmp-9.0.0.src llvm-9.0.0.src/projects/openmp
-mv compiler-rt-9.0.0.src llvm-9.0.0.src/projects/compiler-rt
+mv clang-10.0.0.src llvm-10.0.0.src/tools/clang
+mv openmp-10.0.0.src llvm-10.0.0.src/projects/openmp
+mv compiler-rt-10.0.0.src llvm-10.0.0.src/projects/compiler-rt
 ```
 
 ## 4. Build the compiler
@@ -68,7 +71,7 @@ Next CMake needs to generate Makefiles which will eventually be used for compila
 ```
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/../install \
 	-DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_37 \
-	-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=37,60,70 ../llvm-9.0.0.src
+	-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=37,60,70 ../llvm-10.0.0.src
 ```
 
 If all went right, you should see these lines:
@@ -102,7 +105,7 @@ make -j6 install
 If you tried to compile an application with OpenMP offloading right now, Clang would print the following message:
 
 ```
-clang-9: warning: No library 'libomptarget-nvptx-sm_37.bc' found in the default clang lib directory or in LIBRARY_PATH. Expect degraded performance due to no inlining of runtime functions on target devices. [-Wopenmp-target]
+clang-10: warning: No library 'libomptarget-nvptx-sm_37.bc' found in the default clang lib directory or in LIBRARY_PATH. Expect degraded performance due to no inlining of runtime functions on target devices. [-Wopenmp-target]
 ```
 
 To make it go away -- which we do want, for maximum performance -- we need to recompile the OpenMP runtime libraries with Clang. To do so, we first create a new build directory:
@@ -120,7 +123,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/../install \
 	-DCMAKE_C_COMPILER=$(pwd)/../install/bin/clang \
 	-DCMAKE_CXX_COMPILER=$(pwd)/../install/bin/clang++ \
 	-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=37,60,70 \
-	../llvm-9.0.0.src/projects/openmp
+	../llvm-10.0.0.src/projects/openmp
 ```
 
 And finally, we actually rebuild and reinstall the OpenMP runtime libraries:
@@ -145,7 +148,7 @@ If everything went smooth, you should see something like
 
 ```
 devito@devito-fl:~$ clang --version
-clang version 9.0.0 (tags/RELEASE_900/final)
+clang version 10.0.0 (tags/RELEASE_900/final)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
 InstalledDir: /home/devito/install/bin
