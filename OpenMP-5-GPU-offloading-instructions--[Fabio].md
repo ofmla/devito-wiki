@@ -20,6 +20,7 @@ sudo apt install -y pkg-config
 **Note: we specifically need CUDA 10.1 -- the newest version, at the moment of writing 10.2, won't work with clang-10 !**
 
 ```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 sudo apt-get update
