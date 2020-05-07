@@ -89,8 +89,6 @@ If you have installed the Open MPI library also add:
 ```
 $ export PATH=$PGI/linux86-64/19.10/mpi/openmpi-3.1.3/bin:$PATH
 $ export MANPATH=$MANPATH:$PGI/linux86-64/19.10/mpi/openmpi-3.1.3/man
-$ export PATH=/opt/pgi/linux86-64/19.10/bin:opt/pgi/linux86-64/19.10/mpi/openmpi-3.1.3/bin:$PATH
-$ export MANPATH=$MANPATH:/opt/pgi/linux86-64/19.10/mpi/openmpi-3.1.3/man
 ```
 We suggest also adding these exports to your .bashrc.
 
