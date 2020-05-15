@@ -127,7 +127,7 @@ The Devito compiler computes a topological ordering of the input equations based
 
 ## Is the Devito optimization guaranteed to factorize out common terms from complex expressions?
 
-The Devito optimization passes are designed to do a really good job but also be reasonably fast. We will construct a demonstrative example below that has a common term that is not factored out by the Devito optimization. The difference in floating point operators per output point for the factoring of that term is about 10 percent, and generated c code is different, but numerical outputs of running the two different operators is indistinguishable to machine precision. 
+The Devito optimization passes are designed to do a really good job but also be reasonably fast. One such pass attempts to factorize as many common terms as possible in expressions in order to reduce the operation count. We will construct a demonstrative example below that has a common term that is _not_ factored out by the Devito optimization. The difference in floating-point operations per output point for the factoring of that term is about 10 percent, and the generated C is different, but numerical outputs of running the two different operators are indistinguishable to machine precision. In terms of actual performance, the (few) missed factorization opportunities may not necessarily be a relevant issue: as long as the code is not heavily compute-bound, the runtimes may only be slightly higher than in the optimally-factorized version.
 
 #### Operator 1:
 ```
