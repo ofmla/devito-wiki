@@ -5,6 +5,7 @@
 - [Where does the generated code go and how do I look at it](#where-does-the-generated-code-go-and-how-do-i-look-at-it)
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
+- [Is the Devito optimization guaranteed to factorize out common terms from complex expressions](#is-the-devito-optimization-guaranteed-to-factorize-out-common-terms-from-complex-expressions)
 - [How are abstractions used in the seismic examples](#how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
 - [How do you run the unit tests from the command line](#how-do-you-run-the-unit-tests-from-the-command-line)
@@ -122,6 +123,60 @@ Yes, just set the environment variable `TMPDIR` to your favorite location.
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
 
 [top](#Frequently-Asked-Questions)
+
+
+## Is the Devito optimization guaranteed to factorize out common terms from complex expressions?
+
+The Devito optimization passes are designed to do a really good job but also be reasonably fast. We will construct a demonstrative example below that has a common term that is not factored out by the Devito optimization. The difference in flops per output point of factoring that term is about 10, and generated c code is different, but numerical outputs of running the two different operators is indistinguishable to machine precision. 
+
+#### Operator 1:
+```
+ux_update = t.spacing**2 * b * \
+    ((c33 * u_x.dx(x0=x+x.spacing/2)).dx(x0=x-x.spacing/2) +
+     (c55 * u_x.dz(x0=z+z.spacing/2)).dz(x0=z-z.spacing/2) +
+     (c13 * u_z.dz(x0=z+z.spacing/2)).dx(x0=x-x.spacing/2) +
+     (c55 * u_z.dx(x0=x+x.spacing/2)).dz(x0=z-z.spacing/2)) + \
+    (2 - t.spacing * wOverQ) * u_x + (t.spacing * wOverQ - 1) * u_x.backward 
+stencil_x = Eq(u_x.forward, ux_update)
+print("\n", stencil_x)
+op = Operator([stencil_x])
+```
+#### Operator 2:
+```
+ux_update = \
+    t.spacing**2 * b * (c33 * u_x.dx(x0=x+x.spacing/2)).dx(x0=x-x.spacing/2) + \
+    t.spacing**2 * b * (c55 * u_x.dz(x0=z+z.spacing/2)).dz(x0=z-z.spacing/2) + \
+    t.spacing**2 * b * (c13 * u_z.dz(x0=z+z.spacing/2)).dx(x0=x-x.spacing/2) + \
+    t.spacing**2 * b * (c55 * u_z.dx(x0=x+x.spacing/2)).dz(x0=z-z.spacing/2) + \
+    (2 - t.spacing * wOverQ) * u_x + (t.spacing * wOverQ - 1) * u_x.backward 
+stencil_x = Eq(u_x.forward, ux_update)
+print("\n", stencil_x)
+op = Operator([stencil_x])
+```
+
+#### Output 1:
+```
+Eq(u_x(t + dt, x, z), dt**2*(Derivative(c13(x, z)*Derivative(u_z(t, x, z), z), x) + Derivative(c33(x, z)*Derivative(u_x(t, x, z), x), x) + Derivative(c55(x, z)*Derivative(u_x(t, x, z), z), z) + Derivative(c55(x, z)*Derivative(u_z(t, x, z), x), z))*b(x, z) + (-dt*wOverQ(x, z) + 2)*u_x(t, x, z) + (dt*wOverQ(x, z) - 1)*u_x(t - dt, x, z))
+Operator `Kernel` generated in 1.26 s
+  * lowering.Expressions: 0.61 s (48.7 %)
+  * lowering.Clusters: 0.52 s (41.5 %)
+     * specializing.Clusters: 0.31 s (24.8 %)
+Flops reduction after symbolic optimization: [1160 --> 136]
+```
+
+#### Output 2:
+```
+Eq(u_x(t + dt, x, z), dt**2*b(x, z)*Derivative(c13(x, z)*Derivative(u_z(t, x, z), z), x) + dt**2*b(x, z)*Derivative(c33(x, z)*Derivative(u_x(t, x, z), x), x) + dt**2*b(x, z)*Derivative(c55(x, z)*Derivative(u_x(t, x, z), z), z) + dt**2*b(x, z)*Derivative(c55(x, z)*Derivative(u_z(t, x, z), x), z) + (-dt*wOverQ(x, z) + 2)*u_x(t, x, z) + (dt*wOverQ(x, z) - 1)*u_x(t - dt, x, z))
+Operator `Kernel` generated in 1.12 s
+  * lowering.Expressions: 0.59 s (53.0 %)
+  * lowering.Clusters: 0.40 s (35.9 %)
+     * specializing.Clusters: 0.31 s (27.8 %)
+Flops reduction after symbolic optimization: [1169 --> 149]
+```
+
+[top](#Frequently-Asked-Questions)
+
+
 
 
 ## How are abstractions used in the seismic examples 
