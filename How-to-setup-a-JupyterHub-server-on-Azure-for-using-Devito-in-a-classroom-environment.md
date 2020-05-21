@@ -16,18 +16,16 @@ Step 2: Add user authentication (via Github)
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
-Step 3: Add the setup script for each user to `/etc/environment`
+Step 3: Add the setup script for each user to `/etc/environment` (Install latest devito master)
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito
 pip install --user -e .[extras]
 ```
 
-Step 3: Setup PWD.
-
 ## Attendee / Student workflow
 
-Each new user connects to the public IP and opens a new terminal from the JupyterHub environment.
+Each new user connects to the public IP, authenticates with Github credentials and opens a new terminal from the JupyterHub environment.
 ```
 Open: http://<PublicIP> and authenticate using GIT credentials
 New -> Terminal
