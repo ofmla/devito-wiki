@@ -103,25 +103,30 @@ make -j 24 install
 cd ~
 ```
 
+Let's now put the new gcc in our path by adding to `~/.bashrc` the following lines
+
+```
+export PATH=$HOME/offload/install/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/offload/install/lib64:$LD_LIBRARY_PATH
+```
+
+and then running:
+
+```
+source ~/.bashrc
+```
+
 ## 5. Try it!
 
 If everything went smooth, you should see something like
 
 ```
-$HOME/offload/install/bin/gcc --version
+gcc --version
 gcc (GCC) 10.1.0
 Copyright (C) 2020 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
-
-Add `$HOME/offload/install/lib64` to `LD_LIBRARY_PATH`:
-
-```
-export LD_LIBRARY_PATH=$HOME/offload/install/lib64:$LD_LIBRARY_PATH
-```
-
-The compiler can now be used to offload OpenACC and OpenMP codes.
 
 Let's first try an OpenMP code. For that, create `omp-offloading.c` with the following content:
 
@@ -174,7 +179,7 @@ int main(int argc, char* argv[])
 Compile:
 
 ```
-$HOME/offload/install/bin/gcc -fopenmp omp-offloading.c -o omp-offloading.o -Wall -O3
+gcc -fopenmp omp-offloading.c -o omp-offloading.o -Wall -O3
 ```
 
 And run:
@@ -230,7 +235,7 @@ int main( int argc, char* argv[] ){
 Compile:
 
 ```
-$HOME/offload/install/bin/gcc -fopenacc oacc-offloading.c -o oacc-offloading.o -Wall -O3
+gcc -fopenacc oacc-offloading.c -o oacc-offloading.o -Wall -O3
 ```
 
 And run:
