@@ -16,12 +16,14 @@ Step 2: Add user authentication (via Github)
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
-Step 3: Add the setup script for each user to `/etc/environment` (Install latest devito master)
+Step 3: Add the init-setup script for each user to the end of `/etc/skel/.bashrc` (Install latest devito master)
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito
 pip install --user -e .[extras]
 ```
+Also look: http://tljh.jupyter.org/en/latest/howto/content/share-data.html
+
 
 ## Attendee / Student workflow
 
