@@ -1,7 +1,7 @@
 Purpose of this workflow is to setup a JupyterHub server on Azure for using Devito in a classroom environment.
-In this setup, each user logs-in with GitHub credentials and has a PWD where Devito can be installed. This solution delivers access to shared resources.
+In this setup, we prepare a server where each user logs-in with GitHub credentials and has a PWD where Devito is installed. This solution delivers access to shared resources.
 
-A lot of resources and how-to tutorials on how to setup a JupyterHub for your application on Azure.
+A lot of resources and how-to tutorials on how to setup a JupyterHub for your application on Azure can be found out there.
 
 Our suggestion is:
 
