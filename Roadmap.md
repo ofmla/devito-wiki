@@ -17,6 +17,6 @@
 * **mpi ```collect``` function**
 <br>A ```Data``` method to collect and return MPI distributed wavefields not requiring MPI calls directly. e.g. ```u.collect()``` 
 
-1. **Test sincos** for trig in TTI system
+* **Test sincos** for trig in TTI system
 <br>TTI systems often has ```sin(a) cos(a)``` nearby in mathematical expressions. The ```sincos``` function can be vectorized and is worth investigating for performance relative individual ```sin``` and ```cos``` calls.
 
