@@ -22,11 +22,8 @@
 
 * **remainder spatial loops**
 <br> generated code has 4 calls to spatial loop functions per time step, for handling:
-  1. x-interior, y-interior
-  1. x-interior, y-remainder
-  1. x-remainder, y-interior
-  1. x-remainder, y-remainder
-These could be replaced with a single call to the function that used a min or ternary function for the loop traversal.
+x-interior, y-interior, x-interior, y-remainder, x-remainder, y-interior, x-remainder, y-remainder.
+<br>These could be replaced with a single call to the function that used a min or ternary function for the loop traversal.
 old space loop (with 1 interior and 3 remainder calls):
 ```
 #pragma omp parallel num_threads(nthreads) private(r36,r37,r38)
