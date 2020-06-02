@@ -177,7 +177,9 @@ Flops reduction after symbolic optimization: [1169 --> 149]
 
 [top](#Frequently-Asked-Questions)
 
-### Having a quick look at the Flops reduction for some of the Devito seismic examples we can notice that the symbolic optimization captures a lot of redundancies and manages to reduce the flops needed for a grid point update a lot.
+### Why is flop reduction so important? Does it have a significant impact?
+
+Having a quick look at the Flops reduction for some of the Devito example seismic operators we can notice that the symbolic optimization captures a lot of redundancies and manages to reduce significantly the flops needed for a grid point update.
 
 ![Flops reduction](https://ndownloader.figshare.com/files/22862822/preview/22862822/preview.jpg)
 [top](#Frequently-Asked-Questions)
