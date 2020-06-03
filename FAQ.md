@@ -5,7 +5,7 @@
 - [Where does the generated code go and how do I look at it](#where-does-the-generated-code-go-and-how-do-i-look-at-it)
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
-- [Is the Devito optimization guaranteed to factorize out common terms from complex expressions](#is-the-devito-optimization-guaranteed-to-factorize-out-common-terms-from-complex-expressions)
+- [Does Devito optimize complex expressions](#does-devito-optimize-complex-expressions)
 - [How are abstractions used in the seismic examples](#how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
 - [How do you run the unit tests from the command line](#how-do-you-run-the-unit-tests-from-the-command-line)
@@ -126,9 +126,9 @@ The Devito compiler computes a topological ordering of the input equations based
 [top](#Frequently-Asked-Questions)
 
 
-## Is the Devito optimization guaranteed to factorize out common terms from complex expressions?
+## Does Devito optimize complex expressions
 
-The Devito optimization passes are designed to do a really good job but also be reasonably fast. One such pass attempts to factorize as many common terms as possible in expressions in order to reduce the operation count. We will construct a demonstrative example below that has a common term that is _not_ factored out by the Devito optimization. The difference in floating-point operations per output point for the factoring of that term is about 10 percent, and the generated C is different, but numerical outputs of running the two different operators are indistinguishable to machine precision. In terms of actual performance, the (few) missed factorization opportunities may not necessarily be a relevant issue: as long as the code is not heavily compute-bound, the runtimes may only be slightly higher than in the optimally-factorized version.
+Devito applies several performance optimizations to improve the number of operations ("operation count") in complex expressions. These optimizations are designed to do a really good job but also be reasonably fast. One such pass attempts to factorize as many common terms as possible in expressions in order to reduce the operation count. We will construct a demonstrative example below that has a common term that is _not_ factored out by the Devito optimization. The difference in floating-point operations per output point for the factoring of that term is about 10 percent, and the generated C is different, but numerical outputs of running the two different operators are indistinguishable to machine precision. In terms of actual performance, the (few) missed factorization opportunities may not necessarily be a relevant issue: as long as the code is not heavily compute-bound, the runtimes may only be slightly higher than in the optimally-factorized version.
 
 #### Operator 1:
 ```
@@ -175,7 +175,7 @@ Operator `Kernel` generated in 1.12 s
 Flops reduction after symbolic optimization: [1169 --> 149]
 ```
 
-Aside from factorization, several are the flop-reducing transformations implemented by Devito. Below we show the impact of such transformations in a number of seismic operators.
+Other optimizations include common sub-expressions elimination, hoisting of loop-invariant code, and detection of cross-iteration redundancies (e.g., due to high order derivatives). Below we show the cumulative impact of all these optimizations in a number of seismic operators.
 
 ![Flops reduction](https://ndownloader.figshare.com/files/22862822/preview/22862822/preview.jpg)
 
