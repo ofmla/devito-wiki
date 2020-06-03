@@ -175,10 +175,9 @@ Operator `Kernel` generated in 1.12 s
 Flops reduction after symbolic optimization: [1169 --> 149]
 ```
 
-Having a quick look at the Flops reduction for some of the Devito example seismic operators we can notice that the symbolic optimization captures a lot of redundancies and manages to reduce significantly the flops needed for a grid point update.
+Aside from factorization, several are the flop-reducing transformations implemented by Devito. Below we show the impact of such transformations in a number of seismic operators.
 
 ![Flops reduction](https://ndownloader.figshare.com/files/22862822/preview/22862822/preview.jpg)
-[top](#Frequently-Asked-Questions)
 
 [top](#Frequently-Asked-Questions)
 
