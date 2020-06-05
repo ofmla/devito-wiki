@@ -12,6 +12,14 @@ We follow the link here to set up our VM:
 http://tljh.jupyter.org/en/latest/install/azure.html
 Setup includes: Installing The Littlest JupyterHub¶, adding users, install conda / pip packages for all users
 
+What we installed for the full Devito experience:
+
+sudo apt-get install texlive-base (notebooks rendering)
+sudo apt-get install mpich libmpich-dev (for those brave for MPI)
+
+
+
+
 Step 2: Add user authentication (via Github)
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
@@ -40,3 +48,4 @@ When the terminal is open, the script from /etc/environment is triggered and ins
 
 Keep in mind:
 - We have seen company-firewall protected laptops not being able to pop-up the terminal window.
+- User install with `pip install --user ..pkg-name..`
