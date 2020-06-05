@@ -15,6 +15,7 @@ Setup includes: Installing The Littlest JupyterHub¶, adding users, install cond
 What we installed for the full Devito experience:
 
 sudo apt-get install texlive-base (notebooks rendering)
+
 sudo apt-get install mpich libmpich-dev (for those brave for MPI)
 
 
