@@ -20,6 +20,13 @@
 * **Test sincos** for trig in TTI system
 <br>TTI systems often has ```sin(a) cos(a)``` nearby in mathematical expressions. The ```sincos``` function can be vectorized and is worth investigating for performance relative individual ```sin``` and ```cos``` calls.
 
+* **No-copy operators**
+Currently Devito's operators assume that they're always working on Devito-allocated memory. We could jump through a few hoops to repackage externally allocated memory as `Function` objects and have Devito operators work (partially) off them. This will:
+> - Speed up checkpointing
+> - Be useful in doing any kind of data movement, e.g. do the first time step while copying Data into Devito's memory from externally allocated memory
+> - e.g. 2, do a timestep while doing CPU->GPU (and reverse) data transfers
+> - e.g. 3, do a timestep while doing a data layout transformation, in the simplest case, even a transpose
+
 * **remainder spatial loops**
 <br> generated code has 4 calls to spatial loop functions per time step, for handling:
 x-interior, y-interior, x-interior, y-remainder, x-remainder, y-interior, x-remainder, y-remainder.
