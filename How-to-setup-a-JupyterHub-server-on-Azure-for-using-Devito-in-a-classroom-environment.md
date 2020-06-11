@@ -12,9 +12,11 @@ We follow the link here to set up our VM:
 http://tljh.jupyter.org/en/latest/install/azure.html
 Setup includes: Installing The Littlest JupyterHub¶, adding users, install conda / pip packages for all users
 
+- INCREASE DISK SIZE
+
 What we installed for the full Devito experience:
 
-sudo apt-get install texlive-base (notebooks rendering)
+sudo apt-get install texlive-full (notebooks rendering)
 
 sudo apt-get install mpich libmpich-dev (for those brave for MPI)
 
