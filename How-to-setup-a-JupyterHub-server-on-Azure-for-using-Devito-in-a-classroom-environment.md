@@ -31,9 +31,9 @@ Step 3: Add the init-setup script for each user to the end of `/etc/skel/.bashrc
 
 ```
 # e.g. for Transform 2020
-git clone https://github.com/devitocodes/devito.git # Install latest Devito master
-git clone https://github.com/devitocodes/transform2020.git # Install Devito tutorial
-cd devito && pip install --user -e . # Installs Devito
+git clone https://github.com/devitocodes/devito.git # Clone latest Devito master
+git clone https://github.com/devitocodes/transform2020.git # Clone Devito tutorial
+cd devito && pip install --user -e . # Install Devito
 pip install --user matplotlib # Matplotlib is needed for tutorials
 ```
 
