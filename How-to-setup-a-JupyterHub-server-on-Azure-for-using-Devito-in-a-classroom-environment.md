@@ -7,7 +7,7 @@ What we do:
 
 ## Organizer/Educator workflow
 
-Step 1: Setup TLJH on our VM.
+**Step 1:** Setup TLJH on our VM.
 We follow the link here to set up our VM:
 http://tljh.jupyter.org/en/latest/install/azure.html
 Setup includes: Installing The Littlest JupyterHub¶, adding users, install conda / pip packages for all users
@@ -22,14 +22,14 @@ sudo apt-get install mpich libmpich-dev # (for those brave for MPI)
 All the rest were already in the JupyterHub
 
 
-Step 2: Add user authentication (via Github)
+**Step 2:** Add user authentication (via Github)
 
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
 (To reset authentication follow: http://tljh.jupyter.org/en/latest/howto/auth/firstuse.html#howto-auth-firstuse)
 
-Step 3: Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
+**Step 3:** Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
 
 ```
 # e.g. for Transform 2020
