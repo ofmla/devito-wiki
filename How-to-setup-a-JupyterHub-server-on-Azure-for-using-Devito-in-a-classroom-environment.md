@@ -12,7 +12,7 @@ We follow the link here to set up our VM:
 http://tljh.jupyter.org/en/latest/install/azure.html
 Setup includes: Installing The Littlest JupyterHub¶, adding users, install conda / pip packages for all users
 
-- Note here: Depending on the number of users expected to connect we may need around 560M of disk size. So it is reccomended that we increase disk size. (e.g. for around 20 users, 11G were occupied)
+- Note here: Depending on the number of users expected to connect we may need around 560M of disk size per user. So it is recommended that we increase disk size. (e.g. for around 20 users, 11G were occupied)
 
 What we installed for the full Devito experience:
 ```
