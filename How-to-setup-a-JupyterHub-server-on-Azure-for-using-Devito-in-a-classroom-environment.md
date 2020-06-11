@@ -15,23 +15,23 @@ Setup includes: Installing The Littlest JupyterHub¶, adding users, install cond
 - INCREASE DISK SIZE
 
 What we installed for the full Devito experience:
-
-sudo apt-get install texlive-full (notebooks rendering)
-
-sudo apt-get install mpich libmpich-dev (for those brave for MPI)
-
-
-
+```
+sudo apt-get install texlive-full # (notebooks rendering)
+sudo apt-get install mpich libmpich-dev # (for those brave for MPI)
+```
 
 Step 2: Add user authentication (via Github)
+
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
 Step 3: Add the init-setup script for each user to the end of `/etc/skel/.bashrc` (Install latest devito master)
 ```
+# Transform 2020
 git clone https://github.com/devitocodes/devito.git
-cd devito
-pip install --user -e .[extras]
+git clone https://github.com/devitocodes/transform2020.git
+cd devito && pip install --user -e .
+pip install --user matplotlib
 ```
 Also look: http://tljh.jupyter.org/en/latest/howto/content/share-data.html
 
