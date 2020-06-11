@@ -27,6 +27,8 @@ Step 2: Add user authentication (via Github)
 In order to add GitHub authentication for the new users we follow the approach presented here:
 http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
+(To reset authentication follow: http://tljh.jupyter.org/en/latest/howto/auth/firstuse.html#howto-auth-firstuse)
+
 Step 3: Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
 
 ```
