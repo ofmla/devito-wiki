@@ -48,6 +48,7 @@ export LANG=C.UTF-8
 ```
 cd ../devito
 ```
+Currently broken, see issue #1043 https://github.com/devitocodes/devito/issues/1043
 
 If you have also installed DevitoBench you can try the following test:
 For a simple test:
@@ -57,5 +58,5 @@ For a simple test:
 Now going parallel with several optimizations and parameters set:
 
 ```
-OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_DEBUG_COMPILER=1 DEVITO_AUTOTUNING=aggressive DEVITO_BACKEND=core DEVITO_OPENMP=1 DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x```
+OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_DEBUG_COMPILER=1 DEVITO_AUTOTUNING=aggressive DEVITO_BACKEND=core DEVITO_LANGUAGE=openmp DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x```
 
