@@ -12,6 +12,9 @@
 1. **Eikonal solver hackathon**
 <br>Use Devito to implement a fast sweeping method TTI anisotropic eikonal solver. This has many valuable use cases including improving illumination compensation (potential improvements for FWI workflows), enabling "expanding box" (potential improvements in throughput especially for large problems), and the ability to generate traveltime tables.
 
+1. **Handle complex arithmetic**
+<br>Add capability to handle complex in Devito
+
 ## Un-prioritized tasks
 
 * **mpi ```collect``` function**
