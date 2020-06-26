@@ -25,6 +25,10 @@ Categories
   * [Devito/OpenACC on GPUs with PGI](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-GPUs-with-PGI-OpenACC)
   * [GPU CPU environment setup and launching Jupyter notebook](https://github.com/devitocodes/devito/wiki/Azure:-GPU-CPU-environment-setup-and-launching-Jupyter-notebook)
   * [Kubernetes Setup for Dask](https://github.com/devitocodes/devito/wiki/Azure:-Kubernetes-Setup-for-Dask)
+* FWI/RTM examples in [Julia](https://julialang.org)
+  * Setup instructions for Julia Devito Inversion framework ([JUDI](https://github.com/slimgroup/JUDI.jl)
+  * [Documentation](https://slimgroup.github.io/JUDI.jl/) for [JUDI](https://github.com/slimgroup/JUDI.jl)
+  * Examples with [notebooks](https://github.com/slimgroup/JUDI.jl/tree/master/examples/notebooks)
 * Misc
   * [PBS file generation for benchmarking](https://github.com/devitocodes/devito/wiki/PBS-file-generation-for-benchmarking)
   * [Short project ideas](https://github.com/devitocodes/devito/wiki/Short-project-ideas)
