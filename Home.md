@@ -23,6 +23,7 @@ Categories
   * [GCC10 on Azure](https://github.com/devitocodes/devito/wiki/Installing-gcc-10.0.1-with-offloading-support-on-Azure)
   * [Devito JupyterHub server for training](https://github.com/devitocodes/devito/wiki/How-to-setup-a-JupyterHub-server-on-Azure-for-using-Devito-in-a-classroom-environment)
   * [Devito/OpenACC on GPUs with PGI](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-GPUs-with-PGI-OpenACC)
+  * [GPU CPU environment setup and launching Jupyter notebook](https://github.com/devitocodes/devito/wiki/Azure:-GPU-CPU-environment-setup-and-launching-Jupyter-notebook)
 * Misc
   * [PBS file generation for benchmarking](https://github.com/devitocodes/devito/wiki/PBS-file-generation-for-benchmarking)
   * [Short project ideas](https://github.com/devitocodes/devito/wiki/Short-project-ideas)
