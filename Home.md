@@ -27,7 +27,7 @@ Categories
   * [Kubernetes Setup for Dask](https://github.com/devitocodes/devito/wiki/Azure:-Kubernetes-Setup-for-Dask)
   * [Serverless Setup using Dockers, CLI, and Batch Shipyard](https://github.com/slimgroup/Azure2019)
 * AWS
-  * [Serverless Setup using AWS Step Functions](https://github.com/slimgroup/ServerlessImagingAWS)
+  * [Serverless Setup RTM using AWS Step Functions](https://github.com/slimgroup/ServerlessImagingAWS)
   * [Documentation](https://slimgroup.github.io/ServerlessImagingAWS/)
 * FWI/RTM examples in [Julia](https://julialang.org)
   * [Setup instructions for Julia Devito Inversion framework (JUDI)](https://github.com/slimgroup/JUDI.jl)
