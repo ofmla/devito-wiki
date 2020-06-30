@@ -5,6 +5,7 @@
 - [Where does the generated code go and how do I look at it](#where-does-the-generated-code-go-and-how-do-i-look-at-it)
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
+- [Do Devito Operators release the GIL when executing C code?](#do-devito-operators-release-the-GIL-when-executing-C-code)
 - [Does Devito optimize complex expressions](#does-devito-optimize-complex-expressions)
 - [How are abstractions used in the seismic examples](#how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
@@ -125,6 +126,12 @@ Yes, just set the environment variable `TMPDIR` to your favorite location.
 The Devito compiler computes a topological ordering of the input equations based on data dependency analysis. Heuristically, some equations might be moved around to improve performance (e.g., data locality). Therefore, the order of the equations in the generated code might be different than that used as input to the Operator.
 
 [top](#Frequently-Asked-Questions)
+
+## Do Devito Operators release the GIL when executing C code?
+Yes. Devito uses [ctypes.CDLL](https://docs.python.org/3/library/ctypes.html#ctypes.CDLL) to call the JIT C code which releases the GIL.
+
+[top](#Frequently-Asked-Questions)
+
 
 
 ## Does Devito optimize complex expressions
