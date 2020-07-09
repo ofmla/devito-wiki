@@ -544,7 +544,7 @@ Assuming this is actually an issue in Devito, we distinguish between three types
 
 Typically such a bug occurs in a moderately big code, so how should we proceed?
 
-If you are in the cases 1 or 2 above, the first thing to do, regardless of who fixes it (either you directly if feeling brave, or most likely someone from the Devito team), is to create an MFE -- a Minimal Failing Example. This is the typical workflow:
+If you are in the cases 1 or 2 above, the first thing to do, regardless of who fixes it (either you directly if feeling brave, or most likely someone from the Devito team), is to create an MFE -- a Minimal Failing Example. An interesting read about MFEs in general is available [here](http://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports). The typical workflow in Devito is as follows:
 
 * If the failure is from a Jupyter Notebook, first of all, convert it into a Python file. It's trivial, you can do it directly from within the Jupyter Notebook itself, under the "File" tab there's an option to convert the notebook into a Python file. 
 * Then it's time to trim down the code. The idea is to incrementally remove parts of the code until the bug disappears, i.e., Devito compilation and execution reach completion without failures. In doing so, you don't care about things such as breaking the physics, making the method unstable, and so on. So ...
