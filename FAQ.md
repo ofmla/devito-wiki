@@ -295,8 +295,8 @@ Set `DEVITO_IGNORE_UNKNOWN_PARAMS=1` to avoid Devito raising an exception if one
 ## How do you run the unit tests from the command line
 In addition to the [tutorials]( https://www.devitoproject.org/devito/tutorials.html), the unit tests provide an excellent way to see how the Devito API works with small self-contained examples. You can exercise individual unit tests with the following python code:
 ```
-Py.test <test.py>
-Py.test -vs <test.py>  [more detailed log]
+pytest <test.py>
+pytest -vs <test.py>  [more detailed log]
 ```
 
 [top](#Frequently-Asked-Questions)
