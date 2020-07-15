@@ -1,9 +1,11 @@
-This second wiki instruction follows the first wiki (Using Devito on GPUs with PGI OpenACC - link to be updated) and precedes the 2D FWI demo jupyter notebook. It explains how to use Devito environment variables to pick GPU or CPU for running your Devito jobs. After that, we show how to launch Jupyter notebook in your local browser for running the 2D FWI demo in your Azure VM.
+by Qie Zhang, Microsoft Azure Global (collaboration with the Devito team)
 
-After installing the PGI OpenACC compiler and setting up the environment, a user can determine whether to use GPU or CPU for running a Devito job by an easy switch. But if you plan to use CPU only, there is no need to install the PGI OpenACC compiler. Depending on the number of GPUs or vCPUs on the VM, here is a list of choices for running the 2D FWI example on one VM.
+This second wiki follows the first wiki [Using Devito on GPUs with PGI OpenACC](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-GPUs-with-PGI-OpenACC) and precedes Devito jupyter notebook demos. It explains how to use Devito environment variables to pick GPU or CPU for running your Devito jobs. After that, we show how to launch jupyter notebook in your local browser for running the Devito demo in your Azure VM.
+
+After installing the PGI OpenACC compiler and setting up the environment, a user can determine whether to use GPU or CPU for running a Devito job by an easy switch. But if you plan to use CPU only, there is no need to install the PGI OpenACC compiler. Depending on the number of GPUs or vCPUs on the VM, here is a list of choices for running a Devito example on one VM.
 
 * (a) using one GPU
-* (b) using multi-GPUs with MPI (requires turning 2D FWI notebook into a python script)
+* (b) using multi-GPUs with MPI (requires turning e.g., a 2D FWI notebook into a python script)
 * (c) using one vCPU
 * (d) using multi-vCPUs with OpenMP
 
@@ -16,7 +18,7 @@ export DEVITO_PLATFORM=nvidiaX
 export DEVITO_ARCH=pgcc
 export DEVITO_LANGUAGE=openacc
 ```
-(b) using multi-GPUs with MPI (requires turning the 2D FWI notebook into a python script "fwi.py")
+(b) using multi-GPUs with MPI (requires turning e.g., a 2D FWI notebook into a python script "fwi.py")
 ```
 export DEVITO_PLATFORM=nvidiaX
 export DEVITO_ARCH=pgcc
@@ -59,13 +61,13 @@ configuration['language'] = 'openacc'
 
 ### Launching Jupyter notebook in a local browser
 
-Although you can launch Jupyter notebook in a remote desktop such as [X2GO](https://wiki.x2go.org/doku.php) (simply by typing `jupyter notebook` in a terminal), it would be smoother to use Jupyter notebook in your local browser. We will show how to lauch Jupyter notebook in your local browser for running the 2D FWI demo in your Azure VM.
+Although you can launch Jupyter notebook in a remote desktop such as [X2GO](https://wiki.x2go.org/doku.php) (simply by typing `jupyter notebook` in your terminal), it would be smoother to use Jupyter notebook in your local browser. We will show how to lauch Jupyter notebook in your local browser for running a Devito example in your Azure VM.
 
-First, access your VM through `ssh`. Replace "1234" by your VM port number, and replace "user id" and "host address" accordingly. Those commands can be run under "Windows PowerShell", "Anaconda Powershell Prompt" or your terminal.
+First, `ssh` your VM in your terminal. Replace "1234" by your VM port number, and replace "user id" and "host address" accordingly.
 ```
 ssh -p 1234 user@host.eastus.cloudapp.azure.com
 ```
-After `ssh`  run the command below, replace "5678" by any port number you prefer.
+After `ssh`,  run the command in your terminal, replace "5678" by any port number you prefer.
 ```
 jupyter notebook --no-browser --port=5678 --ip=$HOSTNAME
 ```
@@ -73,13 +75,13 @@ Then you will see some output like this:
 ```
 http://127.0.0.1:5678/?token=8e8a2222a9a142555a1d8fd66d6634869def2c25ece611a5
 ```
-Then in your local browser, enter the address with the token from above, you will access Jupyter notebook locally.
+Now in your local browser, enter the "host address" with the token from above, you will access Jupyter notebook locally.
 ```
 http://host.eastus.cloudapp.azure.com:5678/?token=8e8a2222a9a142555a1d8fd66d6634869def2c25ece611a5
 ```
 
 ### Add paths before running Devito 
-Also remember to add the paths below before you run the 2D FWI Jupyter notebook. Suggest adding the Cuda and PGI compiler paths below to your ~/.bashrc to avoid exporting them every time you wish to run Devito on GPU (already included in the first wiki instruction).
+Also remember to add the paths below before you run a Devito Jupyter notebook. Suggest adding the Cuda and PGI compiler paths below to your ~/.bashrc to avoid exporting them every time you wish to run Devito on GPU (already explained in the first wiki [Using Devito on GPUs with PGI OpenACC](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-GPUs-with-PGI-OpenACC)).
 ```
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
