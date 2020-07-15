@@ -1,4 +1,4 @@
-by Qie Zhang, Microsoft Azure Global (collaboration with the Devito team)
+
 
 This instruction shows step by step how to set up the environment for running [Devito](https://github.com/devitocodes/devito) on an [Azure GPU VM](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu). It is inherited and modified from [Using Devito on GPUs with PGI OpenACC](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-PGI-OpenACC) at [Devito wiki](https://github.com/devitocodes/devito/wiki). Although ultimately we would like to automate the whole installation in this document, the [PGI compiler package](https://www.pgroup.com/support/download_community.php?file=pgi-community-linux-x64) needs to be downloaded manually due to its license agreement. This wiki is followed by another wiki [GPU CPU environment setup and launching Jupyter notebook](https://github.com/devitocodes/devito/wiki/Azure:-GPU-CPU-environment-setup-and-launching-Jupyter-notebook) before you run the Devito RTM/FWI examples.
 
