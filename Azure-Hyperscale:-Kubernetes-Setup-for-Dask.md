@@ -1,4 +1,8 @@
-This document is inherited and expanded from [Kubernetes setup](https://github.com/devitocodes/daks/wiki/Kubernetes-setup) on Devito github. We show step by step how to set up and deploy an Azure Kubernetes cluser for running a seismic imaging job in parallel. The deployment of Kubernetes cluster will return an IP address that will be taken by dask which distributes workloads (such as calculating the FWI gradient for each shot) to parallel workers. The Kubernetes setup can be used for 2D/3D seismic RTM/FWI jobs - here is a [2D FWI example](https://github.com/devitocodes/devito/blob/master/examples/seismic/tutorials/04_dask.ipynb) used in this document.
+by Qie Zhang, Microsoft Azure Global (collaboration with the Devito team)
+
+This wiki shows step by step how to set up and deploy an Azure [Kubernetes](https://kubernetes.io/) cluser for running a seismic imaging job in parallel through [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/), where AKS automates application deployment, scaling and management. This document is inherited and expanded from [Kubernetes setup](https://github.com/devitocodes/daks/wiki/Kubernetes-setup) on Devito github.
+
+The deployment of Kubernetes cluster returns an IP address that is taken by [Dask](https://dask.org/) which distributes workloads (such as calculating the FWI gradient for each shot) to parallel workers in the Kubernetes cluster. The Kubernetes setup can be used for 2D/3D seismic RTM/FWI jobs - here is a [2D FWI example](https://github.com/devitocodes/devito/blob/master/examples/seismic/tutorials/04_dask.ipynb) related to this document.
 
 1. Install Azure command-line interface (Azure CLI) that is a set of commands used to create and manage Azure resources. ([more info](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
 ```
@@ -29,7 +33,7 @@ az group list --output table
 az acr create --resource-group fwirg --name fwiacr --sku Basic
 ```
 
-5. Install docker.
+5. Install [Docker](https://www.docker.com/).
 ```
 sudo apt-get update
 sudo apt-get remove docker docker_engine docker.io
@@ -83,7 +87,7 @@ The output should look like below.
 #devito_base
 ```
 
-12. Create a new kubernetes cluster. You can replace the VM [Standard_HB120rs_v2](https://docs.microsoft.com/en-us/azure/virtual-machines/hbv2-series) with the one you prefer. Standard_HB120rs_v2 has 480G memory which is a good choice for 3D FWI. `--node-count 2` denotes 2 VMs to be used for the cluster. ([more info](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create))
+12. Create a new Kubernetes cluster. You can replace the VM [Standard_HB120rs_v2](https://docs.microsoft.com/en-us/azure/virtual-machines/hbv2-series) with the one you prefer. Standard_HB120rs_v2 has 480G memory which is a good choice for 3D FWI. `--node-count 2` denotes 2 VMs to be used for the cluster. ([more info](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create))
 ```
 az aks create \
      --resource-group fwirg \
@@ -110,11 +114,11 @@ az aks get-credentials --resource-group fwirg --name fwicluster1
 
 15. Create the file `dask-cluster.yaml`. The content of the yaml file is listed at the end of this document.
 
-16. Apply the kubernetes configuration. ([more info](https://kubectl.docs.kubernetes.io/pages/app_management/apply.html))
+16. Apply the Kubernetes configuration. ([more info](https://kubectl.docs.kubernetes.io/pages/app_management/apply.html))
 ```
 kubectl apply -f dask-cluster.yaml
 ```
-This will setup a kubernetes cluster with 1 Dask scheduler with an open port 8786 to the world, and 16 workers that will connect to this scheduler automatically. Run the command below to confirm all pods are created. ([more info](https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/))
+This will setup a Kubernetes cluster with 1 Dask scheduler with an open port 8786 to the world, and 16 workers that will connect to this scheduler automatically. Run the command below to confirm all pods are created. ([more info](https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/))
 ```
 kubectl get pods
 ```
@@ -123,7 +127,7 @@ kubectl get pods
 ```
 kubectl get services
 ``` 
-Keep down the EXTERNAL-IP of the LoadBalancer, which will be used in the dask configuration in step 19.
+Keep down the EXTERNAL-IP of the LoadBalancer, which will be used in the Dask configuration in step 19.
 
 18. Open up the Devito [Dask tutorial](https://github.com/devitocodes/devito/blob/master/examples/seismic/tutorials/04_dask.ipynb) in a Jupyter notebook (you can choose to use docker or not). Note this Dask tutorial notebook is a 2D FWI example that does not require much memory, so you do not have to go to Standard_HB120rs_v2 (which is a good choice for 3D FWI).
 
@@ -136,10 +140,10 @@ with
 ```
 client = Client('51.11.43.137:8786')
 ```
-where `51.11.43.137` is the EXTERNAL-IP of the scheduler we found in step 17. 
+where `51.11.43.137` is the EXTERNAL-IP of the scheduler/LoadBalancer we found in step 17. 
 
 
-20. Run all cells in the notebook. It will distribute jobs to 16 workers on the kubernetes cluster we created.
+20. Run all cells in the notebook. It will distribute jobs to 16 workers on the Kubernetes cluster we created.
 
 21. When the job is finished, run the command to delete the Kubernetes cluster. ([more info](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-delete))
 ```
@@ -151,15 +155,19 @@ az aks delete --name fwicluster1 --resource-group fwirg
 az group delete --name fwirg
 ```
 
+&nbsp;
 
 File `dask-cluster.yaml` content is listed below, as used in step 15.
 ```
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devito-server
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: devito-server
   template:
     metadata:
       labels:
@@ -186,12 +194,15 @@ spec:
   selector:
     app: devito-server
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devito-worker
 spec:
   replicas: 16
+  selector:
+    matchLabels:
+      app: devito-worker
   strategy:
     rollingUpdate:
       maxSurge: 1
