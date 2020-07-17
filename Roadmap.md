@@ -12,6 +12,9 @@
 1. **Handle complex arithmetic**
 <br>Add capability to handle complex in Devito
 
+1. **Automated roofline model generation in TheMatrix for both CPUs and GPUs**
+
+
 ## Un-prioritized tasks
 
 * **Eikonal solver hackathon**
