@@ -6,6 +6,7 @@
 - [Can I change the directory where Devito stashes the generated code](#can-i-change-the-directory-where-devito-stashes-the-generated-code)
 - [I create an Operator, look at the generated code, and the equations appear in a different order than I expected.](#i-create-an-operator-look-at-the-generated-code-and-the-equations-appear-in-a-different-order-than-i-expected)
 - [Do Devito Operators release the GIL when executing C code?](#do-devito-operators-release-the-GIL-when-executing-C-code)
+- [What performance optimizations does Devito apply](#what-performance-optimizations-does-devito-apply)
 - [Does Devito optimize complex expressions](#does-devito-optimize-complex-expressions)
 - [How are abstractions used in the seismic examples](#how-are-abstractions-used-in-the-seismic-examples)
 - [What environment variables control how Devito works](#what-environment-variables-control-how-devito-works)
@@ -133,6 +134,12 @@ Yes. Devito uses [ctypes.CDLL](https://docs.python.org/3/library/ctypes.html#cty
 [top](#Frequently-Asked-Questions)
 
 
+## What performance optimizations does Devito apply
+
+Take a look [here](https://github.com/devitocodes/devito/tree/master/examples/performance) and in particular [at this notebook](https://github.com/devitocodes/devito/blob/master/examples/performance/00_overview.ipynb).
+
+[top](#Frequently-Asked-Questions)
+
 
 ## Does Devito optimize complex expressions
 
@@ -186,6 +193,8 @@ Flops reduction after symbolic optimization: [1169 --> 149]
 Other optimizations include common sub-expressions elimination, hoisting of loop-invariant code, and detection of cross-iteration redundancies (e.g., due to high order derivatives). Below we show the cumulative impact of all these optimizations in a number of seismic operators.
 
 ![Flops reduction](https://ndownloader.figshare.com/files/22862822/preview/22862822/preview.jpg)
+
+For more info, take a look [at this notebook](https://github.com/devitocodes/devito/blob/master/examples/performance/00_overview.ipynb).
 
 [top](#Frequently-Asked-Questions)
 
