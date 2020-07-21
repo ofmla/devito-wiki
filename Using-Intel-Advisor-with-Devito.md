@@ -45,7 +45,7 @@ Now that the data has been collected, `cd` into the Advisor project's directory 
 
 `advixe-cl --snapshot`
 
-In the Advisor project's main directory, you should now see a file with a name like `snapshot000.advixeexpz`. This file contains all the information needed and can now be copied to a desired path on the machine where the results have to be visualised. From that same machine, run the following command to open Intel Advisor with its GUI:
+Here, `--snapshot` tells advisor to produce a snapshot of the generated data. In the Advisor project's main directory, you should now see a file with a name like `snapshot000.advixeexpz`. This file contains all the information needed and can now be copied to a desired path on the machine where the results have to be visualised. From that same machine, run the following command to open Intel Advisor with its GUI:
 
 `advisor-gui`
 
@@ -53,3 +53,7 @@ Once the GUI is open, press the "Open Result" button to look for the previously 
 
 
 **Exporting Profiling Raw Data**
+
+This section briefly outlines how to extract a raw data file from our Devito Intel Advisor project.
+
+As to produce a snapshot, `cd` into the Advisor project's main directory.
