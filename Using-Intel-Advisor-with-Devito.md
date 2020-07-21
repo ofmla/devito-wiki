@@ -1,5 +1,8 @@
 This page explains how to use Intel Advisor's command line interface to profile a Devito program and generate a roofline model showing its performance. We will be using `benchmarks/user/benchmark.py` from the repository as an example during this tutorial.
 
+
+
+
 **Generating Profiling Data Through Intel Advisor CLI**
 
 This section goes through the commands to use to generate roofline data from a Devito program.
@@ -31,3 +34,22 @@ Once collecting Survey data has finished, the following phase collects the FLOPS
 Here, `--collect=tripcounts` tells Advisor to collect data regarding the number of times loops are executed within the program.`-enable-cache-simulation` specifies that Advisor should simulate hits, misses and cache evictions on all cache levels in the cache hierarchy during the execution of the program to generate a roofline for each cache level. To read more about this, consult [this page](https://software.intel.com/content/www/us/en/develop/articles/integrated-roofline-model-with-intel-advisor.html). Finally, the `-flop` flag tells Advisor to collect information about floating point and integer operations during the trip count collection. The `--project-dir=prof/` flag and `-- python benchmarks/...` are as before.
 
 Run the command. You should see the same kind of messages as before. Once the collection stops successfully, the project directory (e.g. `prof/`) will now contain all the data needed for exporting and visualising the results of the program's profiling.
+
+
+
+**Exporting Data to Visualise Roofline Plot**
+
+This section explains how to produce a snapshot of generated profiling data and use an external Advisor GUI to visualise the roofline plot produced.
+
+Now that the data has been collected, `cd` into the Advisor project's directory (`prof/` in our case). To collect generated data ready for export, Advisor provides a tool to create a "snapshot" of the program's performance. To obtain this snapshot, run the following command:
+
+`advixe-cl --snapshot`
+
+In the Advisor project's main directory, you should now see a file with a name like `snapshot000.advixeexpz`. This file contains all the information needed and can now be copied to a desired path on the machine where the results have to be visualised. From that same machine, run the following command to open Intel Advisor with its GUI:
+
+`advisor-gui`
+
+Once the GUI is open, press the "Open Result" button to look for the previously created snapshot. The button is an open, yellow folder sitting on the top navigation bar. Now navigate to the `snapshot000.advixeexpz` file and press "Open". Advisor should now elaborate the data for a few seconds. Then, navigate to the "Survey & Roofline" tab and press "Roofline" to finally visualise the data as a roofline model.
+
+
+**Exporting Profiling Raw Data**
