@@ -56,4 +56,8 @@ Once the GUI is open, press the "Open Result" button to look for the previously 
 
 This section briefly outlines how to extract a raw data file from our Devito Intel Advisor project.
 
-As to produce a snapshot, `cd` into the Advisor project's main directory.
+Like to produce a snapshot, `cd` into the Advisor project's main directory. Raw data is prepared in the form of a "report". To generate a report run the following command:
+
+`advixe-cl --report=survey --format=csv --report-output=./report.csv -- python benchmarks/user/benchmark.py run -P acoustic -so 4 --tn 100 --autotune off`
+
+In this command, `--report=survey` specifies that a report has to be created using the Survey data, roofline data can be reported by changing `survey` to `roofline`. The tag `--format=csv` specifies that the format of the file is `csv` (can be modified to `text`). Finally, `--report-output=./report.csv` specifies the location and the report file to be created. As before, `-- python benchmarks/...` refers to the script on which the report is being created. Once the report file has been created, it can be exported by itself.
