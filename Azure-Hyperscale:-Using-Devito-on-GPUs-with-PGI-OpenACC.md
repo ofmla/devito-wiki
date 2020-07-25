@@ -24,7 +24,7 @@ X2GO setup can be found [here](https://docs.microsoft.com/en-us/azure/machine-le
 Then you can install [jupyter notebook](https://jupyter.org/) and [matplotlib](https://matplotlib.org/) that will be used for Devito demos. Note [python3](https://www.python.org/downloads/) is pre-installed on the VM.
 ```
 sudo apt-get install python3-pip -y
-sudo pip3 install jupyter
+pip3 install jupyter
 sudo apt-get install python3-matplotlib -y
 ```
 
