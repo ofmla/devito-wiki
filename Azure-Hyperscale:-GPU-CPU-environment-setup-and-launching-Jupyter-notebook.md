@@ -69,7 +69,7 @@ ssh -p 1234 user@host.eastus.cloudapp.azure.com
 ```
 After `ssh`,  run the command in your terminal, replace "5678" by any port number you prefer.
 ```
-jupyter notebook --no-browser --port=5678 --ip=$HOSTNAME
+jupyter notebook --no-browser --ip=* --port=5678 
 ```
 Then you will see some output like this:
 ```
