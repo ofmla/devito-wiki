@@ -33,7 +33,7 @@ az group list --output table
 az acr create --resource-group fwirg --name fwiacr --sku Basic
 ```
 
-5. Install [Docker](https://www.docker.com/).
+5. You can install [Docker](https://www.docker.com/) as below, but suggest instead to follow the Docker [official instruction](https://docs.docker.com/engine/install/ubuntu/) to install Docker.
 ```
 sudo apt-get update
 sudo apt-get remove docker docker_engine docker.io
@@ -127,7 +127,12 @@ kubectl get pods
 ```
 kubectl get services
 ``` 
-Keep down the EXTERNAL-IP of the LoadBalancer, which will be used in the Dask configuration in step 19.
+The output looks like below. Keep down the EXTERNAL-IP of the LoadBalancer, which will be used in the Dask configuration in step 19.
+```
+NAME            TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
+devito-server   LoadBalancer   10.0.169.103   40.80.209.180   8786:31150/TCP   85m
+kubernetes      ClusterIP      10.0.0.1       <none>          443/TCP          101m
+```
 
 18. Open up the Devito [Dask tutorial](https://github.com/devitocodes/devito/blob/master/examples/seismic/tutorials/04_dask.ipynb) in a Jupyter notebook (you can choose to use docker or not). Note this Dask tutorial notebook is a 2D FWI example that does not require much memory, so you do not have to go to Standard_HB120rs_v2 (which is a good choice for 3D FWI).
 
@@ -138,16 +143,16 @@ client = Client(cluster)
 ```
 with 
 ```
-client = Client('51.11.43.137:8786')
+client = Client('40.80.209.180:8786')
 ```
-where `51.11.43.137` is the EXTERNAL-IP of the scheduler/LoadBalancer we found in step 17. 
+where `40.80.209.180` is the EXTERNAL-IP of the scheduler/LoadBalancer we found in step 17. 
 
 
 20. Run all cells in the notebook. It will distribute jobs to 16 workers on the Kubernetes cluster we created.
 
 21. When the job is finished, run the command to delete the Kubernetes cluster. ([more info](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-delete))
 ```
-az aks delete --name fwicluster1 --resource-group fwirg
+az aks delete --resource-group fwirg --name fwicluster1
 ```
 
 22. If you would also like to delete the resource group, run this command. ([more info](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete))
@@ -220,8 +225,8 @@ spec:
         env:
         - name: PYTHONPATH
           value: /app
-        - name: DEVITO_OPENMP
-          value: "1"
+        - name: DEVITO_LANGUAGE
+          value: "openmp"
         - name: OMP_PROC_BIND
           value: "TRUE"
         image: fwiacr.azurecr.io/devito_base:v1
