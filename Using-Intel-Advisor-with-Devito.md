@@ -15,21 +15,15 @@ advixe-cl --version
 
 Here, `advixe-cl` is the generic command for Intel Advisor and `--version` specifies its version. If Intel Advisor is not installed, it can be installed as a part of [Intel Parallel Studio](https://software.intel.com/content/www/us/en/develop/tools/parallel-studio-xe/choose-download.html) or through [Intel oneAPI](https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit.html). Follow the instructions on the websites if you haven't already done so.
 
-Now, `cd` into your project's main directory. For the tutorial, this will be the main directory of the repository: `devito/` (NB: **not** `devito/devito/`). The first step to set-up an Advisor project is to run the command:
-
-```
-advixe-cl --create-project --project-dir=prof/ -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
-```
-
-As before, `advixe-cl` is the command to access Intel Advisor. Then, `--create-project` specifies that we wish to create a new Intel Advisor project and finally `--project-dir=prof/` tells Advisor to generate profiling data within a new `prof/` directory. Make sure to use a **unique** project directory name to collect Advisor data. Finally, `-- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 12 --tn 100 --autotune off` specifies that we wish to profile `python benchmarks/user/benchmark.py` run with all the following Devito command line arguments (`run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off`).
+Now, `cd` into your project's main directory. For the tutorial, this will be the main directory of the repository: `devito/` (NB: **not** `devito/devito/`).
 
 Obtaining a roofline of a Devito program will be done in two phases. The first is the Survey, done to obtain generic performance data about the program. To obtain the Survey data for the program being profiled run the following:
 
 ```
-advixe-cl --collect=survey --project-dir=prof/ -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
+advixe-cl --collect survey --project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
 ```
 
-Here `--collect=survey` specifies that we wish to collect Survey data form the program and `--project-dir=prof/` tells Advisor to place the profiling data within the `prof/` directory. Again, the `-- python benchmarks/...` command is the one we wish to profile.
+Here `--collect survey` specifies that we wish to collect Survey data form the program and `--project-dir Prof` tells Advisor to place the profiling data within the `Prof` directory, which is created. Make sure that there is no naming conflict with the directory name and that the directory does not already exist. A common error here is `advixe: Error: Invalid result directory`, consider this previous point if it arises. The `-- python benchmarks/...` command is the one we wish to profile.
 
 Now, Advisor should start and you should see something starting with the following lines:
 
@@ -44,10 +38,10 @@ Await its termination.
 Once collecting Survey data has finished, the following phase collects the FLOPS of the program. To collect this information, run the command:
 
 ```
-advixe-cl --collect=tripcounts -enable-cache-simulation -flop --project-dir=prof/ -- python benchmarks/user/benchmark.py run -P acoustic -so 4 --tn 100 --autotune off
+advixe-cl --collect tripcounts -enable-cache-simulation -flop --project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -so 4 --tn 100 --autotune off
 ```
 
-Here, `--collect=tripcounts` tells Advisor to collect data regarding the number of times loops are executed within the program.`-enable-cache-simulation` specifies that Advisor should simulate hits, misses and cache evictions on all cache levels in the cache hierarchy during the execution of the program to generate a roofline for each cache level. To read more about this, consult [this page](https://software.intel.com/content/www/us/en/develop/articles/integrated-roofline-model-with-intel-advisor.html). Finally, the `-flop` flag tells Advisor to collect information about floating point and integer operations during the trip count collection. The `--project-dir=prof/` flag and `-- python benchmarks/...` are as before.
+Here, `--collect tripcounts` tells Advisor to collect data regarding the number of times loops are executed within the program.`-enable-cache-simulation` specifies that Advisor should simulate hits, misses and cache evictions on all cache levels in the cache hierarchy during the execution of the program to generate a roofline for each cache level. To read more about this, consult [this page](https://software.intel.com/content/www/us/en/develop/articles/integrated-roofline-model-with-intel-advisor.html). Finally, the `-flop` flag tells Advisor to collect information about floating point and integer operations during the trip count collection. The `--project-dir Prof` flag and `-- python benchmarks/...` are as before.
 
 Run the command. You should see the same kind of messages as before. Once the collection stops successfully, the project directory (e.g. `prof/`) will now contain all the data needed for exporting and visualising the results of the program's profiling.
 
@@ -79,7 +73,7 @@ This section briefly outlines how to extract a raw data file from our Devito Int
 Like to produce a snapshot, `cd` into the Advisor project's main directory. Raw data is prepared in the form of a "report". To generate a report run the following command:
 
 ```
-advixe-cl --report=survey --format=csv --report-output=./report.csv -- python benchmarks/user/benchmark.py run -P acoustic -so 4 --tn 100 --autotune off
+advixe-cl --report survey --format csv --report-output ./report.csv -- python benchmarks/user/benchmark.py run -P acoustic -so 4 --tn 100 --autotune off
 ```
 
-In this command, `--report=survey` specifies that a report has to be created using the Survey data, roofline data can be reported by changing `survey` to `roofline`. The tag `--format=csv` specifies that the format of the file is `csv` (can be modified to `text`). Finally, `--report-output=./report.csv` specifies the location and the report file to be created. As before, `-- python benchmarks/...` refers to the script on which the report is being created. Once the report file has been created, it can be exported by itself.
+In this command, `--report survey` specifies that a report has to be created using the Survey data, roofline data can be reported by changing `survey` to `roofline`. The tag `--format csv` specifies that the format of the file is `csv` (can be modified to `text`). Finally, `--report-output ./report.csv` specifies the location and the report file to be created. As before, `-- python benchmarks/...` refers to the script on which the report is being created. Once the report file has been created, it can be exported by itself.
