@@ -20,10 +20,10 @@ Now, `cd` into your project's main directory. For the tutorial, this will be the
 Obtaining a roofline of a Devito program will be done in two phases. The first is the Survey, done to obtain generic performance data about the program. To obtain the Survey data for the program being profiled run the following:
 
 ```
-advixe-cl --collect survey --project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
+advixe-cl -collect survey -project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
 ```
 
-Here `--collect survey` specifies that we wish to collect Survey data form the program and `--project-dir Prof` tells Advisor to place the profiling data within the `Prof` directory, which is created. Make sure that there is no naming conflict with the directory name and that the directory does not already exist. A common error here is `advixe: Error: Invalid result directory`, consider this previous point if it arises. The `-- python benchmarks/...` command is the one we wish to profile.
+Here `-collect survey` specifies that we wish to collect Survey data form the program and `-project-dir Prof` tells Advisor to place the profiling data within the `Prof` directory, which is created. Make sure that there is no naming conflict with the directory name and that the directory does not already exist. A common error here is `advixe: Error: Invalid result directory`, consider this previous point if it arises. The `-- python benchmarks/...` command is the one we wish to profile.
 
 Now, Advisor should start and you should see something starting with the following lines:
 
@@ -38,10 +38,10 @@ Await its termination.
 Once collecting Survey data has finished, the following phase collects the FLOPS of the program. To collect this information, run the command:
 
 ```
-advixe-cl --collect tripcounts -enable-cache-simulation -flop --project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
+advixe-cl -collect tripcounts -enable-cache-simulation -flop -project-dir Prof -- python benchmarks/user/benchmark.py run -P acoustic -d 512 512 512 -so 4 --tn 100 --autotune off
 ```
 
-Here, `--collect tripcounts` tells Advisor to collect data regarding the number of times loops are executed within the program.`-enable-cache-simulation` specifies that Advisor should simulate hits, misses and cache evictions on all cache levels in the cache hierarchy during the execution of the program to generate a roofline for each cache level. To read more about this, consult [this page](https://software.intel.com/content/www/us/en/develop/articles/integrated-roofline-model-with-intel-advisor.html). Finally, the `-flop` flag tells Advisor to collect information about floating point and integer operations during the trip count collection. The `--project-dir Prof` flag and `-- python benchmarks/...` are as before.
+Here, `-collect tripcounts` tells Advisor to collect data regarding the number of times loops are executed within the program.`-enable-cache-simulation` specifies that Advisor should simulate hits, misses and cache evictions on all cache levels in the cache hierarchy during the execution of the program to generate a roofline for each cache level. To read more about this, consult [this page](https://software.intel.com/content/www/us/en/develop/articles/integrated-roofline-model-with-intel-advisor.html). Finally, the `-flop` flag tells Advisor to collect information about floating point and integer operations during the trip count collection. The `-project-dir Prof` flag and `-- python benchmarks/...` are as before.
 
 Run the command. You should see the same kind of messages as before. Once the collection stops successfully, the project directory (e.g. `prof/`) will now contain all the data needed for exporting and visualising the results of the program's profiling.
 
