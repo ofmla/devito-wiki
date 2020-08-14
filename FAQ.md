@@ -15,6 +15,7 @@
 - [What is the indexed notation](#what-is-the-indexed-notation)
 - [Is there a flow chart](#is-there-a-flow-chart)
 - [What's up with object.data](#whats-up-with-objectdata)
+- [How do I create an N-dimensional grid](#how-do-i-create-and-n-dimensional-grid)
 - [What are the keys to fast code](#what-are-the-keys-to-fast-code)
 - [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code](#as-time-increases-in-the-finite-difference-evolution-are-wavefield-arrays-swapped-as-you-might-see-in-cc-code)
 - [What units are typically used in Devito examples](#what-units-are-typically-used-in-devito-examples)
@@ -404,6 +405,35 @@ print(f.data)
  [ 4.  5.  6.  7.]
  [ 8.  9. 10. 11.]
  [12. 13. 14. 15.]]
+```
+
+[top](#Frequently-Asked-Questions)
+
+
+## How do I create and N-dimensional grid
+Grids are often created via, e.g.,
+```
+grid = Grid(shape=(5, 5))
+```
+where printing the `grid` object then returns:
+```
+Grid[extent=(1.0, 1.0), shape=(5, 5), dimensions=(x, y)]
+``` 
+Here we see the `grid` has been created with the 'default' dimensions `x` and `y`. If a grid is created and passed a shape of `(5, 5, 5)` we'll see that in addition it has a `z` dimension. However, what if we want to create a grid with, say, a shape of `(5, 5, 5, 5)`? For this case, we've now run out of the dimensions defined by default and hence need to create our own dimensions to achieve this. This can be done via, e.g.,
+```
+a = SpaceDimension('a')
+b = SpaceDimension('b')
+c = SpaceDimension('c')
+d = SpaceDimension('d')
+grid = Grid(shape=(5, 5, 5, 5), dimensions=(a, b, c, d))
+```
+where now, printng `grid` we get
+```
+Grid[extent=(1.0, 1.0, 1.0, 1.0), shape=(5, 5, 5, 5), dimensions=(a, b, c, d)]
+```
+and `grid.shape` returns
+```
+(5, 5, 5, 5)
 ```
 
 [top](#Frequently-Asked-Questions)
