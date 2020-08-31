@@ -250,7 +250,6 @@ Note the default values are in **bold**. Links in the table take you to a sectio
 | [DEVITO_AUTOTUNING](#DEVITO_AUTOTUNING) | **off**, basic, aggressive, max, [off, preemptive], [off, destructive], [off, runtime], [basic, preemptive], [basic, destructive], [basic, runtime], [aggressive, preemptive], [aggressive, destructive], [aggressive, runtime], [max, preemptive], [max, destructive], [max, runtime] | 
 | [DEVITO_LOGGING](#DEVITO_LOGGING) | DEBUG, PERF, **INFO**, WARNING, ERROR, CRITICAL | 
 | [DEVITO_FIRST_TOUCH](#DEVITO_FIRST_TOUCH) | **0**, 1 | 
-| [DEVITO_DEBUG_COMPILER](#DEVITO_DEBUG_COMPILER) | **0**, 1 | 
 | [DEVITO_JIT_BACKDOOR](#DEVITO_JIT_BACKDOOR) | **0**, 1 | 
 | [DEVITO_IGNORE_UNKNOWN_PARAMS](#DEVITO_IGNORE_UNKNOWN_PARAMS) | **0**, 1 | 
 
@@ -284,13 +283,10 @@ Specify the generated code language. The default is `C`, which means sequential 
 Search across a set of block shapes to maximize the effectiveness of loop tiling (aka cache blocking). You can choose between `off` (default), `basic`, `aggressive`, `max`. A more aggressive autotuning should eventually result in better runtime performance, though the search phase will take longer. 
 
 #### DEVITO_LOGGING
-Run with `DEVITO_LOGGING=DEBUG` to find out the specific performance optimizations applied by an Operator, how auto-tuning is getting along, and to emit more performance metrics.
+Run with `DEVITO_LOGGING=DEBUG` to find out the specific performance optimizations applied by an Operator, how auto-tuning is getting along, to emit the command used to compile the generated code, to emit more performance metrics, and much more.
 
 #### DEVITO_FIRST_TOUCH
 Use `DEVITO_FIRST_TOUCH=1` in combination with `DEVITO_LANGUAGE=openmp` to use an OpenMP parallel Operator for initialization of Function data. This should ensure NUMA locality for data access when running "flatten" OpenMP across multiple sockets on the same node (as opposed to using MPI -- one MPI process per socket -- plus OpenMP, which is the recommended way).
-
-#### DEVITO_DEBUG_COMPILER
-You can set `DEVITO_DEBUG_COMPILER=1` to emit the command used to compile the generated code.
 
 #### DEVITO_JIT_BACKDOOR
 You can set `DEVITO_JIT_BACKDOOR=1` to test custom modifications to the generated code. For more info, take a look at this [FAQ](https://github.com/devitocodes/devito/wiki/FAQ#can-i-manually-modify-the-c-code-generated-by-devito-and-test-these-modifications).
