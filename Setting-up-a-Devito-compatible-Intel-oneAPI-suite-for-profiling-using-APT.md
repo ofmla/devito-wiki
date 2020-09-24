@@ -42,13 +42,14 @@ Refresh APT:
 sudo apt-get update
 ```
 
-Now you're done setting up the connection from your APT to Intel's repositories. There are multiple oneAPI [toolkits](https://software.intel.com/content/www/us/en/develop/articles/installing-intel-oneapi-toolkits-via-apt.html) with a varying amount of products within them; nevertheless, we are only interested in the oneAPI basekit. Now that APT can read from Intel repositories, simply run the following command and wait its installation of the basekit:
+Now you're done setting up the connection from your APT to Intel's repositories. There are multiple oneAPI [toolkits](https://software.intel.com/content/www/us/en/develop/articles/installing-intel-oneapi-toolkits-via-apt.html) with a varying amount of products within them; nevertheless, we are only interested in the oneAPI basekit and hpckit extension. Now that APT can read from Intel repositories, simply run the following two commands and wait for their completion:
 
 ```
 sudo apt-get install intel-basekit
+sudo apt-get install intel-hpckit
 ```
 
-Once the command is done, you will have successfully installed Intel oneAPI. If you want to check that the suite has been correctly downloaded, the default installation path is `/opt/intel/oneapi`, go and have a look.
+Once the commands are done, you will have successfully installed Intel oneAPI with the tools needed to profile Devito. If you want to check that the suite has been correctly downloaded, the default installation path is `/opt/intel/oneapi`, go and have a look.
 
 
 **Setting up the oneAPI environment with Devito**
