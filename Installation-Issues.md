@@ -14,7 +14,7 @@ We haven't tested devito on Windows but you're welcome to try. We suggest one of
 
 ## Docker
 * Install Docker using the instructions [here](https://docs.docker.com/v17.09/docker-for-windows/install/)
-* Ensure that `git config --global core.autocrlf false` is set to prevent modification of line endings
+* Ensure that `git config --global core.autocrlf false` is set to prevent modification of line endings when cloning the repository
 * Proceed with the devito docker-based install instructions
 
 ## Virtual Machine
