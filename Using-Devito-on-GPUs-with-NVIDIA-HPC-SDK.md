@@ -13,11 +13,13 @@ sudo apt-get install -y libelf-dev libffi-dev
 sudo apt install -y pkg-config
 ```
 
-## 2. Download and install NVIDIA HPC SDK
+## 2. Download and install CUDA and NVIDIA HPC SDK
 
 Follow the instructions below to install the NVIDIA HPC SDK. An NVIDIA CUDA driver must be installed on a system with a GPU before you can run a program compiled for the GPU on that system. PGI products do not contain CUDA Drivers. You must download and install the appropriate CUDA Driver from NVIDIA.
 
 ```
+wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.runsudo sh cuda_11.1.1_455.32.00_linux.run
+
 wget https://developer.download.nvidia.com/hpc-sdk/20.9/nvhpc_2020_209_Linux_x86_64_cuda_11.0.tar.gz
 tar xpzf nvhpc_2020_209_Linux_x86_64_cuda_11.0.tar.gz
 sudo nvhpc_2020_209_Linux_x86_64_cuda_11.0/install
