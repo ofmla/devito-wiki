@@ -31,7 +31,6 @@ sudo apt-get update
 sudo apt-get install cuda
 ```
 
-```
 
 Follow the instructions on screen to install NVIDIA HPC SDK.
 After the installation is complete you should take care of the required paths:
