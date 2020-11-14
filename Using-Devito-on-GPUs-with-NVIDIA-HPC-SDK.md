@@ -23,6 +23,16 @@ tar xpzf nvhpc_2020_209_Linux_x86_64_cuda_11.0.tar.gz
 sudo nvhpc_2020_209_Linux_x86_64_cuda_11.0/install
 ```
 
+```
+wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-10-1-local-10.1.105-418.39/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+```
+
+```
+
 Follow the instructions on screen to install NVIDIA HPC SDK.
 After the installation is complete you should take care of the required paths:
 
