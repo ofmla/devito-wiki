@@ -51,7 +51,7 @@ export MANPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/20.9/comm_libs/mpi/man
 Try setting your environment’s LD_LIBRARY_PATH to include the directory that contains the compiler runtime libraries.
 
 ```
-export LD_LIBRARY_PATH=/home/luthi/hpc_sdk/Linux_x86_64/20.7/compilers/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/20.9/compilers/lib:$LD_LIBRARY_PATH
 ```
 
 We suggest also adding these exports to your .bashrc.
