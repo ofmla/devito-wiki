@@ -47,6 +47,7 @@ export LANG=C.UTF-8
 
 ```
 cd ../devito
+export DEVITO_PLATFORM=arm
 ```
 Currently broken, see issue #1043 https://github.com/devitocodes/devito/issues/1043
 
