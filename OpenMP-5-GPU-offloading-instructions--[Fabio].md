@@ -18,6 +18,7 @@ sudo apt install -y pkg-config
 ## 2. Download and install CUDA (recall: this is for an Ubuntu 18.04 machine)
 
 **Note: we specifically need CUDA 10.1 -- the newest version, at the moment of writing 10.2, won't work with clang-10 !**
+**Note: See [here](https://github.com/devitocodes/devito/wiki/NVIDIA-drivers-installation-note) for instructions to install NVIDIA drivers with dynamic kernel support.
 
 ```
 wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
