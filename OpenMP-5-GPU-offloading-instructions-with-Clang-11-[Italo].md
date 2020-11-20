@@ -19,9 +19,14 @@ sudo apt install -y pkg-config
 
 ## 2. Download and install CUDA (recall: the download link is for an Ubuntu 18.04 machine)
 
+**Note: we specifically need CUDA 10.1 -- the newest version, at the moment of writing 10.2, won't work with clang-11 !**
+
 ```
-wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
-sudo sh cuda_10.1.243_418.87.00_linux.run
+wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-10-1-local-10.1.105-418.39/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
 ```
 
 Follow the instructions on the screen to install CUDA. Then add the following lines to the end of the file `~/.bashrc`:
