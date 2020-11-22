@@ -18,7 +18,7 @@ Categories
 * OpenMP5 offloading
   * [Guide A la Mathias](https://github.com/devitocodes/devito/wiki/OPENMP-5-GPU-offloading,-docker-image-%5BMathias%5D)
   * [Guide A la Fabio](https://github.com/devitocodes/devito/wiki/OpenMP-5-GPU-offloading-instructions--%5BFabio%5D)
-  * [Guide A la Italo](https://github.com/devitocodes/devito/wiki/OpenMP-5-GPU-offloading-instructions-with-Clang-11-%5BItalo%5D)
+  * [Guide A la Italo](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-multiple-GPUs-with-Clang-11-OpenMP-5.0)
 * Azure
   * [GCC10 on Azure](https://github.com/devitocodes/devito/wiki/Installing-gcc-10.0.1-with-offloading-support-on-Azure)
   * [Devito JupyterHub server for training](https://github.com/devitocodes/devito/wiki/How-to-setup-a-JupyterHub-server-on-Azure-for-using-Devito-in-a-classroom-environment)
