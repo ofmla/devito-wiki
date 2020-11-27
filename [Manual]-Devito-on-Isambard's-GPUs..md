@@ -4,60 +4,53 @@
 ## Connect to a login node
 `ssh login-01`
 
-## Connect to an xcil node
-`ssh xcil00`
+## Start an interactive job on a P100 or V100:
+`qsub -I -q pascalq -l select=1:ncpus=16:ngpus=1`
+or
+`qsub -I -q voltaq -l select=1:ncpus=16:ngpus=1`
 
-## Start an interactive job:
-`qsub -I -q arm-dev  -l select=1:ncpus=64 -l Walltime=03:00:00`
-
-## Check out the system specs [Optional]
-`lscpu`
+## Check out the GPU using lscpi [Optional]
+`lspci | grep 'NVIDIA'`
 ```
-Architecture:        aarch64
-Byte Order:          Little Endian
-CPU(s):              256
-On-line CPU(s) list: 0-255
-Thread(s) per core:  4
-Core(s) per socket:  32
-Socket(s):           2
-NUMA node(s):        2
-Model:               2
-BogoMIPS:            400.00
-NUMA node0 CPU(s):   0-31,64-95,128-159,192-223
-NUMA node1 CPU(s):   32-63,96-127,160-191,224-255
-Flags:               fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics cpuid asimdrdm
+06:00.0 3D controller: NVIDIA Corporation GP100GL [Tesla P100 PCIe 16GB] (rev a1)
+81:00.0 3D controller: NVIDIA Corporation GP100GL [Tesla P100 PCIe 16GB] (rev a1)
 ```
 
 Then:
 
+## Activate conda so that python3.6 is loaded
+`source /opt/anaconda/bin/activate`
 
-## Load python
-`module load cray-python/3.6.5.6`
-## Clone and install Devito
+`python3 --version`
+
+`Python 3.6.8 :: Anaconda, Inc.`
+
+## Clone and install Devito via Conda
 ```
 git clone https://github.com/devitocodes/devito.git
-cd devito/
-pip3 install --user -e .
+cd devito
+conda env create -f environment-dev.yml
+source activate devito
+pip install -e .
 ```
+
+## Load PGI compilers and CUDA toolkit
+```
+module load pgi/19.10 
+module load cuda10.2/toolkit/10.2.89
+```
+
+
 ## Set the following environment variables
 ```
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
+export DEVITO_LANGUAGE=openacc
+export DEVITO_PLATFORM=nvidiaX
+export DEVITO_ARCH=pgcc
+export DEVITO_LOGGING=DEBUG #optional
 ```
 
+# You are ready to run a Devito operator on GPU
 ```
-cd ../devito
-export DEVITO_PLATFORM=arm
+python3 examples/seismic/acoustic/acoustic_example.py  -d 256 256 256 --tn 128
 ```
-Currently broken, see issue #1043 https://github.com/devitocodes/devito/issues/1043
-
-If you have also installed DevitoBench you can try the following test:
-For a simple test:
-
-`aprun python3 benchmarks/user/benchmark.py run -P acoustic`
-
-Now going parallel with several optimizations and parameters set:
-
-```
-OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_DEBUG_COMPILER=1 DEVITO_AUTOTUNING=aggressive DEVITO_BACKEND=core DEVITO_LANGUAGE=openmp DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x```
 
