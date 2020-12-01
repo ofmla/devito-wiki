@@ -48,6 +48,8 @@ export LANG=C.UTF-8
 ```
 cd ../devito
 export DEVITO_PLATFORM=arm
+export DEVITO_LOGGING=DEBUG # optional, debug-level
+export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
 ```
 Currently broken, see issue #1043 https://github.com/devitocodes/devito/issues/1043
 
