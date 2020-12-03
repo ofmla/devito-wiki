@@ -109,13 +109,6 @@ cd devito
 pip install -e .
 ```
 
-## Load PGI compilers and CUDA toolkit
-```
-module load pgi/19.10 
-module load cuda10.2/toolkit/10.2.89
-```
-
-
 ## Set the following environment variables
 ```
 export DEVITO_LANGUAGE=openmp
