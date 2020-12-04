@@ -96,17 +96,18 @@ Then:
 
 ## Activate python3.9 is loaded
 `module use /lustre/projects/bristol/modules/modulefiles/python/`
-`module load python`
+
+`module load 3.8.6`
 
 `python3 --version`
 
-`Python 3.9.0`
+`Python 3.8.6`
 
 ## Clone and install Devito
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito
-pip install -e .
+pip3 install -e .
 ```
 
 ## Set the following environment variables
