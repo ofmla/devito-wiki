@@ -314,7 +314,6 @@ Clone Devito repository, checkout at the right branch, and install Devito
 ```
 git clone https://github.com/italoaug/devito.git
 cd devito
-git checkout mpiomp5
 pip3 install -e .
 ```
 
