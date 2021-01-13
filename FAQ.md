@@ -605,26 +605,22 @@ DEVITO_LOGGING=PERF python your_code.py
 you will see that Devito emits lots of useful information concerning the performance of an Operator. The following is reported:
 
 * the code generation, compilation, and execution times;
-* for each section in the generated code, its execution time, operational intensity (OI), GFlops/s and GPoints/s performance;
-* global GFlops/s and GPoints/s performance of the Operator (i.e., cumulative across all sections);
-* in the case of an MPI run, per-rank GFlops/s and GPoints/s performance.
+* for each section in the generated code, its execution time, operational intensity (OI), GFlops/s and GPts/s performance;
+* global GFlops/s and GPts/s performance of the Operator (i.e., cumulative across all sections);
+* in the case of an MPI run, per-rank GFlops/s and GPts/s performance.
 
-There is only one caveat concerning the GPoints/s performance. You shall see two different GPoints/s indicators: one named ``FD-GPts/s`` and the other just ``GPts/s``:
-
-* the ``FD-GPts/s`` is the metric typically used in finite-difference codes. The points are the actual grid points -- so if the grid is an ``N**3`` cube, the number of timesteps is ``T``, and the Operator has run for ``S`` secs, then we have ``N**3*T/S FD-GPoints/s``.
-* the ``GPts/s`` is instead cumulative over the number of ``TimeFunctions`` defined (and actually written-to) over the grid. 
-
-For example, consider an Operator implementing a wave propagator that writes to two ``TimeFunctions``. Assume the cost of all other non-FD operations is negligible (injection, BCs, ...). Then the ``GPts/s`` performance will be approximately twice as much as the ``FD-GPts/s`` performance.
+About the GPoints/s metric. The points we refer to here are the actual grid points -- so if the grid is an ``N**3`` cube, the number of timesteps is ``T``, and the Operator has run for ``S`` secs, then we have ``N**3*T/S GPoints/s``. This is the typical metric used to compare different finite difference codes.
 
 An excerpt of the performance profile emitted by Devito upon running an Operator is provided below. In this case, the Operator has two sections, ``section0`` and ``section1``, and ``section1`` consists of two consecutive 6D iteration spaces whose size is given between angle brackets. 
 
 ```
-Global performance indicators
-  * Achieved 0.02 FD-GPts/s
-Local performance indicators
-  * section0<136,136,136> with OI=0.16 computed in 0.10 s [0.14 GFlops/s]
-  * section1<<341,16,16,14,14,136>,<341,16,16,8,8,130>> with OI=5.36 computed in 35.91 s [8.01 GFlops/s, 0.05 GPts/s]
+Global performance: [OI=0.16, 8.00 GFlops/s, 0.04 GPts/s]
+Local performance:
+  * section0<136,136,136> run in 0.10 s [OI=0.16, 0.14 GFlops/s]
+  * section1<<341,16,16,14,14,136>,<341,16,16,8,8,130>> run in 35.91 s [OI=5.36, 8.01 GFlops/s, 0.05 GPts/s]
 ```
+
+Note that ``section0`` doesn't show the GPts/s. This is because no TimeFunction is written in this section.
 
 
 [top](#Frequently-Asked-Questions)
