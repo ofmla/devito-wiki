@@ -609,7 +609,7 @@ you will see that Devito emits lots of useful information concerning the perform
 * global GFlops/s and GPts/s performance of the Operator (i.e., cumulative across all sections);
 * in the case of an MPI run, per-rank GFlops/s and GPts/s performance.
 
-About the GPoints/s metric. The points we refer to here are the actual grid points -- so if the grid is an ``N**3`` cube, the number of timesteps is ``T``, and the Operator has run for ``S`` secs, then we have ``N**3*T/S GPoints/s``. This is the typical metric used to compare different finite difference codes.
+About the GPts/s metric, that is number of gigapoints per seconds. The "points" we refer to here are the actual grid points -- so if the grid is an ``N**3`` cube, the number of timesteps is ``T``, and the Operator runs for ``S`` secs, then we have ``N**3*T/S GPts/s``. This is the typical metric used for finite difference codes.
 
 An excerpt of the performance profile emitted by Devito upon running an Operator is provided below. In this case, the Operator has two sections, ``section0`` and ``section1``, and ``section1`` consists of two consecutive 6D iteration spaces whose size is given between angle brackets. 
 
