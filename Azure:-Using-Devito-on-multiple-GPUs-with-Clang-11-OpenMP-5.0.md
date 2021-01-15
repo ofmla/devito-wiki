@@ -51,6 +51,9 @@ Cuda compilation tools, release 10.1, V10.1.105
 
 ```
 git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+git checkout 3d9bb031d13c884122a5da456659e47dd52ec1f7
+cd ..
 ```
 
 Let's then build the compiler
