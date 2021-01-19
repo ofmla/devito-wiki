@@ -8,8 +8,8 @@ sh -l username login.cosma.dur.ac.uk
 module unload python/2.7.15 
 module load python/3.6.5 
 
-module load intel_comp/2020-update2
-module load intel_mpi/2020-update2
+module load gnu_comp/10.2.0 
+module load openmpi/4.0.5
 
 git clone 
 pip3 install --user -e.[extras]
