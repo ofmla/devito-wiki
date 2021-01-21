@@ -16,6 +16,8 @@ pip3 install --user -e.[extras]
 
 # If everything went fine you should be able to run a typical operator. i.e.:
 DEVITO_LOGGING=DEBUG DEVITO_ARCH=intel python examples/seismic/acoustic/acoustic_example.py
+
+ OMP_PLACES=cores OMP_PROC_BIND=close DEVITO_LANGUAGE=openmp OMP_NUM_THREADS=16 mpirun -np 4 --mca btl_tcp_if_include p1p2 --bind-to socket python3 examples/seismic/acoustic/acoustic_example.py -d 1024 1024 1024 --tn 512 -so 12
 ```
 
 Other useful modules
