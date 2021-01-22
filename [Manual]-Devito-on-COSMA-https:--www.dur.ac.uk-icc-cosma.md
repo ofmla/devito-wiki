@@ -65,3 +65,9 @@ export DEVITO_PROFILING=advanced1
 lscpu
 I_MPI_DOMAIN=socket I_MPI_DEBUG=2 OMP_PROC_BIND=close DEVITO_LANGUAGE=openmp OMP_NUM_THREADS=32 mpirun -np 2 python3 examples/seismic/acoustic/acoustic_example.py -d 600 600 600 --tn 512 -so 8
 ```
+
+
+For intel mpi
+```
+
+```
