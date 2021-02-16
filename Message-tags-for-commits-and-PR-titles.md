@@ -10,6 +10,7 @@ Below we use the following format: `<tag : scope of the commit>`
 * misc : tools etc
 * mpi : MPI related (this might overlap with `compiler`)
 * gpu : GPU related (this might overlap with `compiler`)
+* sympy : sympy-related patch
 * ...
 
 TBD
