@@ -1,7 +1,7 @@
 Below we use the following format: `<tag : scope of the commit>`
 
 * fd : finite difference DSL
-* api : anything else concerning the API that doesn't belong to `fd`
+* types : anything concerning types that are not exposed to the user API
 * compiler : compilation (ie operator, ir, passes, symbolics)
 * arch : jit and architecture (basically anything in devito/arch)
 * tests : obv
