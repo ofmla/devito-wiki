@@ -1,7 +1,8 @@
-Commit message format: `<tag: message>`
-PR title format: `<tag: title>`
+Commit message format: ``<tag: message>``
 
-The following tags are available@
+PR title format: ``<tag: title>``
+
+The following tags are available:
 
 * dsl: obv. Note: fd, differentiable, etc -- they all belong to dsl
 * types: anything concerning types that are not exposed to the user API
