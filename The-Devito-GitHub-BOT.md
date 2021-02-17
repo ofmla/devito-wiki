@@ -9,3 +9,4 @@ Things we wish the bot to do:
 * Attach docs deployment to bot account, not Navjot's account (IIRC)
 * ...
 
+Take a look at what other bots do in popular projects such as SymPy, TensorFlow, etc.
