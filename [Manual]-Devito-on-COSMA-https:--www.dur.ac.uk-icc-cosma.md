@@ -67,7 +67,9 @@ I_MPI_DOMAIN=socket I_MPI_DEBUG=2 OMP_PROC_BIND=close DEVITO_LANGUAGE=openmp OMP
 ```
 
 
-For intel mpi
+For an interactive job:
 ```
+
+
 
 ```
