@@ -11,6 +11,7 @@ The following tags are available:
 * tests: obv
 * examples: obv
 * builtins: obv
+* bench: user benchmarking via benchmark.py
 * misc: tools, docstring/comment updates, pep8 fixups, etc
 * mpi: MPI related (this might overlap with `compiler`)
 * gpu: GPU related (this might overlap with `compiler`)
