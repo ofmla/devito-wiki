@@ -14,6 +14,7 @@ Categories
   * [CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
+* Information on our [Continuous Integration system](https://github.com/devitocodes/devito/wiki/CI)
 * [Roadmap](https://github.com/devitocodes/devito/wiki/Roadmap)
 * OpenMP5 offloading
   * [Guide A la Mathias](https://github.com/devitocodes/devito/wiki/OPENMP-5-GPU-offloading,-docker-image-%5BMathias%5D)
