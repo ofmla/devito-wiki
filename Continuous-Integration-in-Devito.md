@@ -1,8 +1,8 @@
 We use GitHub Actions for Continuous Integration.
 
-Some of the workflows, in particular `CI-core`, which executes all of the core Devito tests, run on VMs that GitHub Actions provides for free to all open source repositories.
+Some of the workflows, in particular `CI-core`, which executes all of the core Devito tests, run on VMs that GitHub Actions provides for free to open source repositories.
 
-Some other workflows run in the `devito-cluster`, which comprises a set of nodes owned by Devito Codes and some other nodes gifted by various companies.
+Some other workflows run in the `devito-cluster`, which comprises nodes owned by Devito Codes as well as nodes gifted by various companies.
 
 ## The devito-cluster workflow matrix
 
