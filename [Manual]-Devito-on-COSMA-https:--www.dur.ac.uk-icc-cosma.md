@@ -70,6 +70,6 @@ I_MPI_DOMAIN=socket I_MPI_DEBUG=2 OMP_PROC_BIND=close DEVITO_LANGUAGE=openmp OMP
 For an interactive job:
 ```
 
-
+mpirun -genv UCX_NET_DEVICES mlx5_1:1 -n 4 python3 examples/seismic/acoustic/acoustic_example.py -d 2048 2048 2048 --tn 512 -so 12 &>log.txt
 
 ```
