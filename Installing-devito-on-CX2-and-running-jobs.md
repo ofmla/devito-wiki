@@ -25,3 +25,11 @@ pip install -e .
 DEVITO_LOGGING=DEBUG DEVITO_ARCH=intel python examples/seismic/acoustic/acoustic_example.py
 ```
 
+For MPI
+
+```
+# Instal  mpi requirements
+pip install -r requirements-mpi.txt 
+```
+
+
