@@ -22,7 +22,10 @@ source activate devito
 pip install -e .
 
 # If everything went fine you should be able to run a typical operator. i.e.:
-DEVITO_LOGGING=DEBUG DEVITO_ARCH=intel python examples/seismic/acoustic/acoustic_example.py
+export DEVITO_LOGGING=DEBUG
+export DEVITO_ARCH=intel
+export DEVITO_LANGUAGE=openmp
+python examples/seismic/acoustic/acoustic_example.py
 ```
 
 For MPI
