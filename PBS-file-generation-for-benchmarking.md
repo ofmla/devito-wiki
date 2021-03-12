@@ -14,11 +14,11 @@ module load anaconda3/personal
 module load intel-suite
 module load mpi
 
-cd /home/opesci/devito
+cd /home/devitocodes/devito
 
 source activate devito
 
-export DEVITO_HOME=/home/opesci/devito
+export DEVITO_HOME=/home/devitocodes/devito
 export DEVITO_ARCH=intel
 export DEVITO_LANGUAGE=openmp
 export DEVITO_MPI=basic
