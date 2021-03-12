@@ -1,4 +1,4 @@
-# Installing Devito on CSD3@CAMBRIDGE
+# Installing Devito on CX2@IMPERIAL
 
 ```sh
 # Do `ssh` to your login node (This example logs in to Intel(R) Xeon(R) CPU E5-2620 login node)
