@@ -6,13 +6,14 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 ## The devito-cluster workflow matrix
 
-node                         |  CI-gpu    |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
----------------------------- | ---------- | -------- | ---- | ------------ | ------------------- |
-nexu    (AMD ...)            | x[OpenMP]  |     x    |      |      x       |                     |
-sarlacc (NVidia 3070 RTX)    | x[OpenACC] |     x    |      |      x       |                     |
-bantha  (NVidia 3070 RTX)    | x[OpenMP]  |     x    |      |      x       |                     |
-macdevito                    |            |          |      |              |                     |
-acca-beast                   |            |     x    |      |      x       |          x          |
+node                         |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
+---------------------------- | -------------- | -------- | ---- | ------------ | ------------------- |
+kimogila (NVidia 3070 RTX)   |     x[OMP]     |          |  x   |      x       |                     |
+nexu                         |                |          |      |      x       |                     |
+sarlacc (NVidia 3070 RTX)    |     x[ACC]     |          |      |              |                     |
+bantha                       |.               |          |      |              |                     |
+macdevito                    |                |          |      |              |                     |
+acca-beast                   |  x[ACC+Docker] |          |      |              |          x          |
 
 ## Nodes specification
 
