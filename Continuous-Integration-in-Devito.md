@@ -9,8 +9,8 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 node                         |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
 ---------------------------- | -------------- | -------- | ---- | ------------ | ------------------- |
 kimogila (NVidia 3070 RTX)   |     x[OMP]     |          |  x   |      x       |                     |
+sarlacc  (NVidia 3070 RTX)   |     x[ACC]     |          |      |              |                     |
 nexu                         |                |          |      |      x       |                     |
-sarlacc (NVidia 3070 RTX)    |     x[ACC]     |          |      |              |                     |
 bantha                       |.               |          |      |              |                     |
 macdevito                    |                |          |      |              |                     |
 acca-beast                   |  x[ACC+Docker] |          |      |              |          x          |
@@ -21,18 +21,17 @@ acca-beast                   |  x[ACC+Docker] |          |      |              |
 MacBook
 macOS Catalina
 
-#### nexu
-https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
+#### kimogila
 
 * Architecture:                    x86_64
-* CPU(s):                          12
+* CPU(s):                          8
 * Thread(s) per core:              2
-* Core(s) per socket:              6
+* Core(s) per socket:              4
 * Socket(s):                       1
 * NUMA node(s):                    1
-* Model name:                      Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz
-* Total online memory:             64G
-* GPU: AMD ... ?
+* Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+* Total online memory:             31G
+* GPU: NVidia RTX 3070
 
 #### sarlacc
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
@@ -46,6 +45,19 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZ
 * Total online memory:             48G
 * GPU: NVidia 3070 RTX
 
+#### nexu
+https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
+
+* Architecture:                    x86_64
+* CPU(s):                          12
+* Thread(s) per core:              2
+* Core(s) per socket:              6
+* Socket(s):                       1
+* NUMA node(s):                    1
+* Model name:                      Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz
+* Total online memory:             64G
+* GPU: -
+
 #### bantha
 
 * Architecture:                    x86_64
@@ -55,7 +67,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU 5650 0 @ ...
 * Total online memory:             ...
-* GPU: NVidia 3070 RTX
+* GPU: -
 
 #### acca-beast
 
