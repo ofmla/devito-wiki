@@ -6,6 +6,7 @@
 
 # GPU
 ## Start an interactive job on a P100 or V100:
+https://gw4-isambard.github.io/docs/user-guide/jobs.html
 `qsub -I -q pascalq -l select=1:ncpus=16:ngpus=1`
 or
 `qsub -I -q voltaq -l select=1:ncpus=16:ngpus=1`
