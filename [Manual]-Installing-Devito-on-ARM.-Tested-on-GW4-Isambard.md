@@ -60,3 +60,14 @@ Now going parallel with several optimizations and parameters set:
 OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGUAGE=openmp DEVITO_ARCH=gcc DEVITO_LOGGING=DEBUG aprun -n 1 -d 32 -cc numa_node python3 benchmarks/user/benchmark.py bench -bm O2 -P acoustic -so 4 -to 2 -d 512 512 512 --tn 1000 -x 1
 ```
 
+# HACKATHON: ISAMBARD A64FX
+## Connect to Isambard login node
+`ssh username@isambard.gw4.ac.uk`
+
+## Connect to a login node
+`ssh login-01`
+
+## Connect to an a64fx node
+`ssh gw4a64fxlogin01`
+`qsub -I`
+
