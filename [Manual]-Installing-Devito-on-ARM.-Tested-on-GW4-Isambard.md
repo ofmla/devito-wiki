@@ -69,5 +69,15 @@ OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGU
 
 ## Connect to an a64fx node
 `ssh gw4a64fxlogin01`
+
 `qsub -I`
+
+`source ~brx-pridley/arm-sve-tools/isambard-gcc.bashrc`
+
+`module load python/3.9.2`
+
+For MPI:
+`module load openmpi/4.0.4/gcc-11.0`
+
+`pip3 install --upgrade --force-reinstall --user -r requirements-mpi.txt`
 
