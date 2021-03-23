@@ -72,7 +72,11 @@ OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGU
 
 `qsub -I`
 
-`source ~brx-pridley/arm-sve-tools/isambard-gcc.bashrc`
+Modules
+
+By default, the Cray programming environment is loaded. A64FX-specific modules are exposed from /lustre/software/aarch64/modulefiles.
+
+The Bristol HPC group also maintains a shared modules space where you may find additional useful tools, but keep in mind that these may not always be up-to-date. To use it: module use /lustre/projects/bristol/modules-a64fx/modulefiles.
 
 `module load python/3.9.2`
 
