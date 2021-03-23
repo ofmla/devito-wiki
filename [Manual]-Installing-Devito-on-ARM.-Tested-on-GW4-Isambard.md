@@ -79,5 +79,7 @@ OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGU
 For MPI:
 `module load openmpi/4.0.4/gcc-11.0`
 
-`pip3 install --upgrade --force-reinstall --user -r requirements-mpi.txt`
+`pip3 install --user -r requirements.txt`
+
+`pip3 install --user -r requirements-mpi.txt`
 
