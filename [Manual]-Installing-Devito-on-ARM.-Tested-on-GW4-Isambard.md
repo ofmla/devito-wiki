@@ -76,11 +76,17 @@ Modules
 
 By default, the Cray programming environment is loaded. A64FX-specific modules are exposed from /lustre/software/aarch64/modulefiles.
 
-The Bristol HPC group also maintains a shared modules space where you may find additional useful tools, but keep in mind that these may not always be up-to-date. To use it: module use /lustre/projects/bristol/modules-a64fx/modulefiles.
+The Bristol HPC group also maintains a shared modules space where you may find additional useful tools, but keep in mind that these may not always be up-to-date. To use it:
 
-`module load python/3.9.2`
+```bash
+module use /lustre/projects/bristol/modules-a64fx/modulefiles
+module load python/3.9.2
+```
 
 For MPI:
+
+ I started a job with qsub -I and 2 cores then loaded the modules in the order given (gcc, python, openmpi) then ran pip3 install mpi4py --user then ran my mpi4py program using mpirun -np 3 python3 myprogram.py
+
 ```bash
 module load openmpi/4.0.4/gcc-11.0
 pip3 install --user -r requirements.txt
