@@ -87,3 +87,9 @@ For MPI:
 
 `pip3 install --user -r requirements-mpi.txt`
 
+
+For htop on the compute node:
+$ module use /lustre/projects/bristol/modules-arm/modulefiles
+$ module load htop
+$ htop
+
