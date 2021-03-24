@@ -128,6 +128,7 @@ node   0   1   2   3
 
 For the Fujitsu compiler:
 ```
+source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
 export CC=fcc
 export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
 export CXX=FCC
