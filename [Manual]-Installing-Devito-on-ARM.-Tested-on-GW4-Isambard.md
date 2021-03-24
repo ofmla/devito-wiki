@@ -89,7 +89,32 @@ For MPI:
 
 
 For htop on the compute node:
+```
 $ module use /lustre/projects/bristol/modules-arm/modulefiles
 $ module load htop
 $ htop
+```
 
+```
+[brx-gbisbas@c8n1 ~]$ numactl --hardware
+available: 4 nodes (0-3)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11
+node 0 size: 7768 MB
+node 0 free: 6363 MB
+node 1 cpus: 12 13 14 15 16 17 18 19 20 21 22 23
+node 1 size: 8176 MB
+node 1 free: 7365 MB
+node 2 cpus: 24 25 26 27 28 29 30 31 32 33 34 35
+node 2 size: 8176 MB
+node 2 free: 6912 MB
+node 3 cpus: 36 37 38 39 40 41 42 43 44 45 46 47
+node 3 size: 8155 MB
+node 3 free: 7668 MB
+node distances:
+node   0   1   2   3 
+  0:  10  20  30  30 
+  1:  20  10  30  30 
+  2:  30  30  10  20 
+  3:  30  30  20  10 
+
+```
