@@ -87,6 +87,12 @@ For MPI:
 
 `pip3 install --user -r requirements-mpi.txt`
 
+```
+export DEVITO_PLATFORM=arm
+export DEVITO_LOGGING=DEBUG # optional, debug-level
+export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
+OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run -P acoustic -d 768 768 768  --tn 512`
+```
 
 For htop on the compute node:
 ```
