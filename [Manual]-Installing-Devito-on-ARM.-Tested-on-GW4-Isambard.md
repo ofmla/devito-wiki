@@ -124,3 +124,16 @@ node   0   1   2   3
   3:  30  30  20  10 
 
 ```
+
+
+For the Fujitsu compiler:
+```
+export CC=fcc
+export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export CXX=FCC
+export CXXFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export LDSHARED=fcc
+export LDFLAGS="-Kfast,openmp -shared -Nfjomplib -lfjomphk -lfjomp -lfj90i -lfj90f -lfjsrcinfo -lfjcrt -lfjompcrt -lelf"
+#export MPICC=mpifcc
+#export MPICXX=mpiFCC
+```
