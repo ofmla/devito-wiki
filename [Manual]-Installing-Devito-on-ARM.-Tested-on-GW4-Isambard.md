@@ -80,31 +80,43 @@ The Bristol HPC group also maintains a shared modules space where you may find a
 
 ```bash
 module use /lustre/projects/bristol/modules-a64fx/modulefiles
-module load python/3.9.2
+module load gcc
+module load python/3.8.8
+module load openmpi/4.0.4/gcc-11.0
 ```
 
 For MPI:
 
  I started a job with qsub -I and 2 cores then loaded the modules in the order given (gcc, python, openmpi) then ran pip3 install mpi4py --user then ran my mpi4py program using mpirun -np 3 python3 myprogram.py
+```bash
+module load gcc
+module load python/3.8.8
+module load openmpi/4.0.4/gcc-11.0
+```
 
 ```bash
-module load openmpi/4.0.4/gcc-11.0
 pip3 install --user -r requirements.txt
 pip3 install --user -r requirements-mpi.txt
 ```
 
 ```bash
-export DEVITO_PLATFORM=arm
+export DEVITO_PLATFORM=arm 
 export DEVITO_LOGGING=DEBUG # optional, debug-level
 export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
 OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run -P acoustic -d 768 768 768  --tn 512`
 ```
 
-For htop on the compute node:
+For the Fujitsu compiler:
 ```bash
-module use /lustre/projects/bristol/modules-arm/modulefiles
-module load htop
-htop
+source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
+export CC=fcc
+export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export CXX=FCC
+export CXXFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export LDSHARED=fcc
+export LDFLAGS="-Kfast,openmp -shared -Nfjomplib -lfjomphk -lfjomp -lfj90i -lfj90f -lfjsrcinfo -lfjcrt -lfjompcrt -lelf"
+export MPICC=mpifcc
+export MPICXX=mpiFCC
 ```
 
 ```bash
@@ -131,16 +143,9 @@ node   0   1   2   3
 
 ```
 
-
-For the Fujitsu compiler:
+For htop on the compute node:
 ```bash
-source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
-export CC=fcc
-export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
-export CXX=FCC
-export CXXFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
-export LDSHARED=fcc
-export LDFLAGS="-Kfast,openmp -shared -Nfjomplib -lfjomphk -lfjomp -lfj90i -lfj90f -lfjsrcinfo -lfjcrt -lfjompcrt -lelf"
-#export MPICC=mpifcc
-#export MPICXX=mpiFCC
+module use /lustre/projects/bristol/modules-arm/modulefiles
+module load htop
+htop
 ```
