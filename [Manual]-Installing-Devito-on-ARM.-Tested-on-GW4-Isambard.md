@@ -75,14 +75,39 @@ OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGU
 Modules
 
 By default, the Cray programming environment is loaded. A64FX-specific modules are exposed from /lustre/software/aarch64/modulefiles.
+Clean all the loaded modules by using:
+`module purge`
 
 The Bristol HPC group also maintains a shared modules space where you may find additional useful tools, but keep in mind that these may not always be up-to-date. To use it:
 
 ```bash
 module use /lustre/projects/bristol/modules-a64fx/modulefiles
+
+## Clone Devito
+```
+git clone https://github.com/devitocodes/devito.git
+cd devito/
+```
 module load gcc
 module load python/3.8.8
+
+pip3 install --user -e .
+
 module load openmpi/4.0.4/gcc-11.0
+
+# add fujitsu
+source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
+export CC=fcc
+export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export CXX=FCC
+export CXXFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
+export LDSHARED=fcc
+export LDFLAGS="-Kfast,openmp -shared -Nfjomplib -lfjomphk -lfjomp -lfj90i -lfj90f -lfjsrcinfo -lfjcrt -lfjompcrt -lelf"
+export MPICC=mpifcc
+export MPICXX=mpiFCC
+
+# install mpi4py with Fujitsu
+pip3 install --force-reinstall --upgrade --user --no-cache-dir mpi4py
 ```
 
 For MPI:
@@ -92,11 +117,6 @@ For MPI:
 module load gcc
 module load python/3.8.8
 module load openmpi/4.0.4/gcc-11.0
-```
-
-```bash
-pip3 install --user -r requirements.txt
-pip3 install --user -r requirements-mpi.txt
 ```
 
 ```bash
