@@ -87,7 +87,7 @@ module use /lustre/projects/bristol/modules-a64fx/modulefiles
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito/
-```
+
 module load gcc
 module load python/3.8.8
 
