@@ -81,13 +81,13 @@ The Bristol HPC group also maintains a shared modules space where you may find a
 `module load python/3.9.2`
 
 For MPI:
-`module load openmpi/4.0.4/gcc-11.0`
-
-`pip3 install --user -r requirements.txt`
-
-`pip3 install --user -r requirements-mpi.txt`
-
+```bash
+module load openmpi/4.0.4/gcc-11.0
+pip3 install --user -r requirements.txt
+pip3 install --user -r requirements-mpi.txt
 ```
+
+```bash
 export DEVITO_PLATFORM=arm
 export DEVITO_LOGGING=DEBUG # optional, debug-level
 export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
@@ -95,13 +95,13 @@ OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run 
 ```
 
 For htop on the compute node:
-```
-$ module use /lustre/projects/bristol/modules-arm/modulefiles
-$ module load htop
-$ htop
+```bash
+module use /lustre/projects/bristol/modules-arm/modulefiles
+module load htop
+htop
 ```
 
-```
+```bash
 [brx-gbisbas@c8n1 ~]$ numactl --hardware
 available: 4 nodes (0-3)
 node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11
@@ -127,7 +127,7 @@ node   0   1   2   3
 
 
 For the Fujitsu compiler:
-```
+```bash
 source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
 export CC=fcc
 export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
