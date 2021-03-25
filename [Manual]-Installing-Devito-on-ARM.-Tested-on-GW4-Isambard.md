@@ -82,8 +82,10 @@ The Bristol HPC group also maintains a shared modules space where you may find a
 
 ```bash
 module use /lustre/projects/bristol/modules-a64fx/modulefiles
+```
 
 ## Clone Devito
+
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito/
@@ -95,8 +97,8 @@ pip3 install --user -e .
 
 module load openmpi/4.0.4/gcc-11.0
 
-# add fujitsu
-source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
+
+source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc #add fujitsu
 export CC=fcc
 export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
 export CXX=FCC
@@ -123,11 +125,10 @@ module load openmpi/4.0.4/gcc-11.0
 export DEVITO_PLATFORM=arm 
 export DEVITO_LOGGING=DEBUG # optional, debug-level
 export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
-OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run -P acoustic -d 768 768 768  --tn 512`
-```
+OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run -P acoustic -d 768 768 768  --tn 512
 
 For the Fujitsu compiler:
-```bash
+
 source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
 export CC=fcc
 export CFLAGS="-Kfast,openmp -fPIC -Nfjomplib"
