@@ -100,17 +100,19 @@ Then:
 ## Load module files
 ```bash
 module use /lustre/projects/bristol/modules/modulefiles
-module load 3.8.6
+module load python/3.8.6
 python3 --version
+python3 -m venv clx-env
+source clx-env/bin/activate
 ```
-
-`Python 3.8.6`
 
 ## Clone and install Devito BETTER ON A VIRTUAL ENV!
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito
 pip3 install -e .
+pip3 install matplotlib
+module load gcc
 ```
 
 ## Set the following environment variables
