@@ -4,9 +4,11 @@
 ## Connect to a login node
 `ssh login-01`
 
+https://gw4-isambard.github.io/docs/user-guide/jobs.html
+
 # GPU
 ## Start an interactive job on a P100 or V100:
-https://gw4-isambard.github.io/docs/user-guide/jobs.html
+
 `qsub -I -q pascalq -l select=1:ncpus=16:ngpus=1`
 or
 `qsub -I -q voltaq -l select=1:ncpus=16:ngpus=1`
@@ -95,12 +97,12 @@ Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca 
 
 Then:
 
-## Activate python3.9 is loaded
-`module use /lustre/projects/bristol/modules/modulefiles/python/`
-
-`module load 3.8.6`
-
-`python3 --version`
+## Load module files
+```bash
+module use /lustre/projects/bristol/modules/modulefiles
+module load 3.8.6
+python3 --version
+```
 
 `Python 3.8.6`
 
