@@ -63,7 +63,10 @@ python3 examples/seismic/acoustic/acoustic_example.py  -d 256 256 256 --tn 128
 ## Start an interactive job on a Cascade Lake:
 `qsub -I -q clxq -l select=1:ncpus=40 -l Walltime=03:00:00`
 
-## Check out the GPU using lscpi [Optional]
+## Start an interactive job on AMD ROME:
+`qsub -I -q romeq -l select=1 -l Walltime=03:00:00`
+
+## Check out the GPU using lscpu [Optional]
 `lscpu'`
 ```
 [brx-gbisbas@clx-002 pbs.35821.master.gw4.metoffice.gov.uk.x8z]$ lscpu
@@ -113,6 +116,9 @@ cd devito
 pip3 install -e .
 pip3 install matplotlib
 module load gcc
+// For MPI
+module load openmpi/4.0.4/gcc-9.3
+pip3 install mpi4py
 ```
 
 ## Set the following environment variables
