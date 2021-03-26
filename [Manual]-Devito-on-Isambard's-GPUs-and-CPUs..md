@@ -106,7 +106,7 @@ python3 --version
 
 `Python 3.8.6`
 
-## Clone and install Devito
+## Clone and install Devito BETTER ON A VIRTUAL ENV!
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito
