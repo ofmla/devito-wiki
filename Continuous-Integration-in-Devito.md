@@ -12,6 +12,7 @@ kimogila   (NVidia 3070 RTX)   |     x[OMP]     |          |  x   |      x      
 sarlacc    (NVidia 3070 RTX)   |     x[ACC]     |          |      |              |                     |
 nexu                           |                |          |      |      x       |                     |
 bantha     (NVidia 3090 RTX)   |.               |          |      |              |                     |
+rancor     (NVidia 3090 RTX)   |                |          |      |              |                     |
 macdevito                      |                |          |      |              |                     |
 acca-beast                     |  x[ACC+Docker] |          |      |              |          x          |
 
@@ -69,6 +70,16 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Total online memory:             ...
 * GPU: NVidia 3090 RTX
 
+#### rancor
+
+* Architecture:                    x86_64
+* CPU(s):                          16
+* Thread(s) per core:              2
+* Core(s) per socket:              8
+* Socket(s):                       2
+* Model name:                      Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
+* Total online memory:             48G
+* GPU:                             NVidia 3090 RTX
 
 #### acca-beast
 
