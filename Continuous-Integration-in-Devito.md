@@ -32,7 +32,7 @@ macOS Catalina
 * NUMA node(s):                    1
 * Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
 * Total online memory:             31G
-* GPU: NVidia 3090 RTX
+* GPU:                             NVidia 3090 RTX
 
 #### sarlacc
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
@@ -44,7 +44,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz
 * Total online memory:             48G
-* GPU: NVidia 3070 RTX
+* GPU:                             NVidia 3070 RTX
 
 #### nexu
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
@@ -68,7 +68,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU 5650 0 @ ...
 * Total online memory:             ...
-* GPU: NVidia 3090 RTX
+* GPU:                             NVidia 3090 RTX
 
 #### rancor
 
@@ -89,4 +89,8 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 ## TODO
 
 * [ ] Move examples-mpi from kimogila to nexu
+* [ ] Set up timeout to kill builds after a short period of silence
+* [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
+* [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD)
+* [ ] Steal useful ideas for CI from other open source projects ?
 * [ ] ...
