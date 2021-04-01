@@ -93,4 +93,5 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
 * [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD)
 * [ ] Steal useful ideas for CI from other open source projects ?
+* [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] ...
