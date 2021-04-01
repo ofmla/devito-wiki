@@ -96,4 +96,6 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] Write documentation about we can explicitly stop/restart the background processes
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
+* [ ] Move Docker GPU workflow to another machine
+* [ ] Migrate CI-mpi to our own runners? (TBD)
 * [ ] ...
