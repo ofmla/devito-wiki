@@ -88,5 +88,5 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 
 ## TODO
 
-[ ] Move examples-mpi from kimogila to nexu
-[ ] ...
+* [ ] Move examples-mpi from kimogila to nexu
+* [ ] ...
