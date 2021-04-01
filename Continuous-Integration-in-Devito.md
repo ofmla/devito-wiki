@@ -8,10 +8,10 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 node                           |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
 ------------------------------ | -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   (NVidia 3070 RTX)   |     x[OMP]     |          |  x   |      x       |                     |
+kimogila   (NVidia 3090 RTX)   |     x[OMP]     |          |  x   |      x       |                     |
 sarlacc    (NVidia 3070 RTX)   |     x[ACC]     |          |      |              |                     |
 nexu                           |                |          |      |      x       |                     |
-bantha     (NVidia 3090 RTX)   |.               |          |      |              |                     |
+bantha     (NVidia 3090 RTX)   |                |          |      |              |                     |
 rancor     (NVidia 3090 RTX)   |                |          |      |              |                     |
 macdevito                      |                |          |      |              |                     |
 acca-beast                     |  x[ACC+Docker] |          |      |              |          x          |
@@ -32,7 +32,7 @@ macOS Catalina
 * NUMA node(s):                    1
 * Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
 * Total online memory:             31G
-* GPU: NVidia 3070 RTX
+* GPU: NVidia 3090 RTX
 
 #### sarlacc
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
@@ -85,3 +85,8 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 
 * private node
 
+
+## TODO
+
+[ ] Move examples-mpi from kimogila to nexu
+[ ] ...
