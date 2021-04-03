@@ -11,7 +11,6 @@ Categories
   * [AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
   * [ARM](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
   * [PGI](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-PGI-OpenACC)
-  * [NVHPC](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-NVIDIA-HPC-SDK)
   * [CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
@@ -26,6 +25,7 @@ Categories
   * [Devito JupyterHub server for training](https://github.com/devitocodes/devito/wiki/How-to-setup-a-JupyterHub-server-on-Azure-for-using-Devito-in-a-classroom-environment)
   * [Serverless Setup using Dockers, CLI, and Batch Shipyard](https://github.com/slimgroup/Azure2019)
   * [Azure Hyperscale: Devito/OpenACC on GPUs with PGI](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-Using-Devito-on-GPUs-with-PGI-OpenACC)
+  * [Azure Hyperscale: Using Devito on GPUs with NVIDIA HPC SDK](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-NVIDIA-HPC-SDK)
   * [Azure Hyperscale: GPU CPU environment setup and launching Jupyter notebook](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-GPU-CPU-environment-setup-and-launching-Jupyter-notebook)
   * [Azure Hyperscale: Kubernetes Setup for Dask](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-Kubernetes-Setup-for-Dask)
 * AWS
