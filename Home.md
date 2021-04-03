@@ -11,6 +11,7 @@ Categories
   * [AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
   * [ARM](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
   * [PGI](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-PGI-OpenACC)
+  * [NVHPC](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-NVIDIA-HPC-SDK)
   * [CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
