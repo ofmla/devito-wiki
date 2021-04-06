@@ -68,7 +68,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU 5650 0 @ ...
 * Total online memory:             ...
-* GPU:                             NVidia 3090 RTX
+* GPU:                             $3 \times \textrm{NVidia 3090 RTX}$
 
 #### rancor
 
