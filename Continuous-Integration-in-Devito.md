@@ -68,9 +68,9 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU 5650 0 @ ...
 * Total online memory:             ...
-* GPU:                             $3 \times \textrm{NVidia 3090 RTX}$
+* GPU:                             3 x NVidia 3090 RTX
 
-#### rancor
+#### rancor [offline]
 
 * Architecture:                    x86_64
 * CPU(s):                          16
