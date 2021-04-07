@@ -92,10 +92,13 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Set up timeout to kill builds after a short period of silence
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
 * [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD)
-* [ ] Steal useful ideas for CI from other open source projects ?
+* [ ] Steal useful ideas for CI from other open source projects?
 * [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] Write documentation about we can explicitly stop/restart the background processes
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
 * [ ] Move Docker GPU workflow to another machine
 * [ ] Migrate CI-mpi to our own runners? (TBD)
+* [ ] MI50s setup
+* [ ] A100s setup
+* [ ] More GPU testing?
 * [ ] ...
