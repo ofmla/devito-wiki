@@ -66,6 +66,32 @@ lscpu
 I_MPI_DOMAIN=socket I_MPI_DEBUG=2 OMP_PROC_BIND=close DEVITO_LANGUAGE=openmp OMP_NUM_THREADS=32 mpirun -np 2 python3 examples/seismic/acoustic/acoustic_example.py -d 600 600 600 --tn 512 -so 8
 ```
 
+To run with Intel Compilers:
+```
+#load the modules used to build your program.
+module purge
+module load pythonconda3
+source activate devito
+module load intel_comp/2020-update2
+module load intel_mpi/2020-update2
+
+which mpicc
+which mpirun
+
+# Run the program
+export DEVITO_LOGGING=DEBUG
+export DEVITO_ARCH=intel
+export DEVITO_MPI=full
+export DEVITO_LANGUAGE=openmp
+
+lscpu
+hwloc-ls
+
+export OMP_NUM_THREADS=16
+mpirun -genv UCX_NET_DEVICES mlx5_1:1 -n 4 python3 examples/seismic/acoustic/acoustic_example.py -d 1024 1024 1024 --tn 512 -so 12
+
+
+```
 
 For an interactive job:
 ```
