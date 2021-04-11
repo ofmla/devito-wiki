@@ -102,4 +102,5 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] A100s setup
 * [ ] More GPU testing?
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
+* [ ] Clean up install instructions openacc/openmp
 * [ ] ...
