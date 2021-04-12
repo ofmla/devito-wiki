@@ -105,4 +105,5 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
 * [ ] Setup organization-level self-hosted runners so that we can use TheShed for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
+* [ ] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
 * [ ] ...
