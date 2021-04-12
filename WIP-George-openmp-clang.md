@@ -17,9 +17,21 @@ sudo apt install -y pkg-config
 sudo apt install libnuma-dev
 ```
 
-## 2. Install CUDA 11.2
+## 2. Nvidia HPC-SDK 21.3 and CUDA 11.2
 
 (recall: this is for an Ubuntu 20.10/20.04 machine)
+
+```
+Installation Instructions
+
+$ wget https://developer.download.nvidia.com/hpc-sdk/21.3/nvhpc-21-3_21.3_amd64.deb \
+
+  https://developer.download.nvidia.com/hpc-sdk/21.3/nvhpc-2021_21.3_amd64.deb
+
+$ apt-get install ./nvhpc-21-3_21.3_amd64.deb ./nvhpc-2021_21.3_amd64.deb
+
+Be sure you invoke the install command with the permissions necessary for installing into the desired location. For example, if you are installing into the /opt directory, you may need to run as root or with sudo.”
+```
 
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -34,9 +46,9 @@ sudo apt-get -y install cuda
 Then
 
 ```
-rm cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
-export PATH=/usr/local/cuda-10.1/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
+rm cuda-repo-ubuntu2004-11-2-local_11.2.2-460.32.03-1_amd64.deb
+export PATH=/usr/local/cuda-11.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64:$LD_LIBRARY_PATH
 ```
 
 If everything went right, you should see something like
@@ -44,9 +56,10 @@ If everything went right, you should see something like
 ```
 $ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
-Copyright (c) 2005-2019 NVIDIA Corporation
-Built on Fri_Feb__8_19:08:17_PST_2019
-Cuda compilation tools, release 10.1, V10.1.105
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Sun_Feb_14_21:12:58_PST_2021
+Cuda compilation tools, release 11.2, V11.2.152
+Build cuda_11.2.r11.2/compiler.29618528_0
 ```
 
 ## 3. Install LLVM 11:
@@ -65,29 +78,35 @@ mkdir build; cd build
 ```
 
 Next CMake needs to generate Makefiles which will eventually be used for compilation:
+Note: Installation breaks with gcc-10.
+We use gcc-9, g++-9.
 
 ```
-cmake                                                                          \
-  -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" \
-  -DCMAKE_BUILD_TYPE=Release                                                   \
-  -DLLVM_TARGETS_TO_BUILD="X86;NVPTX"                                          \
-  -DCMAKE_INSTALL_PREFIX=$HOME/llvm                                            \
-  -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_37                                      \
-  -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75            \
-  -DCMAKE_C_COMPILER=gcc                                                       \
-  -DCMAKE_CXX_COMPILER=g++                                                     \
-  -DLLVM_ENABLE_BINDINGS=OFF                                                   \
-  -G "Unix Makefiles" $HOME/llvm-project/llvm
+sudo apt -y install gcc-9 g++-9
 ```
 
-Now it's finally time to actually compile
+```
+cmake                                                                        \
+-DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" \
+-DCMAKE_BUILD_TYPE=Release                                                   \
+-DLLVM_TARGETS_TO_BUILD="X86;NVPTX"                                          \
+-DCMAKE_INSTALL_PREFIX=$HOME/llvm/13.0.0                                     \
+-DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON                                          \
+-DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86                                      \
+-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86      \
+-DCMAKE_C_COMPILER=gcc-9                                            \
+-DCMAKE_CXX_COMPILER=g++-9                                                    \
+-DLLVM_ENABLE_BINDINGS=OFF                                                   \
+-G "Unix Makefiles" ../llvm-project/llvm
+```
+
+Now it's finally time to actually compile.
+Note: here I'm using `-j 24` because the test platform has 24 physical cores.
+This may gonna take a while...
 
 ```
 make -j 24
 ```
-
-Note: here I'm using `-j 24` because the test platform has 24 physical cores.
-This may gonna take a while...
 
 Once finished, we have to install it
 
