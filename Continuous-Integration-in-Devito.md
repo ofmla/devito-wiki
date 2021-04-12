@@ -108,6 +108,6 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
   * [ ] Gerards list
     * [ ] MI50s setup - have cards, seeking server to host them
     * [ ] A100s setup - waiting on delivery
-    * [ ] install cluster management and monitoring software on TheShed
+    * [ ] install cluster management and monitoring software on the `devito-cluster`
     * [ ] setup GitHub authentication
     * [x] give George access to bantha 
