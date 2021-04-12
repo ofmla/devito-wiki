@@ -8,13 +8,12 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 node       |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
 -----------| -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   |     x[OMP]     |          |  x   |      x       |                     |
+kimogila   |     x[OMP]     |          |  x   |      x       |         x           |
 sarlacc    |     x[ACC]     |          |      |              |                     |
 nexu       |                |          |      |      x       |                     |
 bantha     |                |          |      |              |                     |
 rancor     |                |          |      |              |                     |
 macdevito  |                |          |      |              |                     |
-acca-beast |  x[ACC+Docker] |          |      |              |          x          |
 
 ## Nodes specification
 
@@ -80,10 +79,6 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Model name:                      Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
 * Total online memory:             48G
 * GPU(s):                          GeForce GTX 1660 Ti, GeForce RTX 2060
-
-#### acca-beast
-
-* private node
 
 
 ## TODO
