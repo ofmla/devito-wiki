@@ -6,15 +6,15 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 ## The devito-cluster workflow matrix
 
-node                           |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
------------------------------- | -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   (NVidia RTX 3070)   |     x[OMP]     |          |  x   |      x       |                     |
-sarlacc    (NVidia RTX 3070)   |     x[ACC]     |          |      |              |                     |
-nexu                           |                |          |      |      x       |                     |
-bantha     (NVidia RTX 3090)   |                |          |      |              |                     |
-rancor     (NVidia RTX 3090)   |                |          |      |              |                     |
-macdevito                      |                |          |      |              |                     |
-acca-beast                     |  x[ACC+Docker] |          |      |              |          x          |
+node       |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
+-----------| -------------- | -------- | ---- | ------------ | ------------------- |
+kimogila   |     x[OMP]     |          |  x   |      x       |                     |
+sarlacc    |     x[ACC]     |          |      |              |                     |
+nexu       |                |          |      |      x       |                     |
+bantha     |                |          |      |              |                     |
+rancor     |                |          |      |              |                     |
+macdevito  |                |          |      |              |                     |
+acca-beast |  x[ACC+Docker] |          |      |              |          x          |
 
 ## Nodes specification
 
@@ -32,7 +32,7 @@ macOS Catalina
 * NUMA node(s):                    1
 * Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
 * Total online memory:             31G
-* GPU:                             NVidia RTX 3070
+* GPU(s):                          NVidia RTX 3070
 
 #### sarlacc [stable]
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
@@ -44,7 +44,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz
 * Total online memory:             48G
-* GPU:                             NVidia RTX 3070
+* GPU(s):                          NVidia RTX 3070
 
 #### nexu [stable]
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
@@ -57,7 +57,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * NUMA node(s):                    1
 * Model name:                      Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz
 * Total online memory:             64G
-* GPU: -
+* GPU(s):                          -
 
 #### bantha [stable]
 
@@ -68,7 +68,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Socket(s):                       1
 * Model name:                      AMD Ryzen 5 2600
 * Total online memory:             32GB
-* GPU:                             NVidia RTX 3090
+* GPU(s):                          NVidia RTX 3090
 
 #### rancor [stable]
 
@@ -76,10 +76,10 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * CPU(s):                          16
 * Thread(s) per core:              2
 * Core(s) per socket:              8
-* Socket(s):                       2
+* Socket(s):                       1
 * Model name:                      Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
 * Total online memory:             48G
-* GPU:                             NVidia RTX 3090
+* GPU(s):                          GeForce GTX 1660 Ti, GeForce RTX 2060
 
 #### acca-beast
 
