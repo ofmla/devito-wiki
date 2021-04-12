@@ -90,20 +90,24 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 
 * [ ] Move examples-mpi from kimogila to nexu
   * [ ] Add test with larger MPI ranks (up to `mpirun -n 8 ...`)
-* [ ] Set up timeout to kill builds after a short period of silence
+* [ ] Set up timeout to kill builds after a short period of silence (What should the metric be?)
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
-* [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD)
+* [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD, 3rd party package?)
 * [ ] Steal useful ideas for CI from other open source projects?
 * [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
-* [ ] Write documentation about we can explicitly stop/restart the background processes
+* [ ] Write documentation about we can explicitly stop/restart the background processes (Is this the Devito daemon?)
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
 * [ ] Move Docker GPU workflow to another machine
 * [ ] Migrate CI-mpi to our own runners? (TBD)
-* [ ] MI50s setup
-* [ ] A100s setup
 * [ ] More GPU testing?
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
 * [ ] Setup organization-level self-hosted runners so that we can use TheShed for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
 * [ ] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
 * [ ] ...
+  * [ ] Gerards list
+    * [ ] MI50s setup - have cards, seeking server to host them
+    * [ ] A100s setup - waiting on delivery
+    * [ ] install cluster management and monitoring software on TheShed
+    * [ ] setup GitHub authentication
+    * [ ] give George access to bantha 
