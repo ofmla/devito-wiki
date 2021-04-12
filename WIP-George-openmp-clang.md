@@ -117,8 +117,8 @@ make -j 24 install
 Then
 
 ```
-export PATH=$HOME/llvm/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/llvm/lib:$LD_LIBRARY_PATH
+export PATH=$HOME/llvm/13.0.0/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/llvm/13.0.0/lib:$LD_LIBRARY_PATH
 ```
 
 Let's now rebuild the OpenMP runtime libraries with Clang
