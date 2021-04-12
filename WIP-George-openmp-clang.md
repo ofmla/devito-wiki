@@ -17,16 +17,18 @@ sudo apt install -y pkg-config
 sudo apt install libnuma-dev
 ```
 
-## 2. Install CUDA 10.1
+## 2. Install CUDA 11.2
 
-(recall: this is for an Ubuntu 18.04 machine)
+(recall: this is for an Ubuntu 20.10/20.04 machine)
 
 ```
-wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
-sudo apt-key add /var/cuda-repo-10-1-local-10.1.105-418.39/7fa2af80.pub
-sudo apt update
-sudo apt install cuda
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.2-460.32.03-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.2-460.32.03-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
 ```
 
 Then
