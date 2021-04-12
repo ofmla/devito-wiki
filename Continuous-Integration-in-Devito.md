@@ -110,4 +110,4 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
     * [ ] A100s setup - waiting on delivery
     * [ ] install cluster management and monitoring software on TheShed
     * [ ] setup GitHub authentication
-    * [ ] give George access to bantha 
+    * [x] give George access to bantha 
