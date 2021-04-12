@@ -96,12 +96,12 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] Write documentation about we can explicitly stop/restart the background processes (Is this the Devito daemon?)
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
-* [ ] Move Docker GPU workflow to another machine
+* [x] Move Docker GPU workflow to another machine
 * [ ] Migrate CI-mpi to our own runners? (TBD)
 * [x] More GPU testing?
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
-* [ ] Setup organization-level self-hosted runners so that we can use the `devito-cluster` for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
+* [x] Setup organization-level self-hosted runners so that we can use the `devito-cluster` for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
 * [ ] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
 * [ ] ...
   * [ ] Gerards list
