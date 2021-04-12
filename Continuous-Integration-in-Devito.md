@@ -93,13 +93,17 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Set up timeout to kill builds after a short period of silence (What should the metric be?)
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
 * [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD, 3rd party package?)
+  * [ ] `htop` (only for CPUs)
+  * [ ] `gpustat` (only nvidia GPUs), a nice wrapper for `nvidia-smi`
+  * [ ] `radeontop` (only for amd GPUs)
+  * [ ] maybe we should develop our own layer on top of these, in lack of an alternative...
 * [ ] Steal useful ideas for CI from other open source projects?
 * [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] Write documentation about we can explicitly stop/restart the background processes (Is this the Devito daemon?)
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
 * [ ] Move Docker GPU workflow to another machine
 * [ ] Migrate CI-mpi to our own runners? (TBD)
-* [ ] More GPU testing?
+* [x] More GPU testing?
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
 * [ ] Setup organization-level self-hosted runners so that we can use TheShed for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
