@@ -8,11 +8,11 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 node                           |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
 ------------------------------ | -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   (NVidia 3070 RTX)   |     x[OMP]     |          |  x   |      x       |                     |
-sarlacc    (NVidia 3070 RTX)   |     x[ACC]     |          |      |              |                     |
+kimogila   (NVidia RTX 3070)   |     x[OMP]     |          |  x   |      x       |                     |
+sarlacc    (NVidia RTX 3070)   |     x[ACC]     |          |      |              |                     |
 nexu                           |                |          |      |      x       |                     |
-bantha     (NVidia 3090 RTX)   |                |          |      |              |                     |
-rancor     (NVidia 3090 RTX)   |                |          |      |              |                     |
+bantha     (NVidia RTX 3090)   |                |          |      |              |                     |
+rancor     (NVidia RTX 3090)   |                |          |      |              |                     |
 macdevito                      |                |          |      |              |                     |
 acca-beast                     |  x[ACC+Docker] |          |      |              |          x          |
 
@@ -22,7 +22,7 @@ acca-beast                     |  x[ACC+Docker] |          |      |             
 MacBook
 macOS Catalina
 
-#### kimogila
+#### kimogila [stable]
 
 * Architecture:                    x86_64
 * CPU(s):                          8
@@ -32,21 +32,21 @@ macOS Catalina
 * NUMA node(s):                    1
 * Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
 * Total online memory:             31G
-* GPU:                             NVidia 3070 RTX
+* GPU:                             NVidia RTX 3070
 
-#### sarlacc
+#### sarlacc [stable]
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
 
 * Architecture:                    x86_64
-* CPU(s):                          24
+* CPU(s):                          12
 * Thread(s) per core:              2
 * Core(s) per socket:              6
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz
 * Total online memory:             48G
-* GPU:                             NVidia GeForce RTX 2060
+* GPU:                             NVidia RTX 3070
 
-#### nexu
+#### nexu [stable]
 https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
 
 * Architecture:                    x86_64
@@ -59,18 +59,18 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Total online memory:             64G
 * GPU: -
 
-#### bantha
+#### bantha [stable]
 
 * Architecture:                    x86_64
 * CPU(s):                          12
-* Thread(s) per core:              6
+* Thread(s) per core:              2
 * Core(s) per socket:              6
-* Socket(s):                       2
-* Model name:                      Intel(R) Xeon(R) CPU 5650 0 @ ...
-* Total online memory:             ...
-* GPU:                             3 x NVidia 3090 RTX
+* Socket(s):                       1
+* Model name:                      AMD Ryzen 5 2600
+* Total online memory:             32GB
+* GPU:                             NVidia RTX 3090
 
-#### rancor [offline]
+#### rancor [stable]
 
 * Architecture:                    x86_64
 * CPU(s):                          16
@@ -79,7 +79,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * Socket(s):                       2
 * Model name:                      Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
 * Total online memory:             48G
-* GPU:                             NVidia 3090 RTX
+* GPU:                             NVidia RTX 3090
 
 #### acca-beast
 
