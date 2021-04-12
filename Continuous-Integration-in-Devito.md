@@ -89,6 +89,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 ## TODO
 
 * [ ] Move examples-mpi from kimogila to nexu
+  * [ ] Add test with larger MPI ranks (up to `mpirun -n 8 ...`)
 * [ ] Set up timeout to kill builds after a short period of silence
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
 * [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD)
