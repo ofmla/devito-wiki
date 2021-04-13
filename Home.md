@@ -8,12 +8,12 @@ Categories
 * [FAQ](https://github.com/devitocodes/devito/wiki/FAQ)
 * Installation
   * [General troubleshooting](https://github.com/devitocodes/devito/wiki/Installation-Issues)
-  * [AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
+  * [Install on AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
 * Information on our [Continuous Integration system](https://github.com/devitocodes/devito/wiki/Continuous-Integration-in-Devito)
 * [Roadmap](https://github.com/devitocodes/devito/wiki/Roadmap)
-* OpenMP5 offloading
+* OpenMP5 offloading (TBC)
   * [Guide A la Mathias](https://github.com/devitocodes/devito/wiki/OPENMP-5-GPU-offloading,-docker-image-%5BMathias%5D)
   * [Guide A la Fabio](https://github.com/devitocodes/devito/wiki/OpenMP-5-GPU-offloading-instructions--%5BFabio%5D)
   * [Guide A la Italo](https://github.com/devitocodes/devito/wiki/Azure:-Using-Devito-on-multiple-GPUs-with-Clang-11-OpenMP-5.0)
