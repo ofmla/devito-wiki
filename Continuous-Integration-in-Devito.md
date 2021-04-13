@@ -109,3 +109,4 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
   * [ ] install cluster management and monitoring software on the `devito-cluster`
   * [ ] setup GitHub authentication
   * [x] give George access to bantha 
+* [ ] Move jupyter workflow to the `devito-cluster` (think about all those non deterministic bugs we saw in the past, often due to an obscure interplay of caching, dask, mac OS, sympy...)
