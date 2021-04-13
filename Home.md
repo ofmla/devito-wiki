@@ -9,9 +9,6 @@ Categories
 * Installation
   * [General troubleshooting](https://github.com/devitocodes/devito/wiki/Installation-Issues)
   * [AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
-  * [ARM](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
-  * [PGI](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-PGI-OpenACC)
-  * [CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
 * Information on our [Continuous Integration system](https://github.com/devitocodes/devito/wiki/Continuous-Integration-in-Devito)
@@ -38,3 +35,6 @@ Categories
 * Misc
   * [PBS file generation for benchmarking](https://github.com/devitocodes/devito/wiki/PBS-file-generation-for-benchmarking)
   * [Short project ideas](https://github.com/devitocodes/devito/wiki/Short-project-ideas)
+* Devito in supercomputers
+  * [ARM@GW4-Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
+  * [CPUs@CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
