@@ -85,6 +85,7 @@ We use gcc-9, g++-9.
 ```
 sudo apt -y install gcc-9 g++-9
 ```
+ In folder: ~/llvm/build$ 
 
 ```
 cmake                                                                        \
