@@ -21,7 +21,6 @@ Categories
   * [GCC10 on Azure](https://github.com/devitocodes/devito/wiki/Installing-gcc-10.0.1-with-offloading-support-on-Azure)
   * [Devito JupyterHub server for training](https://github.com/devitocodes/devito/wiki/How-to-setup-a-JupyterHub-server-on-Azure-for-using-Devito-in-a-classroom-environment)
   * [Serverless Setup using Dockers, CLI, and Batch Shipyard](https://github.com/slimgroup/Azure2019)
-  * [Azure Hyperscale: Devito/OpenACC on GPUs with PGI](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-Using-Devito-on-GPUs-with-PGI-OpenACC)
   * [Azure Hyperscale: Using Devito on GPUs with NVIDIA HPC SDK](https://github.com/devitocodes/devito/wiki/Using-Devito-on-GPUs-with-NVIDIA-HPC-SDK)
   * [Azure Hyperscale: GPU CPU environment setup and launching Jupyter notebook](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-GPU-CPU-environment-setup-and-launching-Jupyter-notebook)
   * [Azure Hyperscale: Kubernetes Setup for Dask](https://github.com/devitocodes/devito/wiki/Azure-Hyperscale:-Kubernetes-Setup-for-Dask)
