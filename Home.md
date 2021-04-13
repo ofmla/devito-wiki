@@ -34,6 +34,9 @@ Categories
 * Misc
   * [PBS file generation for benchmarking](https://github.com/devitocodes/devito/wiki/PBS-file-generation-for-benchmarking)
   * [Short project ideas](https://github.com/devitocodes/devito/wiki/Short-project-ideas)
+* Devito and Intel Profiling tools
+  * [Using Intel Advisor with Devito](https://github.com/devitocodes/devito/wiki/Using-Intel-Advisor-with-Devito)
+  * [Setting up a Devito compatible Intel oneAPI suite for profiling using APT](https://github.com/devitocodes/devito/wiki/Setting-up-a-Devito-compatible-Intel-oneAPI-suite-for-profiling-using-APT)
 * Devito in supercomputers
   * [ARM@GW4-Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
   * [CPUs@CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
