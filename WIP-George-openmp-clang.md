@@ -132,17 +132,18 @@ cd $HOME ; mkdir build-openmp; cd build-openmp
 And then:
 
 ```
-cmake                                                                          \
-  -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" \
-  -DCMAKE_BUILD_TYPE=Release                                                   \
-  -DLLVM_TARGETS_TO_BUILD="X86;NVPTX"                                          \
-  -DCMAKE_INSTALL_PREFIX=$HOME/llvm                                            \
-  -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86                                      \
-   -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86      \
-  -DCMAKE_C_COMPILER=clang                                                      \
-  -DCMAKE_CXX_COMPILER=clang++                                                  \
-  -DLLVM_ENABLE_BINDINGS=OFF                                                   \
-  -G "Unix Makefiles" ../llvm-project/llvm
+cmake                                                                        \
+-DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" \
+-DCMAKE_BUILD_TYPE=Release                                                   \
+-DLLVM_TARGETS_TO_BUILD="X86;NVPTX"                                          \
+-DCMAKE_INSTALL_PREFIX=$HOME/llvm/13.0.0                                     \
+-DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON                                          \
+-DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86                                      \
+-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86      \
+-DCMAKE_C_COMPILER=clang                                                     \
+-DCMAKE_CXX_COMPILER=clang++                                                 \
+-DLLVM_ENABLE_BINDINGS=OFF                                                   \
+-G "Unix Makefiles" ../llvm-project/openmp
 ```
 
 And finally, we actually rebuild and reinstall the OpenMP runtime libraries:
