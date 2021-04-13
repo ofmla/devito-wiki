@@ -65,6 +65,7 @@ Build cuda_11.2.r11.2/compiler.29618528_0
 ## 3. Install LLVM 11:
 
 ```
+mkdir llvm; cd llvm
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
 git checkout 3d9bb031d13c884122a5da456659e47dd52ec1f7
