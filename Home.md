@@ -37,3 +37,4 @@ Categories
 * Devito in supercomputers
   * [ARM@GW4-Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
   * [CPUs@CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
+  * [CPUs/GPUs@Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Devito-on-Isambard's-GPUs-and-CPUs.)
