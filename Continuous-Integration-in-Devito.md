@@ -93,7 +93,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
   * [ ] `radeontop` (only for amd GPUs)
   * [ ] maybe we should develop our own layer on top of these, in lack of an alternative...
 * [ ] Steal useful ideas for CI from other open source projects?
-* [ ] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
+* [x] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
 * [ ] Write documentation about we can explicitly stop/restart the background processes (Is this the Devito daemon?)
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
 * [x] Move Docker GPU workflow to another machine
@@ -102,11 +102,10 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
 * [x] Setup organization-level self-hosted runners so that we can use the `devito-cluster` for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
-* [ ] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
-* [ ] ...
-  * [ ] Gerards list
-    * [ ] MI50s setup - have cards, seeking server to host them
-    * [ ] A100s setup - waiting on delivery
-    * [ ] install cluster management and monitoring software on the `devito-cluster`
-    * [ ] setup GitHub authentication
-    * [x] give George access to bantha 
+* [x] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
+* [ ] Gerards list
+  * [ ] MI50s setup - have cards, seeking server to host them
+  * [ ] A100s setup - waiting on delivery
+  * [ ] install cluster management and monitoring software on the `devito-cluster`
+  * [ ] setup GitHub authentication
+  * [x] give George access to bantha 
