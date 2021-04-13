@@ -11,6 +11,7 @@ Categories
   * [Install on AMD](https://github.com/devitocodes/devito/wiki/Devito-on-AMD)
 * Development
   * [Efficient use of DEVITO_JIT_BACKDOOR (custom code)](https://github.com/devitocodes/devito/wiki/Efficient-use-of-DEVITO_JIT_BACKDOOR-in-large-codes-with-many-Operators)
+  * [Tags for commit messages and PR titles](https://github.com/devitocodes/devito/wiki/Tags-for-commit-messages-and-PR-titles)
 * Information on our [Continuous Integration system](https://github.com/devitocodes/devito/wiki/Continuous-Integration-in-Devito)
 * [Roadmap](https://github.com/devitocodes/devito/wiki/Roadmap)
 * OpenMP5 offloading (TBC)
