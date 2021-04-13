@@ -38,6 +38,6 @@ Categories
   * [ARM@GW4-Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-ARM.-Tested-on-GW4-Isambard)
   * [CPUs@CSD3](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Installing-Devito-on-CSD3@Cambridge)
   * [CPUs/GPUs@Isambard](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Devito-on-Isambard's-GPUs-and-CPUs.)
-  * [CPUs@DINE@COSMA](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Devito-on-COSMA-https:--www.dur.ac.uk-icc-cosma)
+  * [CPUs@DINE@COSMA](https://github.com/devitocodes/devito/wiki/%5BManual%5D-Devito-on-DINE@COSMA)
   * [CPUs@CX2@IMPERIAL](https://github.com/devitocodes/devito/wiki/Installing-devito-on-CX2-and-running-jobs)
 
