@@ -6,14 +6,14 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 ## The devito-cluster workflow matrix
 
-node       |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
------------| -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   |     x[OMP]     |          |  x   |              |         x           |
-sarlacc    |     x[ACC]     |          |      |              |                     |
-nexu       |                |          |      |      x       |                     |
-bantha     |                |          |      |              |                     |
-rancor     |                |          |      |              |                     |
-macdevito  |                |          |      |              |                     |
+node       |     CI-gpu     |  CI-mpi  | asv  | Examples-mpi | Publish docker image |
+-----------| -------------- | -------- | ---- | ------------ | -------------------- |
+kimogila   |     x[OMP]     |          |  x   |              |         x            |
+sarlacc    |     x[ACC]     |          |      |              |                      |
+nexu       |                |          |      |      x       |                      |
+bantha     |                |          |      |              |                      |
+rancor     |                |          |      |              |                      |
+macdevito  |                |          |      |              |                      |
 
 ## Nodes specification
 
