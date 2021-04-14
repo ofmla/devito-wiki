@@ -2,13 +2,13 @@ We use GitHub Actions for Continuous Integration.
 
 Some of the workflows, in particular `CI-core`, which executes all of the core Devito tests, run on VMs that GitHub Actions provides for free to open source repositories.
 
-Some other workflows run in the `devito-cluster`, which comprises nodes owned by Devito Codes as well as nodes gifted by various companies.
+Some other workflows run in the `devito-cluster`, which comprises nodes owned by Devito Codes Ltd, some of which donated by various companies.
 
 ## The devito-cluster workflow matrix
 
 node       |     CI-gpu     |  CI-mpi  | asv  | examples-MPI | docker-publish GPU  |
 -----------| -------------- | -------- | ---- | ------------ | ------------------- |
-kimogila   |     x[OMP]     |          |  x   |      x       |         x           |
+kimogila   |     x[OMP]     |          |  x   |              |         x           |
 sarlacc    |     x[ACC]     |          |      |              |                     |
 nexu       |                |          |      |      x       |                     |
 bantha     |                |          |      |              |                     |
@@ -18,8 +18,8 @@ macdevito  |                |          |      |              |                  
 ## Nodes specification
 
 #### macdevito
-MacBook
-macOS Catalina
+
+* MacBook (macOS Catalina)
 
 #### kimogila [stable]
 
@@ -83,7 +83,7 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 
 ## TODO
 
-* [ ] Move examples-mpi from kimogila to nexu
+* [x] Move examples-mpi from kimogila to nexu
   * [ ] Add test with larger MPI ranks (up to `mpirun -n 8 ...`)
 * [ ] Set up timeout to kill builds after a short period of silence (What should the metric be?)
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
@@ -94,7 +94,6 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
   * [ ] maybe we should develop our own layer on top of these, in lack of an alternative...
 * [ ] Steal useful ideas for CI from other open source projects?
 * [x] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
-* [ ] Write documentation about we can explicitly stop/restart the background processes (Is this the Devito daemon?)
 * [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
 * [x] Move Docker GPU workflow to another machine
 * [ ] Migrate CI-mpi to our own runners? (TBD)
