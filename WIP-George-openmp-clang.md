@@ -87,6 +87,7 @@ sudo apt -y install gcc-9 g++-9
 ```
  In folder: ~/llvm/build$ 
 
+Use gcc, g++ -9
 ```
 cmake                                                                        \
 -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" \
@@ -96,8 +97,8 @@ cmake                                                                        \
 -DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON                                          \
 -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86                                      \
 -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86      \
--DCMAKE_C_COMPILER=gcc-9                                            \
--DCMAKE_CXX_COMPILER=g++-9                                                    \
+-DCMAKE_C_COMPILER=gcc                                            \
+-DCMAKE_CXX_COMPILER=g++                                                    \
 -DLLVM_ENABLE_BINDINGS=OFF                                                   \
 -G "Unix Makefiles" ../llvm-project/llvm
 ```
