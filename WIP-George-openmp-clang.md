@@ -23,29 +23,23 @@ https://developer.nvidia.com/nvidia-hpc-sdk-2011-downloads
 
 ```
 wget https://developer.download.nvidia.com/hpc-sdk/20.11/nvhpc_2020_2011_Linux_x86_64_cuda_multi.tar.gz
-md5sum nvhpc_2020_2011_Linux_x86_64_cuda_multi.tar.gz 
 tar xpfz nvhpc_2020_2011_Linux_x86_64_cuda_multi.tar.gz 
 cd nvhpc_2020_2011_Linux_x86_64_cuda_multi/
 ./install
-cd ..
-vi nvidia-sdk.env 
-source nvidia-sdk.env 
-nvcc --version
-
 ```
+*The script will ask you the installation path. This tutorial uses* `$HOME/nvidia/hpc_sdk`
 
-nvidia-sdk.env
+Export Nvidia HPC SDK vars:
 ```
 NVARCH=`uname -s`_`uname -m`; #export NVARCH
-NVCOMPILERS=/home/victor/nvidia/hpc_sdk; #export NVCOMPILERS
+NVCOMPILERS=$HOME/nvidia/hpc_sdk; #export NVCOMPILERS
 VER='20.11'
-#export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/$VER/compilers/man
+export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/$VER/compilers/man
 export PATH=$NVCOMPILERS/$NVARCH/$VER/compilers/bin:$PATH
 export LD_LIBRARY_PATH=$NVCOMPILERS/$NVARCH/$VER/compilers/lib:$LD_LIBRARY_PATH
 export PATH=$NVCOMPILERS/$NVARCH/$VER/comm_libs/mpi/bin:$PATH
-#export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/$VER/comm_libs/mpi/man
+export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/$VER/comm_libs/mpi/man
 ```
-
 
 If everything went right, you should see something like
 
@@ -58,58 +52,48 @@ Cuda compilation tools, release 11.2, V11.2.152
 Build cuda_11.2.r11.2/compiler.29618528_0
 ```
 
-## 3. Install LLVM 11:
+## 3. Install LLVM:
 (Next CMake needs to generate Makefiles which will eventually be used for compilation:
 Note: Installation breaks with gcc-10.
 We use gcc-9, g++-9.)
 
 ```
-mkdir llvm; cd llvm
+cd ~; mkdir llvm; cd llvm
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
 git checkout fee90542326bc1d81ba684bfc0a2cd21cb04e650
-cd ..
-mkdir build
-cd build/
-#Let's then build the compiler
+```
 
+Let's then build the compiler
+
+```
+cd ~; mkdir build; cd build
 cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86;NVPTX" -DCMAKE_INSTALL_PREFIX=$HOME/llvm/13.0.0 -DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86 -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86 -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 -DLLVM_ENABLE_BINDINGS=OFF -G "Unix Makefiles" $(pwd)/../llvm-project/llvm
 make -j 6
 make -j 6 install
+```
+
+Export clang vars:
+```
 VER='13.0.0'
 export PATH=$HOME/llvm/$VER/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/llvm/$VER/lib:$LD_LIBRARY_PATH
-clang --version
 ```
+
 If everything went smooth, you should see something like
 
 ```
 $ clang --version
-clang version 11.0.0 (https://github.com/llvm/llvm-project.git afdb2ef2ed9debd419a29b78c23e4b84ce67ab0c)
+clang version 13.0.0 (https://github.com/llvm/llvm-project.git fee90542326bc1d81ba684bfc0a2cd21cb04e650)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
-InstalledDir: /home/devito/llvm/bin
-```
-
-In folder: ~/llvm/build$ 
-
-Use gcc, g++ -9
-```
-cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86;NVPTX" -DCMAKE_INSTALL_PREFIX=$HOME/llvm/13.0.0 -DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86 -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86 -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLVM_ENABLE_BINDINGS=OFF -G "Unix Makefiles" $(pwd)/../llvm-project/openmp
-```
-
-Now it's finally time to actually compile.
-Note: here I'm using `-j 6` because the test platform has 6 physical cores.
-This may gonna take a while...
-```
-make -j 6
-#Once finished, we have to install it
-make -j 6 install
+InstalledDir: /home/devito/llvm/13.0.0/bin
 ```
 
 Let's now rebuild the OpenMP runtime libraries with Clang
+
 ```
-cd $HOME ; mkdir build-openmp; cd build-openmp
+cd $HOME/llvm ; mkdir build-openmp; cd build-openmp
 ```
 
 And then:
@@ -199,39 +183,23 @@ clang -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_86
 
 No errors? Good! Some warnings about an old compute capability? That's OK too. The important thing is to see no errors at this point.
 
-And now we run it while keeping `nvtop` on in another terminal. You should see the GPU utilization spiking at 100% !
-
+And now we run it while keeping `nvtop` on in another terminal:
 ```
 ./omp-offloading.o 10000000
 ```
-```
-cd ~
-```
+You should see the GPU utilization spiking at 100% and something like that as the output `min = 0.000443, max = 1.839780, avg = 0.920177`.
+
 
 # Now let's create the environment
 ```
+cd ~
 mkdir environments
 sudo apt-get install python3-venv
 python3 -m venv environments/omp-offloading
 source environments/omp-offloading/bin/activate
-source nvidia-sdk.env 
-nvcc --version
 ```
 
-Create a clang.env:
-
 ```
-vi clang.env
-```
-```
-# Save clang.env with:
-VER='13.0.0'
-export PATH=$HOME/llvm/$VER/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/llvm/$VER/lib:$LD_LIBRARY_PATH
-```
-```
-source clang.env 
-clang --version
 cd devito/
 pip3 install -e .
 DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples/seismic/viscoacoustic/viscoacoustic_example.py
