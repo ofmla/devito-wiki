@@ -58,7 +58,7 @@ Note: Installation breaks with gcc-10.
 We use gcc-9, g++-9.)
 
 ```
-cd ~; mkdir llvm; cd llvm
+cd $HOME; mkdir llvm; cd llvm
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
 git checkout fee90542326bc1d81ba684bfc0a2cd21cb04e650
@@ -67,7 +67,7 @@ git checkout fee90542326bc1d81ba684bfc0a2cd21cb04e650
 Let's then build the compiler
 
 ```
-cd ~; mkdir build; cd build
+cd $HOME/llvm; mkdir build; cd build
 cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;lld;openmp" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86;NVPTX" -DCMAKE_INSTALL_PREFIX=$HOME/llvm/13.0.0 -DLIBOMPTARGET_BUILD_NVPTX_BCLIB=ON -DCLANG_OPENMP_NVPTX_DEFAULT_ARCH=sm_86 -DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,37,50,52,60,61,70,75,80,86 -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 -DLLVM_ENABLE_BINDINGS=OFF -G "Unix Makefiles" $(pwd)/../llvm-project/llvm
 make -j 6
 make -j 6 install
@@ -107,7 +107,6 @@ And finally, we actually rebuild and reinstall the OpenMP runtime libraries:
 ```
 make -j 6
 make -j 6 install
-cd ~/llvm
 ```
 
 
@@ -118,6 +117,7 @@ Let's first install `nvtop` following the instructions [here](https://github.com
 
 ```
 sudo apt install libncurses5-dev
+cd ~
 git clone https://github.com/Syllo/nvtop.git
 mkdir -p nvtop/build && cd nvtop/build
 cmake ..
