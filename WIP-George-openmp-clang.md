@@ -192,16 +192,21 @@ You should see the GPU utilization spiking at 100% and something like that as th
 
 # Now let's create the environment
 ```
-cd ~
+cd $HOME
 mkdir environments
 sudo apt-get install python3-venv
 python3 -m venv environments/omp-offloading
 source environments/omp-offloading/bin/activate
 ```
 
+Install Devito:
 ```
+git clone https://github.com/devitocodes/devito.git
 cd devito/
 pip3 install -e .
+```
+Testing seismic examples:
+```
 DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples/seismic/viscoacoustic/viscoacoustic_example.py
 DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples/seismic/acoustic/acoustic_example.py 
 ```
