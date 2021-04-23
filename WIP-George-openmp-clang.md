@@ -27,7 +27,7 @@ tar xpfz nvhpc_2020_2011_Linux_x86_64_cuda_multi.tar.gz
 cd nvhpc_2020_2011_Linux_x86_64_cuda_multi/
 ./install
 ```
-*The script will ask you the installation path. This tutorial uses* `$HOME/nvidia/hpc_sdk`
+*The script will ask for the installation path. This tutorial uses* `$HOME/nvidia/hpc_sdk`
 
 Export Nvidia HPC SDK vars:
 ```
