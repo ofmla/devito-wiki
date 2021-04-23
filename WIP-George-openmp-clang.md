@@ -187,7 +187,11 @@ And now we run it while keeping `nvtop` on in another terminal:
 ```
 ./omp-offloading.o 10000000
 ```
-You should see the GPU utilization spiking at 100% and something like that as the output `min = 0.000443, max = 1.839780, avg = 0.920177`.
+
+You should see the GPU utilization spiking at 100% and something like that as the output
+```
+min = 0.000443, max = 1.839780, avg = 0.920177
+```
 
 
 ## 5. Running a Devito's example
