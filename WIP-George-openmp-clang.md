@@ -190,7 +190,7 @@ And now we run it while keeping `nvtop` on in another terminal:
 You should see the GPU utilization spiking at 100% and something like that as the output `min = 0.000443, max = 1.839780, avg = 0.920177`.
 
 
-# Now let's create the environment
+## 5. Running a Devito's example
 ```
 cd $HOME
 mkdir environments
@@ -213,7 +213,7 @@ DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples
 
 #--------------------------------------UNDER TEST
 
-## 5. Install a CUDA-aware MPI
+## 6. Install a CUDA-aware MPI
 
 Here we will OpenMPI according to the instructions [here](https://www.open-mpi.org/faq/?category=buildcuda).
 
@@ -298,7 +298,7 @@ mpirun (Open MPI) 4.0.4
 Report bugs to http://www.open-mpi.org/community/help/
 ```
 
-## 6. Running a Devito's example on multiple GPUs
+## 7. Running a Devito's example on multiple GPUs
 
 Install `pip3` and `mpi4py`
 
