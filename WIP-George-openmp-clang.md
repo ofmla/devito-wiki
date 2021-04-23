@@ -191,6 +191,8 @@ You should see the GPU utilization spiking at 100% and something like that as th
 
 
 ## 5. Running a Devito's example
+
+Create a virtual environment:
 ```
 cd $HOME
 mkdir environments
@@ -199,19 +201,25 @@ python3 -m venv environments/omp-offloading
 source environments/omp-offloading/bin/activate
 ```
 
-Install Devito:
+Clone and install Devito:
 ```
 git clone https://github.com/devitocodes/devito.git
 cd devito/
 pip3 install -e .
 ```
+
 Testing seismic examples:
 ```
 DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples/seismic/viscoacoustic/viscoacoustic_example.py
 DEVITO_ARCH=clang DEVITO_PLATFORM=nvidiaX DEVITO_LANGUAGE=openmp python examples/seismic/acoustic/acoustic_example.py 
 ```
 
-#--------------------------------------UNDER TEST
+
+
+# UNDER TEST
+
+
+
 
 ## 6. Install a CUDA-aware MPI
 
