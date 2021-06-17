@@ -6,79 +6,14 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 ## The devito-cluster workflow matrix
 
-node       |     CI-gpu     |  CI-mpi  | asv  | Examples-mpi | Publish docker image |
------------| -------------- | -------- | ---- | ------------ | -------------------- |
-kimogila   |     x[OMP]     |          |  x   |              |         x            |
-sarlacc    |     x[ACC]     |          |      |              |                      |
-nexu       |                |          |      |      x       |                      |
-bantha     |                |          |      |              |                      |
-rancor     |                |          |      |              |                      |
-macdevito  |                |          |      |              |                      |
-
-## Nodes specification
-
-#### macdevito
-
-* MacBook (macOS Catalina)
-
-#### kimogila [stable]
-
-* Architecture:                    x86_64
-* CPU(s):                          8
-* Thread(s) per core:              2
-* Core(s) per socket:              4
-* Socket(s):                       1
-* NUMA node(s):                    1
-* Model name:                      Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
-* Total online memory:             31G
-* GPU(s):                          NVidia RTX 3070
-
-#### sarlacc [stable]
-https://www.dell.com/support/home/en-uk/product-support/servicetag/0-R2FySTAydTZQU04ra0p5SmgwcE9MZz090/overview
-
-* Architecture:                    x86_64
-* CPU(s):                          12
-* Thread(s) per core:              2
-* Core(s) per socket:              6
-* Socket(s):                       2
-* Model name:                      Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz
-* Total online memory:             48G
-* GPU(s):                          NVidia RTX 3070
-
-#### nexu [stable]
-https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZJd3Z1K05Wdys0dGpRQT090/overview
-
-* Architecture:                    x86_64
-* CPU(s):                          12
-* Thread(s) per core:              2
-* Core(s) per socket:              6
-* Socket(s):                       1
-* NUMA node(s):                    1
-* Model name:                      Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz
-* Total online memory:             64G
-* GPU(s):                          -
-
-#### bantha [stable]
-
-* Architecture:                    x86_64
-* CPU(s):                          12
-* Thread(s) per core:              2
-* Core(s) per socket:              6
-* Socket(s):                       1
-* Model name:                      AMD Ryzen 5 2600
-* Total online memory:             32GB
-* GPU(s):                          NVidia RTX 3090
-
-#### rancor [stable]
-
-* Architecture:                    x86_64
-* CPU(s):                          16
-* Thread(s) per core:              2
-* Core(s) per socket:              8
-* Socket(s):                       1
-* Model name:                      Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
-* Total online memory:             48G
-* GPU(s):                          GeForce GTX 1660 Ti, GeForce RTX 2060
+node       |       GPU       |    compiler(s)    |  CI-gpu  |  CI-mpi  | asv | Examples-mpi | Publish docker image |
+-----------|-----------------|-------------------|----------|----------|-----|--------------|----------------------|
+kimogila   | NVidia RTX 3090 |      nvc 21.2     |  x[OMP]  |          |  x  |              |         x            |
+sarlacc    | NVidia GTX 1660 |    clang 13.0.0   |  x[ACC]  |          |     |              |                      |
+wampa      |     AMD MI50    |     aomp 13.0-2   |  x[OMP]  |          |     |              |                      |
+nexu       |                 |     gcc 10.3.0    |          |    x     |     |              |                      |
+bantha     |                 |                   |          |          |     |              |                      |
+macdevito  |                 |                   |          |          |     |              |                      |
 
 
 ## TODO
@@ -86,27 +21,8 @@ https://www.dell.com/support/home/en-uk/product-support/servicetag/0-cDlvYWZiZTZ
 * [x] Move examples-mpi from kimogila to nexu
   * [ ] Add test with larger MPI ranks (up to `mpirun -n 8 ...`)
 * [ ] Move tutorials workflow to bantha and macdevito
-* [ ] Set up timeout to kill builds after a short period of silence (What should the metric be?)
 * [ ] Restrict builds on self-hosted runners to PRs (not all branches)? (TBD)
-* [ ] Script to monitor host and device memory consumption and report it in the build output? (TBD, 3rd party package?)
-  * [ ] `htop` (only for CPUs)
-  * [ ] `gpustat` (only nvidia GPUs), a nice wrapper for `nvidia-smi`
-  * [ ] `radeontop` (only for amd GPUs)
-  * [ ] maybe we should develop our own layer on top of these, in lack of an alternative...
-* [ ] Steal useful ideas for CI from other open source projects?
-* [x] Remove the now obsolete DEVITO_BACKEND env var from the workflow files
-* [ ] Review and clean up various workflows. This includes updating out of date/obsolete actions.
-* [x] Move Docker GPU workflow to another machine
+* [ ] Find out why the Docker publish build is affected by ridiculously low upstream bandwidth
 * [ ] Migrate CI-mpi to our own runners? (TBD)
-* [x] More GPU testing?
 * [ ] Parallelize GPU tests (pytest-n <num_of_phys_vores> ...) 'cause adjoint tests are quite expensive
 * [ ] Clean up install instructions openacc/openmp
-* [x] Setup organization-level self-hosted runners so that we can use the `devito-cluster` for both CI and TheMatrix. See [here](https://github.blog/changelog/2020-04-22-github-actions-organization-level-self-hosted-runners/)
-* [x] Action in the private_runners repo that "locks" a specific node for a given number of minutes standing on a `wait(nminutes)`
-* [ ] Gerards list
-  * [ ] MI50s setup - have cards, seeking server to host them
-  * [ ] A100s setup - waiting on delivery
-  * [ ] install cluster management and monitoring software on the `devito-cluster`
-  * [ ] setup GitHub authentication
-  * [x] give George access to bantha 
-* [ ] Move jupyter workflow to the `devito-cluster` (think about all those non deterministic bugs we saw in the past, often due to an obscure interplay of caching, dask, mac OS, sympy...)
