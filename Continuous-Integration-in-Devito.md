@@ -6,14 +6,14 @@ Some other workflows run in the `devito-cluster`, which comprises nodes owned by
 
 ## The devito-cluster workflow matrix
 
-node       |       GPU       |    compiler(s)    |  CI-gpu  |  CI-mpi  | asv | Examples-mpi | Publish docker image |
------------|-----------------|-------------------|----------|----------|-----|--------------|----------------------|
-kimogila   | NVidia RTX 3090 |      nvc 21.2     |  x[OMP]  |          |  x  |              |         x            |
-sarlacc    | NVidia GTX 1660 |    clang 13.0.0   |  x[ACC]  |          |     |              |                      |
-wampa      |     AMD MI50    |     aomp 13.0-2   |  x[OMP]  |          |     |              |                      |
-nexu       |                 |     gcc 10.3.0    |          |    x     |     |              |                      |
-bantha     |                 |                   |          |          |     |              |                      |
-macdevito  |                 |                   |          |          |     |              |                      |
+node       |       GPU       |         compiler(s)          |  CI-gpu  |  CI-mpi  | asv | Examples-mpi | Publish docker image |
+-----------|-----------------|------------------------------|----------|----------|-----|--------------|----------------------|
+kimogila   | NVidia RTX 3090 |      gcc 9.3.0, nvc 21.2     |  x[OMP]  |          |  x  |              |         x            |
+sarlacc    | NVidia GTX 1660 |         clang 13.0.0         |  x[ACC]  |          |     |              |                      |
+wampa      |     AMD MI50    |          aomp 13.0-2         |  x[OMP]  |          |     |              |                      |
+nexu       |                 |           gcc 10.3.0         |          |    x     |     |              |                      |
+bantha     |                 |                              |          |          |     |              |                      |
+macdevito  |                 |                              |          |          |     |              |                      |
 
 
 ## TODO
