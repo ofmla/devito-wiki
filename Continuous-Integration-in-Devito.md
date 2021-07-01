@@ -11,7 +11,7 @@ node       |       GPU       |         compiler(s)          |  CI-gpu  |  CI-mpi
 kimogila   | NVidia RTX 3090 |      gcc 9.3.0, nvc 21.2     |  x[OMP]  |          |  x  |              |         x            |
 sarlacc    | NVidia GTX 1660 |         clang 13.0.0         |  x[ACC]  |          |     |              |                      |
 wampa      |     AMD MI50    |          aomp 13.0-2         |  x[OMP]  |          |     |              |                      |
-nexu       |                 |           gcc 10.3.0         |          |    x     |     |              |                      |
+nexu       |                 |           gcc 10.3.0         |          |          |     |      x       |                      |
 bantha     |                 |                              |          |          |     |              |                      |
 macdevito  |                 |                              |          |          |     |              |                      |
 
