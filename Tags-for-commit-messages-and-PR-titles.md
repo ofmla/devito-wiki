@@ -18,3 +18,4 @@ The following tags are available:
 * sympy: sympy-related patch
 * ci: continuous integration-related
 * reqs: package dependence updates
+* install: related to installation (docker, conda, python ...)
