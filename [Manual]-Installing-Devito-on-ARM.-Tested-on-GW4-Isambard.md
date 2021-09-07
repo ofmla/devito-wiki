@@ -109,6 +109,7 @@ export MPICC=mpifcc
 export MPICXX=mpiFCC
 
 # install mpi4py with Fujitsu
+module load python/3.8.8
 pip3 install --force-reinstall --upgrade --user --no-cache-dir mpi4py
 ```
 
