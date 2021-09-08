@@ -126,6 +126,11 @@ export DEVITO_LOGGING=DEBUG # optional, debug-level
 export DEVITO_LANGUAGE=openmp # optional, add openmp-parallelism
 OMP_PROC_BIND=close OMP_NUM_THREADS=48 python3 benchmarks/user/benchmark.py run -P acoustic -d 768 768 768  --tn 512
 
+
+export DEVITO_MPI=1
+export OMP_NUM_THREADS=12
+export OMP_PROC_BIND=close
+
 For the Fujitsu compiler:
 
 source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc
@@ -138,6 +143,8 @@ export LDFLAGS="-Kfast,openmp -shared -Nfjomplib -lfjomphk -lfjomp -lfj90i -lfj9
 export MPICC=mpifcc
 export MPICXX=mpiFCC
 ```
+
+https://www.stonybrook.edu/commcms/ookami/support/_docs/4%20-%20SVE%20Compilers%20and%20Libraries.pdf
 
 ```bash
 [brx-gbisbas@c8n1 ~]$ numactl --hardware
