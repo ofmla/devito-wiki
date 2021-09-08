@@ -75,12 +75,12 @@ OMP_NUM_THREADS=32 DEVITO_PLATFORM=arm DEVITO_AUTOTUNING=aggressive DEVITO_LANGU
 Modules
 
 By default, the Cray programming environment is loaded. A64FX-specific modules are exposed from /lustre/software/aarch64/modulefiles.
-Clean all the loaded modules by using:
-`module purge`
+Clean all the loaded modules by using `module purge`.
 
 The Bristol HPC group also maintains a shared modules space where you may find additional useful tools, but keep in mind that these may not always be up-to-date. To use it:
 
 ```bash
+module purge
 module use /lustre/projects/bristol/modules-a64fx/modulefiles
 ```
 
@@ -92,11 +92,9 @@ cd devito/
 
 module load gcc
 module load python/3.8.8
-
 pip3 install --user -e .
 
-module load openmpi/4.0.4/gcc-11.0
-
+# module load openmpi/4.0.4/gcc-11.0
 
 source ~brx-pridley/arm-sve-tools/isambard-fujitsu.bashrc #add fujitsu
 export CC=fcc
