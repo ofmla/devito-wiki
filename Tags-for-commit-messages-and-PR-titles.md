@@ -15,6 +15,7 @@ The following tags are available:
 * misc: tools, docstring/comment updates, pep8 fixups, etc
 * mpi: MPI related (this might overlap with `compiler`)
 * gpu: GPU related (this might overlap with `compiler`)
+* ckp: Checkpointing related
 * sympy: sympy-related patch
 * ci: continuous integration-related
 * reqs: package dependence updates
