@@ -89,3 +89,6 @@ When the terminal is open, the script from /etc/skel/.bashrc is triggered and in
 Keep in mind:
 - We have seen company-firewall protected laptops not being able to pop-up the terminal window.
 - User install with `pip install --user ..pkg-name..`
+
+Bug references:
+- https://github.com/jupyterhub/the-littlest-jupyterhub/issues/115#issuecomment-506910089
