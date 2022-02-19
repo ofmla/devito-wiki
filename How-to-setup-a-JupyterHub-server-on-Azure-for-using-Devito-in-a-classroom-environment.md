@@ -42,6 +42,38 @@ pip install --user matplotlib # Matplotlib is needed for tutorials
 Also have look: http://tljh.jupyter.org/en/latest/howto/content/share-data.html if you want to add
 a priori any data files.
 
+**Step 4:** SSL encryption / Enbale HTTPS
+You must have a domain name set up to point to the IP address on which TLJH is accessible before you can set up HTTPS. (You can do this via the Azure portal)
+
+To enable HTTPS via letsencrypt:
+```
+sudo tljh-config set https.enabled true
+sudo tljh-config set https.letsencrypt.email you@example.com
+sudo tljh-config add-item https.letsencrypt.domains yourhub.yourdomain.edu
+```
+To install a certificate via certbot:
+```
+# Install let's encrypt certbot
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+# Open ports
+sudo ufw allow 80
+sudo ufw allow 443
+
+# (optional) Check which ports are listening
+sudo apt install net-tools
+netstat -ln
+# Stop services to free ports
+systemctl stop jupyterhub.service
+systemctl stop traefik.service
+# Begin certification (Follow instructions, easy TO ADD details)
+sudo certbot certonly --standalone
+# Re-enable Jupyterhub
+systemctl start traefik.service
+systemctl start jupyterhub.service
+```
+Now you can SECURELY access the server at https://yourhub.yourdomain.edu
 
 ## Attendee / Student workflow
 
