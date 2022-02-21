@@ -29,6 +29,13 @@ http://tljh.jupyter.org/en/latest/howto/auth/github.html
 
 (To reset authentication follow: http://tljh.jupyter.org/en/latest/howto/auth/firstuse.html#howto-auth-firstuse)
 
+If after Github authentication, it is needed to add a new user as admin:
+```
+sudo tljh-config add-item users.admin <username>
+```
+
+
+
 **Step 3:** Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
 
 ```
