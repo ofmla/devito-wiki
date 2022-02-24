@@ -34,9 +34,7 @@ If after Github authentication, it is needed to add a new user as admin:
 sudo tljh-config add-item users.admin <username>
 ```
 
-
-
-**Step 3:** Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
+**[DEPRECATED- Follow next section]Step 3:** Add the init-setup script for each user to the end of `/etc/skel/.bashrc`. 
 
 ```
 # e.g. for Transform 2020
@@ -49,7 +47,44 @@ pip install --user matplotlib # Matplotlib is needed for tutorials
 Also have look: http://tljh.jupyter.org/en/latest/howto/content/share-data.html if you want to add
 a priori any data files.
 
-**Step 4:** SSL encryption / Enbale HTTPS
+**[UPDATED-rice2022]Step 3:** In this step we create a bash script that setups a global/system-wide/for all users devito installation and copy the examples folder to each user's $PWD.
+
+```bash
+#!/bin/bash
+#
+
+# Install the python depedencies (pip)
+source /opt/tljh/user/bin/activate
+pip3 install -U pip
+
+# Print python3 --version
+python3 -c 'import sys; print(".".join(map(str, sys.version_info[:3])))'
+
+# Save current dir
+dir=$PWD
+
+# Install Devito in home directory
+# python3 -m pip install --ignore-installed --no-cache-dir devito # bit redundant setup (useful if other devito may have been installed)
+pip install devito # (should be fine in a clean tljh install)
+
+# Clone Devito, not to install (as installed in last step), but only to copy examples
+cd $HOME
+git clone https://github.com/devitocodes/devito
+cd devito
+
+# Make examples available or other tutos you may like
+cp -r examples/seismic/tutorials /etc/skel/devito_rice_2022
+
+# Deactivate tljh env
+source /opt/tljh/user/bin/deactivate
+# Return to $dir
+cd $dir
+```
+
+Also, have look: http://tljh.jupyter.org/en/latest/howto/content/share-data.html if you want to add
+a priori any data files.
+
+**Step 4:** SSL encryption / Enable HTTPS
 You must have a domain name set up to point to the IP address on which TLJH is accessible before you can set up HTTPS. (You can do this via the Azure portal)
 
 To enable HTTPS via letsencrypt:
@@ -90,11 +125,11 @@ Open: http://<PublicIP> and authenticate using GIT credentials
 New -> Terminal
 ```
 
-When the terminal is open, the script from /etc/skel/.bashrc is triggered and installs latest Devito master on user PWD. User can then enjoy the notebooks.
+When the terminal is open, the script from /etc/skel/.bashrc is triggered and installs the latest Devito master on user PWD. Users can then enjoy the notebooks.
 
 
 Keep in mind:
-- We have seen company-firewall protected laptops not being able to pop-up the terminal window.
+- We have seen company-firewall protected laptops not being able to pop up the terminal window.
 - User install with `pip install --user ..pkg-name..`
 
 Bug references:
