@@ -92,6 +92,8 @@ To enable HTTPS via letsencrypt:
 sudo tljh-config set https.enabled true
 sudo tljh-config set https.letsencrypt.email you@example.com
 sudo tljh-config add-item https.letsencrypt.domains yourhub.yourdomain.edu
+sudo tljh-config show
+sudo tljh-config reload proxy
 ```
 To install a certificate via certbot:
 ```
