@@ -18,8 +18,10 @@ What we installed for the full Devito experience:
 ```
 sudo apt-get update
 sudo apt install python3 python3-dev git curl
+curl -L https://tljh.jupyter.org/bootstrap.py | sudo -E python3 - --admin <admin-name>
 # sudo apt-get install texlive-full # (notebooks rendering)
 sudo apt-get install mpich libmpich-dev # (for those brave for MPI)
+
 ```
 All the rest were already in the JupyterHub
 
