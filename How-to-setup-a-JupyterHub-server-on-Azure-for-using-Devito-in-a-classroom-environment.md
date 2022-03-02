@@ -51,16 +51,20 @@ python3 -c 'import sys; print(".".join(map(str, sys.version_info[:3])))'
 dir=$PWD
 
 # Install Devito in home directory
-# python3 -m pip install --ignore-installed --no-cache-dir devito # bit redundant setup (useful if other devito may have been installed)
-pip install devito # (should be fine in a clean tljh install)
+python3 -m pip install --ignore-installed --no-cache-dir devito # bit redundant setup (useful if other devito may have been installed)
+# pip3 install devito # (should be fine in a clean tljh install)
 
 # Clone Devito, not to install (as installed in last step), but only to copy examples
 cd $HOME
 git clone https://github.com/devitocodes/devito
 cd devito
+python3 -m pip install --ignore-installed --no-cache-dir -r requirements-optional.txt
+python3 -m pip install --ignore-installed --no-cache-dir -r requirements-mpi.txt
 
+https://github.com/devitocodes/Energy-HPC-2022.git
+cd Energy-HPC-2022/
 # Make examples available or other tutos you may like
-cp -r examples/seismic/tutorials /etc/skel/devito_rice_2022
+# cp -r Energy-HPC-2022/ /etc/skel/Energy-HPC-2022
 
 # Deactivate tljh env
 source /opt/tljh/user/bin/deactivate
