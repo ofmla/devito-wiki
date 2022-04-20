@@ -1,8 +1,9 @@
+# Useful: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/job-sizing-guidance/high-throughput/
 # Installing Devito on CX2@IMPERIAL
 
 ```sh
 # Do `ssh` to your login node (This example logs in to Intel(R) Xeon(R) CPU E5-2620 login node)
-ssh user@login.hpc.ic.ac.uk
+ssh user@login-a.hpc.ic.ac.uk
 
 # Load Anaconda personal
 module load anaconda3/personal
