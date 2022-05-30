@@ -27,7 +27,7 @@ Python 3.6.8 :: Anaconda, Inc.
 ```
 
 ### Clone and install Devito via Conda
-```
+```bash
 git clone https://github.com/devitocodes/devito.git
 cd devito
 conda env create -f environment-dev.yml
