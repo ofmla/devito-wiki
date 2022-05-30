@@ -1,5 +1,7 @@
 ### Connect to Isambard login node (https://gw4-isambard.github.io/docs/user-guide/jobs.html)
-`ssh username@isambard.gw4.ac.uk`
+`ssh username@isambard.gw4.ac.uk` 
+or just
+`ssh login.isambard` 
 
 ### Connect to a login node
 `ssh login-01`
