@@ -129,3 +129,10 @@ export DEVITO_LOGGING=DEBUG #optional
 python3 examples/seismic/acoustic/acoustic_example.py  -d 256 256 256 --tn 128
 ```
 
+
+# To load htop
+```bash
+module use /lustre/projects/bristol/modules/modulefiles/
+module load htop
+htop
+```
