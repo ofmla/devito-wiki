@@ -9,7 +9,7 @@ or just
 ### Start an interactive job on a P100 or V100:
 ```bash
 qsub -I -q pascalq -l select=1:ncpus=16:ngpus=1
-//or
+# or
 qsub -I -q voltaq -l select=1:ncpus=16:ngpus=1
 
 ### Check out the GPU using lscpi [Optional]
@@ -97,20 +97,21 @@ Then:
 
 ### Load module files
 ```bash
-module use /lustre/projects/bristol/modules/modulefiles
-module load python/3.8.6
 python3 --version
 python3 -m venv clx-env
-source clx-env/bin/activate
+cd clx-env
+source bin/activate
+python3 -m pip install -U pip
+
 ```
 
 ### Clone and install Devito BETTER ON A VIRTUAL ENV!
 ```bash
 git clone https://github.com/devitocodes/devito.git
 cd devito
-pip3 install -e .
-pip3 install matplotlib
+python -m pip install -U -e .
 module load gcc
+gcc --version
 // For MPI
 module load openmpi/4.0.4/gcc-9.3
 pip3 install mpi4py
