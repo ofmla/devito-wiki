@@ -63,7 +63,7 @@ python3 examples/seismic/acoustic/acoustic_example.py  -d 256 256 256 --tn 128
 ### Start an interactive job on AMD ROME:
 `qsub -I -q romeq -l select=1 -l Walltime=03:00:00`
 
-### Check out the GPU using lscpu [Optional]
+### Check out the CPU using lscpu [Optional]
 ```bash
 [brx-gbisbas@clx-002 pbs.35821.master.gw4.metoffice.gov.uk.x8z]$ lscpu
 Architecture:          x86_64
