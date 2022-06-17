@@ -136,3 +136,7 @@ module use /lustre/projects/bristol/modules/modulefiles/
 module load htop
 htop
 ```
+
+```bash
+module load intel/compiler/64/2020/19.1.3
+```
