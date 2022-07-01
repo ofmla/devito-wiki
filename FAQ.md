@@ -20,7 +20,7 @@
 - [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code](#as-time-increases-in-the-finite-difference-evolution-are-wavefield-arrays-swapped-as-you-might-see-in-cc-code)
 - [What units are typically used in Devito examples](#what-units-are-typically-used-in-devito-examples)
 - [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0)](#how-can-i-change-the-compilation-flags-for-example-i-want-to-change-the-optimization-level-from--o3-to--o0)
-- [Is possible to disable the GCC -ffast-math (and other similar options in other compilers) optimization option from compilation step?](#is-possible-to-disable-the-GCC--ffast--math-and-other-similar-options-in-other-compilers-optimization-option-from-compilation-step)
+- [Is possible to disable the GCC -ffast-math (and other similar options in other compilers) optimization option from compilation step?](#is-possible-to-disable-the-GCC--ffast--math-and-other-similar-options-in-other-compilers-optimization-optimization-option-from-compilation-step)
 - [Can I control the MPI domain decomposition](#can-i-control-the-mpi-domain-decomposition)
 - [How should I use MPI on multi-socket machines](#how-should-I-use-MPI-on-multi-socket-machines)
 - [How do I make sure my code is "MPI safe"](#how-do-i-make-sure-my-code-is-MPI-safe)
