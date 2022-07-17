@@ -20,7 +20,7 @@
 - [As time increases in the finite difference evolution, are wavefield arrays "swapped" as you might see in c/c++ code](#as-time-increases-in-the-finite-difference-evolution-are-wavefield-arrays-swapped-as-you-might-see-in-cc-code)
 - [What units are typically used in Devito examples](#what-units-are-typically-used-in-devito-examples)
 - [How can I change the compilation flags (for example, I want to change the optimization level from -O3 to -O0)](#how-can-i-change-the-compilation-flags-for-example-i-want-to-change-the-optimization-level-from--o3-to--o0)
-- [Is possible to disable the GCC -ffast-math (and other similar options in other compilers) optimization option from compilation step?](#is-possible-to-disable-the-GCC--ffast-math-and-other-similar-options-in-other-compilers-optimization-option-from-compilation-step)
+- [Is the jitted code IEEE compliant??](#is-the-jitted-code-ieee-compliant)
 - [Can I control the MPI domain decomposition](#can-i-control-the-mpi-domain-decomposition)
 - [How should I use MPI on multi-socket machines](#how-should-I-use-MPI-on-multi-socket-machines)
 - [How do I make sure my code is "MPI safe"](#how-do-i-make-sure-my-code-is-MPI-safe)
@@ -512,7 +512,7 @@ configuration['compiler'] = 'mycompiler'
 [top](#Frequently-Asked-Questions)
 
 
-## Is possible to disable the GCC -ffast-math (and other similar options in other compilers) optimization option from compilation step?
+## Is the jitted code IEEE compliant??
 
 It is well known that -ffast-math in GCC (and other similar options in other compilers) that do not follow the IEEE standard exactly can change numerical results, including even making some codes to produce completely incorrect results. If you think your code might not work with “fast-math/fast” you can disable such optimization option by setting the the environment variable `DEVITO_SAFE_MATH=1`. Alternatively, you can use `configuration['safe-math'] = 1` in your python script.
 
